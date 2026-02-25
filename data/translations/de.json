@@ -1,9 +1,8 @@
 {
   "nav": {
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Feinkost",
-    "cave": "Weinkeller",
-    "shop": "Shop",
+    "cave": "Naturweinladen",
     "events": "Veranstaltungen",
     "about": "Über Uns",
     "contact": "Kontakt"
@@ -14,7 +13,7 @@
     "since": "Seit 1923",
     "introTitle": "Der Nachbarschaftsladen, Neu Erfunden",
     "introText": "La Grocerie du Gründ ist eine Rückkehr zum Wesentlichen. Ein Ort, an dem man den Geschmack guter Dinge wiederentdeckt: handwerkliche Sandwiches, ein Bauernladen und Luxemburgs erster Naturweinkeller. Alles im Geist der lokalen Beschaffung, kurzer Lieferketten und Gemeinschaft.",
-    "pillar1Label": "Dvitsch",
+    "pillar1Label": "Mezzocuore",
     "pillar1Title": "Der Sandwichladen",
     "pillar1Desc": "Unsere runden, großzügigen Mezzo-Sandwiches sind mit frischen saisonalen Produkten gefüllt. Unser hauseigenes Pastrami vom nitritfreien Luxemburger Angus-Rind ist der Star des Hauses.",
     "pillar1Link": "Menü Entdecken",
@@ -38,8 +37,8 @@
     "eventsDesc": "Jeden Donnerstag wird der Keller bei freundlichen Verkostungen lebendig. Wir bieten auch einen Catering-Service für Ihre privaten Veranstaltungen.",
     "eventsLink": "Mehr Erfahren"
   },
-  "dvitsch": {
-    "heroLabel": "Dvitsch — Delikatessen",
+  "mezzocuore": {
+    "heroLabel": "Mezzocuore — Sandwichladen",
     "heroTitle": "Der Sandwichladen",
     "heroDesc": "Mezzo-Sandwiches auf hausgemiachtem Pizzateig-Brot, rund und großzügig, gefüllt mit frischen saisonalen Produkten.",
     "signatureLabel": "Unsere Spezialität",
@@ -231,10 +230,9 @@
   "footer": {
     "brandDesc": "Handwerklicher Sandwichladen, Bauernladen & Naturweinkeller im Herzen des Gründ, Luxemburg. Seit 1923.",
     "explore": "Erkunden",
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Feinkost",
-    "cave": "Weinkeller",
-    "shop": "Shop",
+    "cave": "Naturweinladen",
     "events": "Veranstaltungen",
     "about": "Über Uns",
     "contact": "Kontakt",

@@ -84,30 +84,30 @@ export const pageMeta: Record<string, Record<Locale, PageMeta>> = {
       ogDescription: "Iwwer 200 Naturwäiner a Bio-Wäiner. Direktimport, Verkostunge all Donneschdeg am Gronn.",
     },
   },
-  dvitsch: {
+  mezzocuore: {
     fr: {
-      title: "Dvitsch — Sandwicherie Artisanale",
-      description: "Sandwiches Mezzo au pain pizza maison, garnis de produits frais et de saison. Pastrami maison au bœuf Angus luxembourgeois sans nitrite. Puccia des Pouilles.",
-      ogTitle: "Dvitsch — Sandwicherie Artisanale | La Grocerie Luxembourg",
-      ogDescription: "Sandwiches Mezzo au pain pizza, pastrami maison au bœuf Angus luxembourgeois. Produits frais et de saison.",
+      title: "Mezzocuore — Sandwicherie Artisanale",
+      description: "Sandwiches Mezzocuore au pain pizza maison, garnis de produits frais et de saison. Pastrami maison au bœuf Angus luxembourgeois sans nitrite. Puccia des Pouilles.",
+      ogTitle: "Mezzocuore — Sandwicherie Artisanale | La Grocerie Luxembourg",
+      ogDescription: "Sandwiches Mezzocuore au pain pizza, pastrami maison au bœuf Angus luxembourgeois. Produits frais et de saison.",
     },
     en: {
-      title: "Dvitsch — Artisan Sandwich Shop",
-      description: "Mezzo sandwiches on house-made pizza dough bread, filled with fresh seasonal products. House-made pastrami from nitrite-free Luxembourgish Angus beef. Puglia Puccia.",
-      ogTitle: "Dvitsch — Artisan Sandwich Shop | La Grocerie Luxembourg",
-      ogDescription: "Mezzo sandwiches on pizza dough bread, house-made pastrami from Luxembourgish Angus beef. Fresh seasonal products.",
+      title: "Mezzocuore — Artisan Sandwich Shop",
+      description: "Mezzocuore sandwiches on house-made pizza dough bread, filled with fresh seasonal products. House-made pastrami from nitrite-free Luxembourgish Angus beef. Puglia Puccia.",
+      ogTitle: "Mezzocuore — Artisan Sandwich Shop | La Grocerie Luxembourg",
+      ogDescription: "Mezzocuore sandwiches on pizza dough bread, house-made pastrami from Luxembourgish Angus beef. Fresh seasonal products.",
     },
     de: {
-      title: "Dvitsch — Handwerklicher Sandwichladen",
-      description: "Mezzo-Sandwiches auf hausgemachtem Pizzateig-Brot, gefüllt mit frischen saisonalen Produkten. Hauseigenes Pastrami vom nitritfreien Luxemburger Angus-Rind. Puglia Puccia.",
-      ogTitle: "Dvitsch — Handwerklicher Sandwichladen | La Grocerie Luxemburg",
-      ogDescription: "Mezzo-Sandwiches auf Pizzateig-Brot, hauseigenes Pastrami vom Luxemburger Angus-Rind. Frische saisonale Produkte.",
+      title: "Mezzocuore — Handwerklicher Sandwichladen",
+      description: "Mezzocuore-Sandwiches auf hausgemachtem Pizzateig-Brot, gefüllt mit frischen saisonalen Produkten. Hauseigenes Pastrami vom nitritfreien Luxemburger Angus-Rind. Puglia Puccia.",
+      ogTitle: "Mezzocuore — Handwerklicher Sandwichladen | La Grocerie Luxemburg",
+      ogDescription: "Mezzocuore-Sandwiches auf Pizzateig-Brot, hauseigenes Pastrami vom Luxemburger Angus-Rind. Frische saisonale Produkte.",
     },
     lb: {
-      title: "Dvitsch — Handwierkleche Sandwichladen",
-      description: "Mezzo-Sandwichen op hausgemaachtem Pizzadeeg-Brout, gefëllt mat frësche saisonale Produkter. Hauseegent Pastrami vum nitritfräie Lëtzebuerger Angus-Rënd. Puglia Puccia.",
-      ogTitle: "Dvitsch — Handwierkleche Sandwichladen | La Grocerie Lëtzebuerg",
-      ogDescription: "Mezzo-Sandwichen op Pizzadeeg-Brout, hauseegent Pastrami vum Lëtzebuerger Angus-Rënd. Frësch saisonal Produkter.",
+      title: "Mezzocuore — Handwierkleche Sandwichladen",
+      description: "Mezzocuore-Sandwichen op hausgemaachtem Pizzadeeg-Brout, gefëllt mat frësche saisonale Produkter. Hauseegent Pastrami vum nitritfräie Lëtzebuerger Angus-Rënd. Puglia Puccia.",
+      ogTitle: "Mezzocuore — Handwierkleche Sandwichladen | La Grocerie Lëtzebuerg",
+      ogDescription: "Mezzocuore-Sandwichen op Pizzadeeg-Brout, hauseegent Pastrami vum Lëtzebuerger Angus-Rënd. Frësch saisonal Produkter.",
     },
   },
   epicerie: {
@@ -160,32 +160,6 @@ export const pageMeta: Record<string, Record<Locale, PageMeta>> = {
       description: "Naturwäinverkostunge all Donneschdeg. Traiteur-Service fir Är Evenementer. Kontaktéiert eis fir eng personaliséiert Erfarung am Gronn.",
       ogTitle: "Evenementer — Verkostungen & Traiteur | La Grocerie Lëtzebuerg",
       ogDescription: "Naturwäinverkostunge all Donneschdeg. Personaliséierten Traiteur am Gronn, Lëtzebuerg.",
-    },
-  },
-  boutique: {
-    fr: {
-      title: "Boutique — Achetez nos Vins en Ligne",
-      description: "Commandez vos vins naturels préférés en ligne. Sélection de domaines bio et biodynamiques. Livraison gratuite dès 100€ au Luxembourg.",
-      ogTitle: "Boutique — Achetez nos Vins en Ligne | La Grocerie Luxembourg",
-      ogDescription: "Commandez vos vins naturels en ligne. Domaines bio et biodynamiques. Livraison Luxembourg.",
-    },
-    en: {
-      title: "Shop — Buy Our Wines Online",
-      description: "Order your favourite natural wines online. Selection of organic and biodynamic estates. Free delivery from €100 in Luxembourg.",
-      ogTitle: "Shop — Buy Our Wines Online | La Grocerie Luxembourg",
-      ogDescription: "Order natural wines online. Organic and biodynamic estates. Luxembourg delivery.",
-    },
-    de: {
-      title: "Shop — Unsere Weine Online Kaufen",
-      description: "Bestellen Sie Ihre Lieblings-Naturweine online. Auswahl an Bio- und biodynamischen Weingütern. Kostenlose Lieferung ab 100€ in Luxemburg.",
-      ogTitle: "Shop — Unsere Weine Online Kaufen | La Grocerie Luxemburg",
-      ogDescription: "Naturweine online bestellen. Bio- und biodynamische Weingüter. Lieferung Luxemburg.",
-    },
-    lb: {
-      title: "Buttek — Eis Wäiner Online Kafen",
-      description: "Bestellt Är Liibléngs-Naturwäiner online. Auswiel u Bio- a biodynamesche Wënzereien. Gratis Liwwerung ab 100€ zu Lëtzebuerg.",
-      ogTitle: "Buttek — Eis Wäiner Online Kafen | La Grocerie Lëtzebuerg",
-      ogDescription: "Naturwäiner online bestellen. Bio- a biodynamesch Wënzereien. Liwwerung Lëtzebuerg.",
     },
   },
   "a-propos": {
@@ -244,10 +218,9 @@ export const pageMeta: Record<string, Record<Locale, PageMeta>> = {
 
 export const breadcrumbNames: Record<string, Record<Locale, string>> = {
   home: { fr: "Accueil", en: "Home", de: "Startseite", lb: "Heem" },
-  dvitsch: { fr: "Dvitsch", en: "Sandwiches", de: "Sandwiches", lb: "Sandwichen" },
+  mezzocuore: { fr: "Mezzocuore", en: "Mezzocuore", de: "Mezzocuore", lb: "Mezzocuore" },
   epicerie: { fr: "L'Épicerie", en: "Grocery", de: "Feinkost", lb: "Epicerie" },
-  cave: { fr: "La Cave", en: "Wine Cellar", de: "Weinkeller", lb: "Wäikeller" },
-  boutique: { fr: "Boutique", en: "Shop", de: "Shop", lb: "Buttek" },
+  cave: { fr: "Cave à Vins Naturels", en: "Natural Wine Shop", de: "Naturweinladen", lb: "Naturwäiladen" },
   evenements: { fr: "Événements", en: "Events", de: "Veranstaltungen", lb: "Evenementer" },
   "a-propos": { fr: "À Propos", en: "About", de: "Über Uns", lb: "Iwwer Eis" },
   contact: { fr: "Contact", en: "Contact", de: "Kontakt", lb: "Kontakt" },

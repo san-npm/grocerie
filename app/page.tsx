@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center bg-ink overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop"
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&h=1080&fit=crop"
             alt="La Grocerie du Gründ"
             fill
             className="object-cover opacity-30"
@@ -43,7 +43,7 @@ export default function HomePage() {
             {t("home.heroDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={localePath("/dvitsch")} className="btn-mustard">
+            <Link href={localePath("/mezzocuore")} className="btn-mustard">
               {t("home.pillar1Label")}
             </Link>
             <Link href={localePath("/cave")} className="border border-cream/20 text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px] hover:border-cream/50 transition-all duration-500 inline-block">
@@ -71,7 +71,7 @@ export default function HomePage() {
       {/* Three Pillars */}
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Dvitsch */}
+          {/* Mezzocuore */}
           <div className="group bg-white/50 border border-ink/5 p-8 hover:shadow-lg transition-all duration-500">
             <div className="relative h-56 mb-6 overflow-hidden bg-parchment">
               <Image
@@ -90,7 +90,7 @@ export default function HomePage() {
             <p className="text-warmgray text-sm leading-relaxed mb-6">
               {t("home.pillar1Desc")}
             </p>
-            <Link href={localePath("/dvitsch")} className="text-mustard-dark text-[10px] tracking-luxury uppercase hover:text-mustard transition-colors">
+            <Link href={localePath("/mezzocuore")} className="text-mustard-dark text-[10px] tracking-luxury uppercase hover:text-mustard transition-colors">
               {t("home.pillar1Link")} →
             </Link>
           </div>

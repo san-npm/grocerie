@@ -32,10 +32,9 @@ export default function Footer() {
           {/* Explore */}
           <div className="space-y-3 text-sm text-warmgray">
             <p className="text-cream font-playfair text-base mb-4">{t("footer.explore")}</p>
-            <Link href={localePath("/dvitsch")} className="block hover:text-cream transition-colors">{t("footer.dvitsch")}</Link>
+            <Link href={localePath("/mezzocuore")} className="block hover:text-cream transition-colors">{t("footer.mezzocuore")}</Link>
             <Link href={localePath("/epicerie")} className="block hover:text-cream transition-colors">{t("footer.epicerie")}</Link>
             <Link href={localePath("/cave")} className="block hover:text-cream transition-colors">{t("footer.cave")}</Link>
-            <Link href={localePath("/boutique")} className="block hover:text-cream transition-colors">{t("footer.shop")}</Link>
             <Link href={localePath("/evenements")} className="block hover:text-cream transition-colors">{t("footer.events")}</Link>
           </div>
 

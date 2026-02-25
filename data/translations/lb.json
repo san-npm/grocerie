@@ -1,9 +1,8 @@
 {
   "nav": {
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Epicerie",
-    "cave": "Wäikeller",
-    "shop": "Buttek",
+    "cave": "Naturwäiladen",
     "events": "Evenementer",
     "about": "Iwwer Eis",
     "contact": "Kontakt"
@@ -14,7 +13,7 @@
     "since": "Zënter 1923",
     "introTitle": "D'Noperschaftsgrocerie, Nei Erfonnt",
     "introText": "La Grocerie du Gründ ass eng Réckkéier zum Wesentlechen. En Uerti wou een de Goût vu gudde Saache rëm fënnt: handwierkleche Sandwichen, eng Baueregrocerie an de éischte Naturwäikeller vu Lëtzebuerg. Alles am Geescht vu lokal, kuerz Liwwerketten a Gemeinschaft.",
-    "pillar1Label": "Dvitsch",
+    "pillar1Label": "Mezzocuore",
     "pillar1Title": "De Sandwichladen",
     "pillar1Desc": "Eis ronn, generéis Mezzo-Sandwichen si mat frësche saisonale Produkter gefëllt. Eist hauseegent Pastrami vum nitritfräie Lëtzebuerger Angus-Rënd ass de Star vum Haus.",
     "pillar1Link": "Menü Entdecken",
@@ -38,8 +37,8 @@
     "eventsDesc": "All Donneschdeg gëtt de Keller lieweg mat frëndleche Verkostungen. Mir bidden och en Traiteur-Service fir Är privat Evenementer.",
     "eventsLink": "Méi Erfahren"
   },
-  "dvitsch": {
-    "heroLabel": "Dvitsch — Delikatessen",
+  "mezzocuore": {
+    "heroLabel": "Mezzocuore — Sandwichladen",
     "heroTitle": "De Sandwichladen",
     "heroDesc": "Mezzo-Sandwichen op hausgemaachtem Pizzadeeg-Brout, ronn a generéis, gefëllt mat frësche saisonale Produkter.",
     "signatureLabel": "Eis Spezialitéit",
@@ -231,10 +230,9 @@
   "footer": {
     "brandDesc": "Handwierkleche Sandwichladen, Baueregrocerie & Naturwäikeller am Häerz vum Gründ, Lëtzebuerg. Zënter 1923.",
     "explore": "Erkunden",
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Epicerie",
-    "cave": "Wäikeller",
-    "shop": "Buttek",
+    "cave": "Naturwäiladen",
     "events": "Evenementer",
     "about": "Iwwer Eis",
     "contact": "Kontakt",

@@ -10,10 +10,9 @@ import { useCart } from "@/context/CartContext";
 const languages: Locale[] = ["fr", "en", "de", "lb"];
 
 const navLinks = [
-  { href: "/dvitsch", key: "nav.dvitsch" },
+  { href: "/mezzocuore", key: "nav.mezzocuore" },
   { href: "/epicerie", key: "nav.epicerie" },
   { href: "/cave", key: "nav.cave" },
-  { href: "/boutique", key: "nav.shop" },
   { href: "/evenements", key: "nav.events" },
   { href: "/a-propos", key: "nav.about" },
   { href: "/contact", key: "nav.contact" },

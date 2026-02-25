@@ -1,9 +1,8 @@
 {
   "nav": {
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Grocery",
-    "cave": "Wine Cellar",
-    "shop": "Shop",
+    "cave": "Natural Wine Shop",
     "events": "Events",
     "about": "About",
     "contact": "Contact"
@@ -14,7 +13,7 @@
     "since": "Since 1923",
     "introTitle": "The Neighbourhood Grocery, Reinvented",
     "introText": "La Grocerie du Gründ is a return to the essentials. A place where you rediscover the taste of good things: artisan sandwiches, a farm grocery and Luxembourg's first natural wine cellar. All in a spirit of local sourcing, short supply chains and community.",
-    "pillar1Label": "Dvitsch",
+    "pillar1Label": "Mezzocuore",
     "pillar1Title": "The Sandwich Shop",
     "pillar1Desc": "Our round, generous Mezzo sandwiches are filled with fresh seasonal products. Our house-made pastrami from nitrite-free Luxembourgish Angus beef is the star of the house.",
     "pillar1Link": "Discover the Menu",
@@ -38,8 +37,8 @@
     "eventsDesc": "Every Thursday, the cellar comes alive with friendly tastings. We also offer a catering service for your private events.",
     "eventsLink": "Learn More"
   },
-  "dvitsch": {
-    "heroLabel": "Dvitsch — Delicatessen",
+  "mezzocuore": {
+    "heroLabel": "Mezzocuore — Sandwich Shop",
     "heroTitle": "The Sandwich Shop",
     "heroDesc": "Mezzo sandwiches on house-made pizza dough bread, round and generous, filled with fresh seasonal products.",
     "signatureLabel": "Our Speciality",
@@ -231,10 +230,9 @@
   "footer": {
     "brandDesc": "Artisan sandwich shop, farm grocery & natural wine cellar in the heart of Gründ, Luxembourg. Since 1923.",
     "explore": "Explore",
-    "dvitsch": "Dvitsch",
+    "mezzocuore": "Mezzocuore",
     "epicerie": "Grocery",
-    "cave": "Wine Cellar",
-    "shop": "Shop",
+    "cave": "Natural Wine Shop",
     "events": "Events",
     "about": "About",
     "contact": "Contact",

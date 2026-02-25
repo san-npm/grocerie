@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function DvitschPage() {
+export default function MezzocuorePage() {
   const { t } = useLanguage();
 
   return (
@@ -20,13 +20,13 @@ export default function DvitschPage() {
         </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-            {t("dvitsch.heroLabel")}
+            {t("mezzocuore.heroLabel")}
           </p>
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
-            {t("dvitsch.heroTitle")}
+            {t("mezzocuore.heroTitle")}
           </h1>
           <p className="text-cream/50 max-w-lg mx-auto leading-relaxed">
-            {t("dvitsch.heroDesc")}
+            {t("mezzocuore.heroDesc")}
           </p>
         </div>
       </section>
@@ -44,13 +44,13 @@ export default function DvitschPage() {
           </div>
           <div>
             <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-              {t("dvitsch.signatureLabel")}
+              {t("mezzocuore.signatureLabel")}
             </p>
             <h2 className="font-playfair text-3xl text-ink mb-6">
-              {t("dvitsch.signatureTitle")}
+              {t("mezzocuore.signatureTitle")}
             </h2>
             <p className="text-warmgray leading-relaxed">
-              {t("dvitsch.signatureDesc")}
+              {t("mezzocuore.signatureDesc")}
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function DvitschPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-3xl text-ink">
-              {t("dvitsch.menuTitle")}
+              {t("mezzocuore.menuTitle")}
             </h2>
           </div>
 
@@ -69,11 +69,11 @@ export default function DvitschPage() {
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px flex-1 bg-mustard/20" />
-              <h3 className="font-playfair text-xl text-ink">{t("dvitsch.mezzoTitle")}</h3>
+              <h3 className="font-playfair text-xl text-ink">{t("mezzocuore.mezzoTitle")}</h3>
               <div className="h-px flex-1 bg-mustard/20" />
             </div>
             <p className="text-warmgray text-sm text-center mb-8 max-w-lg mx-auto">
-              {t("dvitsch.mezzoDesc")}
+              {t("mezzocuore.mezzoDesc")}
             </p>
             <div className="space-y-4">
               {[
@@ -98,11 +98,11 @@ export default function DvitschPage() {
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px flex-1 bg-mustard/20" />
-              <h3 className="font-playfair text-xl text-ink">{t("dvitsch.pucciaTitle")}</h3>
+              <h3 className="font-playfair text-xl text-ink">{t("mezzocuore.pucciaTitle")}</h3>
               <div className="h-px flex-1 bg-mustard/20" />
             </div>
             <p className="text-warmgray text-sm text-center mb-8 max-w-lg mx-auto">
-              {t("dvitsch.pucciaDesc")}
+              {t("mezzocuore.pucciaDesc")}
             </p>
             <div className="space-y-4">
               {[
@@ -124,30 +124,30 @@ export default function DvitschPage() {
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px flex-1 bg-mustard/20" />
-              <h3 className="font-playfair text-xl text-ink">{t("dvitsch.sides")}</h3>
+              <h3 className="font-playfair text-xl text-ink">{t("mezzocuore.sides")}</h3>
               <div className="h-px flex-1 bg-mustard/20" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-parchment/50">
-                <h4 className="text-ink font-medium text-sm mb-2">{t("dvitsch.soupOfDay")}</h4>
-                <p className="text-warmgray text-xs">{t("dvitsch.soupDesc")}</p>
+                <h4 className="text-ink font-medium text-sm mb-2">{t("mezzocuore.soupOfDay")}</h4>
+                <p className="text-warmgray text-xs">{t("mezzocuore.soupDesc")}</p>
                 <p className="text-mustard-dark font-playfair mt-3">7€</p>
               </div>
               <div className="text-center p-6 bg-parchment/50">
-                <h4 className="text-ink font-medium text-sm mb-2">{t("dvitsch.saladOfDay")}</h4>
-                <p className="text-warmgray text-xs">{t("dvitsch.saladDesc")}</p>
+                <h4 className="text-ink font-medium text-sm mb-2">{t("mezzocuore.saladOfDay")}</h4>
+                <p className="text-warmgray text-xs">{t("mezzocuore.saladDesc")}</p>
                 <p className="text-mustard-dark font-playfair mt-3">10€</p>
               </div>
               <div className="text-center p-6 bg-parchment/50">
-                <h4 className="text-ink font-medium text-sm mb-2">{t("dvitsch.coffee")}</h4>
-                <p className="text-warmgray text-xs">{t("dvitsch.coffeeDesc")}</p>
+                <h4 className="text-ink font-medium text-sm mb-2">{t("mezzocuore.coffee")}</h4>
+                <p className="text-warmgray text-xs">{t("mezzocuore.coffeeDesc")}</p>
                 <p className="text-mustard-dark font-playfair mt-3">2,50€+</p>
               </div>
             </div>
           </div>
 
           <p className="text-center text-xs text-warmgray/60 italic">
-            {t("dvitsch.note")}
+            {t("mezzocuore.note")}
           </p>
         </div>
       </section>
