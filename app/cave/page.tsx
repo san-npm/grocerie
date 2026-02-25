@@ -42,9 +42,13 @@ export default function CavePage() {
           />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-            {t("cave.heroLabel")}
-          </p>
+          <Image
+            src="/lacave-logo.png"
+            alt="La Cave de la Grocerie"
+            width={200}
+            height={200}
+            className="w-36 sm:w-48 h-auto mx-auto mb-6 brightness-0 invert"
+          />
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("cave.heroTitle")}
           </h1>

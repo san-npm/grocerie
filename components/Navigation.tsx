@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage, type Locale } from "@/context/LanguageContext";
 import { useCart } from "@/context/CartContext";
@@ -55,7 +56,14 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
           <Link href={localePath("/")} className="block transition-opacity hover:opacity-80">
-            <span className="font-playfair text-xl text-ink tracking-wide">La Grocerie</span>
+            <Image
+              src="/lagrocerie-logo.jpg"
+              alt="La Grocerie"
+              width={160}
+              height={18}
+              className="h-5 w-auto"
+              priority
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-7">
@@ -138,7 +146,13 @@ export default function Navigation() {
           </button>
 
           <Link href={localePath("/")} onClick={() => setMobileOpen(false)} className="block mb-4">
-            <span className="font-playfair text-3xl text-ink">La Grocerie</span>
+            <Image
+              src="/lagrocerie-logo.jpg"
+              alt="La Grocerie"
+              width={240}
+              height={27}
+              className="h-8 w-auto"
+            />
           </Link>
 
           {navLinks.map((link) => (

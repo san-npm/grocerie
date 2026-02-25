@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -15,7 +16,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href={localePath("/")} className="block">
-              <span className="font-playfair text-2xl text-cream">La Grocerie</span>
+              <Image
+                src="/lagrocerie-logo.jpg"
+                alt="La Grocerie"
+                width={180}
+                height={20}
+                className="h-6 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 text-sm text-warmgray leading-relaxed">
               {t("footer.brandDesc")}

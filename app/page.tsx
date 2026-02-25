@@ -28,9 +28,14 @@ export default function HomePage() {
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-6">
             {t("home.since")}
           </p>
-          <h1 className="font-script text-6xl sm:text-8xl text-cream mb-4 animate-handwrite">
-            La Grocerie
-          </h1>
+          <Image
+            src="/lagrocerie-logo.jpg"
+            alt="La Grocerie"
+            width={500}
+            height={56}
+            className="h-14 sm:h-20 w-auto mx-auto mb-4 brightness-0 invert"
+            priority
+          />
           <p className="text-cream/70 text-sm tracking-wider uppercase mb-4">
             du Gründ
           </p>
