@@ -56,11 +56,11 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
           <Link href={localePath("/")} className="block transition-opacity hover:opacity-80">
             <Image
-              src="/lagrocerie-logo.jpg"
+              src="/lacave-logo.png"
               alt="La Grocerie"
-              width={160}
-              height={18}
-              className="h-5 w-auto"
+              width={44}
+              height={44}
+              className="h-11 w-auto"
               priority
             />
           </Link>
@@ -144,13 +144,13 @@ export default function Navigation() {
             </svg>
           </button>
 
-          <Link href={localePath("/")} onClick={() => setMobileOpen(false)} className="block mb-4">
+          <Link href={localePath("/")} onClick={() => setMobileOpen(false)} className="block mb-8">
             <Image
-              src="/lagrocerie-logo.jpg"
+              src="/lacave-logo.png"
               alt="La Grocerie"
-              width={240}
-              height={27}
-              className="h-8 w-auto"
+              width={100}
+              height={100}
+              className="h-20 w-auto"
             />
           </Link>
 

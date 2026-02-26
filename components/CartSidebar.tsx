@@ -81,24 +81,17 @@ export default function CartSidebar() {
 
         {items.length > 0 && (
           <div className="px-6 py-5 border-t border-ink/10 space-y-3">
-            <p className="text-xs text-warmgray/60">{t("cartSidebar.shippingNote")}</p>
             <div className="flex justify-between font-playfair text-lg text-ink">
               <span>{t("cartSidebar.total")}</span>
               <span>{totalPrice}€</span>
             </div>
+            <p className="text-xs text-warmgray/60">{t("cartSidebar.shippingNote")}</p>
             <Link
-              href="/cave/checkout"
-              onClick={() => setIsCartOpen(false)}
-              className="btn-mustard w-full text-center block"
-            >
-              {t("cartSidebar.checkout")}
-            </Link>
-            <Link
-              href="/cave/panier"
+              href="/cave"
               onClick={() => setIsCartOpen(false)}
               className="btn-outline w-full text-center block"
             >
-              {t("cartSidebar.viewCart")}
+              {t("cartSidebar.browseWines")}
             </Link>
           </div>
         )}

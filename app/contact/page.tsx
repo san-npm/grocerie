@@ -53,15 +53,18 @@ export default function ContactPage() {
               {t("contact.gettingHereText")}
             </p>
 
-            {/* Map placeholder */}
-            <div className="aspect-[4/3] bg-parchment flex items-center justify-center mb-12">
-              <div className="text-center text-warmgray">
-                <svg className="w-12 h-12 mx-auto mb-3 text-warmgray/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-                <p className="text-sm">12, Rue Münster · Grund</p>
-              </div>
+            {/* Google Maps Embed */}
+            <div className="aspect-[4/3] mb-12 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.1!2d6.12815!3d49.60563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479548cd4b1fa1d1%3A0x400d35a1b346820!2s12%20Rue%20M%C3%BCnster%2C%202160%20Grund%2C%20Luxembourg!5e0!3m2!1sfr!2slu!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="La Grocerie — 12 Rue Münster, Luxembourg-Grund"
+              />
             </div>
 
             <div className="bg-mustard/10 p-8">

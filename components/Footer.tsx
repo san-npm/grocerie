@@ -17,11 +17,11 @@ export default function Footer() {
           <div>
             <Link href={localePath("/")} className="block">
               <Image
-                src="/lagrocerie-logo.jpg"
+                src="/lacave-logo.png"
                 alt="La Grocerie"
-                width={180}
-                height={20}
-                className="h-6 w-auto brightness-0 invert"
+                width={64}
+                height={64}
+                className="h-16 w-auto brightness-0 invert"
               />
             </Link>
             <p className="mt-4 text-sm text-warmgray leading-relaxed">

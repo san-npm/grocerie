@@ -29,6 +29,8 @@ export default function CavePage() {
     });
   }, [colorFilter]);
 
+  const hasAnyWines = wines.some((w) => w.isAvailable);
+
   return (
     <main className="relative z-[1]">
       {/* Hero */}
@@ -72,64 +74,74 @@ export default function CavePage() {
       {/* Wine List */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {filteredSections.map((section) => {
-            const sectionWines = wines.filter(
-              (w) => w.section === section && w.isAvailable
-            );
-            if (sectionWines.length === 0) return null;
+          {!hasAnyWines ? (
+            <div className="text-center py-20">
+              <svg className="w-16 h-16 mx-auto mb-6 text-mustard/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+              </svg>
+              <h3 className="font-playfair text-2xl text-ink mb-3">{t("cave.emptyTitle")}</h3>
+              <p className="text-warmgray max-w-md mx-auto leading-relaxed">{t("cave.emptyDesc")}</p>
+            </div>
+          ) : (
+            filteredSections.map((section) => {
+              const sectionWines = wines.filter(
+                (w) => w.section === section && w.isAvailable
+              );
+              if (sectionWines.length === 0) return null;
 
-            return (
-              <div key={section} className="mb-16">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px flex-1 bg-mustard/20" />
-                  <h2 className="font-playfair text-xl text-ink">
-                    {sectionLabels[section][locale] || sectionLabels[section].fr}
-                  </h2>
-                  <div className="h-px flex-1 bg-mustard/20" />
-                </div>
+              return (
+                <div key={section} className="mb-16">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="h-px flex-1 bg-mustard/20" />
+                    <h2 className="font-playfair text-xl text-ink">
+                      {sectionLabels[section][locale] || sectionLabels[section].fr}
+                    </h2>
+                    <div className="h-px flex-1 bg-mustard/20" />
+                  </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                  {sectionWines.map((wine) => (
-                    <Link
-                      key={wine.id}
-                      href={localePath(`/cave/${wine.id}`)}
-                      className="group"
-                    >
-                      <div className="relative aspect-[3/4] bg-parchment overflow-hidden mb-3">
-                        <Image
-                          src={wine.image}
-                          alt={wine.name}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        {(wine.isOrganic || wine.isNatural || wine.isBiodynamic) && (
-                          <div className="absolute top-2 left-2 flex gap-1">
-                            {wine.isNatural && (
-                              <span className="bg-olive text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Nat</span>
-                            )}
-                            {wine.isOrganic && (
-                              <span className="bg-mustard text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Bio</span>
-                            )}
-                            {wine.isBiodynamic && (
-                              <span className="bg-terracotta text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Biod</span>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                      <p className="text-ink text-sm font-light group-hover:text-mustard-dark transition-colors">{wine.name}</p>
-                      <p className="text-warmgray text-[11px]">{wine.grape} · {wine.region}</p>
-                      <div className="flex gap-3 mt-1 text-xs">
-                        {wine.priceGlass > 0 && (
-                          <span className="text-warmgray">{wine.priceGlass}€ <span className="text-[9px]">{t("cave.glass")}</span></span>
-                        )}
-                        <span className="text-mustard-dark">{wine.priceBottle}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
-                      </div>
-                    </Link>
-                  ))}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    {sectionWines.map((wine) => (
+                      <Link
+                        key={wine.id}
+                        href={localePath(`/cave/${wine.id}`)}
+                        className="group"
+                      >
+                        <div className="relative aspect-[3/4] bg-parchment overflow-hidden mb-3">
+                          <Image
+                            src={wine.image}
+                            alt={wine.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          {(wine.isOrganic || wine.isNatural || wine.isBiodynamic) && (
+                            <div className="absolute top-2 left-2 flex gap-1">
+                              {wine.isNatural && (
+                                <span className="bg-olive text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Nat</span>
+                              )}
+                              {wine.isOrganic && (
+                                <span className="bg-mustard text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Bio</span>
+                              )}
+                              {wine.isBiodynamic && (
+                                <span className="bg-terracotta text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Biod</span>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-ink text-sm font-light group-hover:text-mustard-dark transition-colors">{wine.name}</p>
+                        <p className="text-warmgray text-[11px]">{wine.grape} · {wine.region}</p>
+                        <div className="flex gap-3 mt-1 text-xs">
+                          {wine.priceGlass > 0 && (
+                            <span className="text-warmgray">{wine.priceGlass}€ <span className="text-[9px]">{t("cave.glass")}</span></span>
+                          )}
+                          <span className="text-mustard-dark">{wine.priceBottle}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </section>
 

@@ -83,7 +83,9 @@
     "sortRegion": "Sort by Region",
     "glass": "glass",
     "bottle": "bottle",
-    "tastingNote": "Tastings every Thursday evening — see you at the cellar."
+    "tastingNote": "Tastings every Thursday evening — see you at the cellar.",
+    "emptyTitle": "Our wine list is brewing",
+    "emptyDesc": "The natural wine selection will be available online soon. In the meantime, visit us at the cellar!"
   },
   "product": {
     "backToShop": "← Back to Wine List",
