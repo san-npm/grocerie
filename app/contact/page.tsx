@@ -70,7 +70,7 @@ export default function ContactPage() {
             <div className="bg-mustard/10 p-8">
               <h3 className="font-playfair text-xl text-ink mb-4">{t("contact.dmTitle")}</h3>
               <p className="text-warmgray text-sm leading-relaxed mb-6">{t("contact.dmDesc")}</p>
-              <a href="mailto:info@lagrocerie.lu" className="btn-mustard inline-block">{t("contact.dmButton")}</a>
+              <a href="mailto:info@lagrocerie.lu?subject=Demande%20de%20renseignements%20%E2%80%94%20La%20Grocerie&body=Bonjour%2C%0A%0AJe%20souhaiterais%20obtenir%20des%20informations%20concernant%20vos%20services%20(sandwicherie%2C%20%C3%A9picerie%2C%20cave%20%C3%A0%20vins).%0A%0AMerci%20d%E2%80%99avance%2C%0A" className="btn-mustard inline-block">{t("contact.dmButton")}</a>
             </div>
           </div>
         </div>
