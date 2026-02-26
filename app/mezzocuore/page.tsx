@@ -17,7 +17,7 @@ export default function MezzocuorePage() {
             alt="Mezzocuore"
             width={400}
             height={400}
-            className="w-48 sm:w-64 h-auto mx-auto mb-8 invert"
+            className="w-48 sm:w-64 h-auto mx-auto mb-8"
             priority
           />
           <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">

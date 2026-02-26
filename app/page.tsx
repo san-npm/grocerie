@@ -20,9 +20,6 @@ export default function HomePage() {
             className="h-14 sm:h-20 w-auto mx-auto mb-4 invert"
             priority
           />
-          <p className="text-cream/90 text-sm tracking-wider uppercase mb-6">
-            du Gründ
-          </p>
           <p className="text-cream/80 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
             {t("home.heroDescription")}
           </p>
