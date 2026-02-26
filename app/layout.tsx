@@ -17,14 +17,14 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     title: {
       default: meta.title,
-      template: `%s | La Grocerie Luxembourg`,
+      template: `%s | La Grocerie`,
     },
     description: meta.description,
     keywords:
       "épicerie, grocery, sandwicherie, cave à vins, Luxembourg, Grund, vin naturel, vin bio, pastrami, produits locaux, circuits courts",
-    authors: [{ name: "La Grocerie du Gründ" }],
-    creator: "La Grocerie du Gründ",
-    publisher: "La Grocerie du Gründ",
+    authors: [{ name: "La Grocerie" }],
+    creator: "La Grocerie",
+    publisher: "La Grocerie",
     formatDetection: { telephone: true, email: true, address: true },
     alternates: {
       canonical: SITE_URL,
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: meta.ogTitle,
       description: meta.ogDescription,
       url: SITE_URL,
-      siteName: "La Grocerie du Gründ",
+      siteName: "La Grocerie",
       locale: locale === "fr" ? "fr_FR" : locale === "de" ? "de_DE" : locale === "lb" ? "lb_LU" : "en_US",
       type: "website",
     },
@@ -54,7 +54,10 @@ export async function generateMetadata(): Promise<Metadata> {
         "max-snippet": -1,
       },
     },
-    icons: { icon: "/favicon.ico" },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
   };
 }
 
@@ -62,7 +65,7 @@ const grocerieJsonLd = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "FoodEstablishment"],
   "@id": `${SITE_URL}/#business`,
-  name: "La Grocerie du Gründ",
+  name: "La Grocerie",
   description:
     "Sandwicherie artisanale, épicerie fermière et cave à vins naturels au cœur du Gründ, Luxembourg. Produits locaux, circuits courts, vins nature.",
   url: SITE_URL,
@@ -107,6 +110,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={locale}>
       <head>
+        <meta name="geo.region" content="LU" />
+        <meta name="geo.placename" content="Luxembourg-Grund" />
+        <meta name="geo.position" content="49.60563;6.13015" />
+        <meta name="ICBM" content="49.60563, 6.13015" />
+        <link rel="canonical" href={SITE_URL} />
         <Script
           id="json-ld-business"
           type="application/ld+json"

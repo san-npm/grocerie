@@ -17,14 +17,14 @@ export default function HomePage() {
             alt="La Grocerie"
             width={200}
             height={200}
-            className="h-28 sm:h-36 w-auto mx-auto mb-6 brightness-0 invert"
+            className="h-28 sm:h-36 w-auto mx-auto mb-6 invert"
             priority
           />
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-2">La Grocerie</h1>
-          <p className="text-cream/70 text-sm tracking-wider uppercase mb-6">
+          <p className="text-cream/90 text-sm tracking-wider uppercase mb-6">
             du Gründ
           </p>
-          <p className="text-cream/50 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
+          <p className="text-cream/80 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
             {t("home.heroDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -130,7 +130,7 @@ export default function HomePage() {
           <h2 className="font-playfair text-3xl text-cream mb-6">
             {t("home.aboutTitle")}
           </h2>
-          <p className="text-cream/60 leading-relaxed mb-8">
+          <p className="text-cream/80 leading-relaxed mb-8">
             {t("home.aboutText")}
           </p>
           <Link href={localePath("/a-propos")} className="border border-cream/20 text-cream px-8 py-3 tracking-luxury uppercase text-[11px] hover:border-cream/50 transition-all duration-500 inline-block">
@@ -148,7 +148,7 @@ export default function HomePage() {
           <h2 className="font-playfair text-3xl sm:text-4xl text-cream mb-6">
             {t("home.eventsTitle")}
           </h2>
-          <p className="text-cream/60 leading-relaxed mb-10">
+          <p className="text-cream/80 leading-relaxed mb-10">
             {t("home.eventsDesc")}
           </p>
           <Link href={localePath("/evenements")} className="btn-mustard">

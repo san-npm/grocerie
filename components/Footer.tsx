@@ -17,11 +17,11 @@ export default function Footer() {
           <div>
             <Link href={localePath("/")} className="block">
               <Image
-                src="/lacave-logo.png"
+                src="/lagrocerie-logo.png"
                 alt="La Grocerie"
-                width={64}
-                height={64}
-                className="h-16 w-auto brightness-0 invert"
+                width={200}
+                height={24}
+                className="h-8 w-auto invert"
               />
             </Link>
             <p className="mt-4 text-sm text-warmgray leading-relaxed">
@@ -36,6 +36,7 @@ export default function Footer() {
             <Link href={localePath("/epicerie")} className="block hover:text-cream transition-colors">{t("footer.epicerie")}</Link>
             <Link href={localePath("/cave")} className="block hover:text-cream transition-colors">{t("footer.cave")}</Link>
             <Link href={localePath("/evenements")} className="block hover:text-cream transition-colors">{t("footer.events")}</Link>
+            <Link href={localePath("/a-propos")} className="block hover:text-cream transition-colors">{t("nav.about")}</Link>
           </div>
 
           {/* Visit */}

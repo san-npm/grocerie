@@ -18,7 +18,7 @@ export default function MezzocuorePage() {
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("mezzocuore.heroTitle")}
           </h1>
-          <p className="text-cream/50 max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">
             {t("mezzocuore.heroDesc")}
           </p>
         </div>

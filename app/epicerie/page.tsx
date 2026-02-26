@@ -3,21 +3,36 @@
 import { useLanguage } from "@/context/LanguageContext";
 
 const categoryIcons = [
-  // Charcuterie — knife icon
-  <svg key="charc" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75l4.5 4.5m0 0l-4.5 4.5m4.5-4.5h12" />
+  // Charcuterie — meat leg / ham
+  <svg key="charc" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="10" cy="10" rx="7" ry="6" />
+    <path d="M15.5 14l4 6" />
+    <path d="M7 8.5c1-1.5 3-2 5-1.5" />
   </svg>,
-  // Fromages — squares/blocks icon
-  <svg key="from" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zm0 9.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zm0 9.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z" />
+  // Fromages — cheese wedge
+  <svg key="from" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 17l9-13 9 13H3z" />
+    <line x1="3" y1="17" x2="21" y2="17" />
+    <circle cx="9" cy="14" r="1" />
+    <circle cx="14" cy="13" r="0.75" />
+    <circle cx="11" cy="10" r="0.5" />
   </svg>,
-  // Pain — bread-like icon (sparkles)
-  <svg key="pain" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+  // Pain — wheat stalk
+  <svg key="pain" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 21V12" />
+    <path d="M12 12c-2-2-4-2.5-5-2" />
+    <path d="M12 12c2-2 4-2.5 5-2" />
+    <path d="M12 9c-2-2-3.5-2.5-4.5-2" />
+    <path d="M12 9c2-2 3.5-2.5 4.5-2" />
+    <path d="M12 6c-1.5-1.5-3-2-3.5-2" />
+    <path d="M12 6c1.5-1.5 3-2 3.5-2" />
   </svg>,
-  // Condiments — beaker icon
-  <svg key="cond" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+  // Condiments — jar with lid
+  <svg key="cond" className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+    <rect x="6" y="4" width="12" height="3" rx="1" />
+    <path d="M7 7v12a2 2 0 002 2h6a2 2 0 002-2V7" />
+    <path d="M10 12h4" />
+    <path d="M12 10v4" />
   </svg>,
 ];
 
@@ -49,7 +64,7 @@ export default function EpiceriePage() {
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("epicerie.heroTitle")}
           </h1>
-          <p className="text-cream/50 max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">
             {t("epicerie.heroDesc")}
           </p>
         </div>

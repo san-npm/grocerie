@@ -1,0 +1,71 @@
+# La Grocerie du Gründ — Complete Information
+
+> Sandwicherie artisanale, épicerie fermière et cave à vins naturels au cœur du Gründ, Luxembourg.
+
+## About
+
+La Grocerie du Gründ is a neighbourhood food destination located at 12 Rue Münster in the historic Grund quarter of Luxembourg City. It brings together three complementary concepts under one roof:
+
+1. **Mezzocuore** — An artisan sandwich shop specialising in Mezzocuore sandwiches made on house-baked pizza dough bread, filled with fresh seasonal products. The signature item is house-made pastrami from nitrite-free Luxembourgish Angus beef. Also serves Puccia from Puglia.
+
+2. **L'Épicerie** — A farm grocery offering locally sourced and organic products: artisan charcuterie, raw-milk cheeses, fresh bread, oils, and condiments from selected producers. Short supply chains and local sourcing are central to the philosophy.
+
+3. **La Cave de la Grocerie** — Luxembourg's first dedicated natural wine cellar, featuring over 200 references direct-imported from artisan winemakers across Europe. Natural, organic, and biodynamic wines. Tastings are held every Thursday evening.
+
+## Contact & Location
+
+- **Address**: 12 Rue Münster, L-2160 Luxembourg-Grund
+- **Email**: info@lagrocerie.lu
+- **Instagram**: @lagroceriegrund (https://instagram.com/lagroceriegrund)
+- **Website**: https://lagrocerie.lu
+- **Coordinates**: 49.60563°N, 6.13015°E
+
+## Opening Hours
+
+- **Tuesday to Saturday**: 10:00 – 18:00
+- **Sunday**: 10:00 – 16:00
+- **Monday**: Closed
+
+## Getting Here
+
+La Grocerie is located in the Grund valley of Luxembourg City, at the foot of the Bock promontory. Accessible by foot from the city centre via the Chemin de la Corniche stairway or by bus. Limited parking available in the Grund area.
+
+## Sister Establishment
+
+**Vins Fins** — A wine bar located at 18 Rue Münster in Grund (just steps from La Grocerie). Website: https://vinsfins.lu
+
+## Services
+
+- **Dine-in sandwiches & takeaway**: Mezzocuore sandwiches freshly prepared on site
+- **Grocery shopping**: Farm-fresh products, charcuterie, cheeses, bread, condiments
+- **Wine purchasing**: Natural wines available by the glass or bottle
+- **Wine tastings**: Weekly Thursday evening tastings at the cellar
+- **Catering**: Bespoke catering service for private events and corporate functions
+- **Private events**: Custom experiences available on request
+
+## Philosophy
+
+La Grocerie is a new-generation neighbourhood grocery built on three pillars:
+- **Local sourcing**: Products from local farmers and artisan producers
+- **Short supply chains**: Direct relationships with producers, minimising intermediaries
+- **Natural wines**: Focus on wines made with minimal intervention, organic and biodynamic practices
+
+## Languages
+
+The website and service are available in four languages:
+- **French** (primary language, default)
+- **English**
+- **German**
+- **Luxembourgish**
+
+## Site Structure
+
+- `/` — Homepage
+- `/mezzocuore` — Mezzocuore sandwich shop
+- `/epicerie` — Farm grocery
+- `/cave` — Natural wine cellar
+- `/evenements` — Events, tastings & catering
+- `/a-propos` — About & history
+- `/contact` — Contact information & directions
+
+Localised URLs follow the pattern `/{locale}/page` (e.g., `/en/cave`, `/de/contact`). French is the default locale and uses no prefix.
