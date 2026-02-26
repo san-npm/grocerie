@@ -68,11 +68,11 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
           <Link href={localePath("/")} className="block transition-opacity hover:opacity-80">
             <Image
-              src="/lacave-logo.png"
+              src="/lagrocerie-logo.png"
               alt="La Grocerie"
-              width={44}
-              height={44}
-              className="h-11 w-auto"
+              width={160}
+              height={20}
+              className="h-6 w-auto"
               priority
             />
           </Link>
@@ -173,11 +173,11 @@ export default function Navigation() {
 
           <Link href={localePath("/")} onClick={() => setMobileOpen(false)} className="block mb-8">
             <Image
-              src="/lacave-logo.png"
+              src="/lagrocerie-logo.png"
               alt="La Grocerie"
-              width={100}
-              height={100}
-              className="h-20 w-auto"
+              width={200}
+              height={24}
+              className="h-10 w-auto"
             />
           </Link>
 

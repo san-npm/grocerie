@@ -12,30 +12,31 @@ export default function MezzocuorePage() {
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
         <div className="absolute inset-0 bg-ink" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-            {t("mezzocuore.heroLabel")}
-          </p>
-          <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
-            {t("mezzocuore.heroTitle")}
-          </h1>
+          <Image
+            src="/mezzocuore-hero.png"
+            alt="Mezzocuore"
+            width={400}
+            height={400}
+            className="w-48 sm:w-64 h-auto mx-auto mb-8"
+            priority
+          />
           <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">
             {t("mezzocuore.heroDesc")}
           </p>
         </div>
       </section>
 
-      {/* Signature - Pastrami */}
+      {/* What is Mezzocuore */}
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-            {t("mezzocuore.signatureLabel")}
-          </p>
-          <h2 className="font-playfair text-3xl text-ink mb-6">
-            {t("mezzocuore.signatureTitle")}
+          <h2 className="font-playfair text-3xl text-ink mb-8">
+            {t("mezzocuore.whatIsTitle")}
           </h2>
-          <p className="text-warmgray leading-relaxed">
-            {t("mezzocuore.signatureDesc")}
-          </p>
+          <div className="text-warmgray leading-relaxed space-y-4 text-left">
+            <p>{t("mezzocuore.whatIsText1")}</p>
+            <p>{t("mezzocuore.whatIsText2")}</p>
+            <p>{t("mezzocuore.whatIsText3")}</p>
+          </div>
         </div>
       </section>
 
