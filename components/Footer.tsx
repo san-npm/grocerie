@@ -17,7 +17,7 @@ export default function Footer() {
           <div>
             <Link href={localePath("/")} className="block">
               <Image
-                src="/lagrocerie-logo.jpg"
+                src="/lagrocerie-logo.png"
                 alt="La Grocerie"
                 width={200}
                 height={24}
