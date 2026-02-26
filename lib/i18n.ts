@@ -232,4 +232,5 @@ export const wineCategory: Record<string, Record<Locale, string>> = {
   rosé: { fr: "Rosé", en: "Rosé", de: "Rosé", lb: "Rosé" },
   orange: { fr: "Orange", en: "Orange", de: "Orange", lb: "Orange" },
   sparkling: { fr: "Pétillant", en: "Sparkling", de: "Schaumwein", lb: "Schaumwäin" },
+  cider: { fr: "Cidre", en: "Cider", de: "Cidre", lb: "Cidre" },
 };

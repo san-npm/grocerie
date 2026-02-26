@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useData } from "@/context/DataContext";
 import { WINE_SECTIONS, sectionLabels, sectionCategory } from "@/data/wines";
 
-type ColorFilter = "all" | "white" | "red" | "orange" | "sparkling";
+type ColorFilter = "all" | "white" | "red" | "orange" | "sparkling" | "cider";
 
 export default function CavePage() {
   const { t, locale, localePath } = useLanguage();
@@ -20,6 +20,7 @@ export default function CavePage() {
     { key: "red", label: locale === "fr" ? "Rouge" : locale === "de" ? "Rot" : locale === "lb" ? "Rout" : "Red" },
     { key: "orange", label: "Orange" },
     { key: "sparkling", label: locale === "fr" ? "Bulles" : locale === "de" ? "Schaumwein" : locale === "lb" ? "Bléisercher" : "Sparkling" },
+    { key: "cider", label: locale === "fr" ? "Cidre" : locale === "de" ? "Cidre" : locale === "lb" ? "Cidre" : "Cider" },
   ];
 
   const filteredSections = useMemo(() => {
