@@ -31,7 +31,7 @@ export const siteContent: SiteContent = {
   },
   announcement: null,
   address: '12 Rue Münster, L-2160 Luxembourg-Grund',
-  phone: '+352 00 00 00 00',
+  phone: '',
   email: 'info@lagrocerie.lu',
   instagram: 'https://instagram.com/lagroceriegrund',
   facebook: '',

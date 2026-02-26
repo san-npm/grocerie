@@ -33,14 +33,6 @@ export default function CavePage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&h=800&fit=crop"
-            alt="Wine cellar"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <Image
             src="/lacave-logo.png"

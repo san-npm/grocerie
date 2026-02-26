@@ -1,46 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function EpiceriePage() {
   const { t } = useLanguage();
 
   const categories = [
-    {
-      titleKey: "epicerie.charcuterieTitle",
-      descKey: "epicerie.charcuterieDesc",
-      image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop",
-    },
-    {
-      titleKey: "epicerie.fromagesTitle",
-      descKey: "epicerie.fromagesDesc",
-      image: "https://images.unsplash.com/photo-1452195100486-9cc805987862?w=600&h=400&fit=crop",
-    },
-    {
-      titleKey: "epicerie.painTitle",
-      descKey: "epicerie.painDesc",
-      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop",
-    },
-    {
-      titleKey: "epicerie.condimentsTitle",
-      descKey: "epicerie.condimentsDesc",
-      image: "https://images.unsplash.com/photo-1474979266404-7eaacdc50f5c?w=600&h=400&fit=crop",
-    },
+    { titleKey: "epicerie.charcuterieTitle", descKey: "epicerie.charcuterieDesc" },
+    { titleKey: "epicerie.fromagesTitle", descKey: "epicerie.fromagesDesc" },
+    { titleKey: "epicerie.painTitle", descKey: "epicerie.painDesc" },
+    { titleKey: "epicerie.condimentsTitle", descKey: "epicerie.condimentsDesc" },
   ];
 
   return (
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-olive-dark overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1920&h=800&fit=crop"
-            alt="Épicerie"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
             {t("epicerie.heroLabel")}
@@ -60,14 +35,7 @@ export default function EpiceriePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {categories.map((cat) => (
               <div key={cat.titleKey} className="group">
-                <div className="relative h-64 mb-6 overflow-hidden bg-parchment">
-                  <Image
-                    src={cat.image}
-                    alt={t(cat.titleKey)}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+                <div className="h-48 mb-6 bg-parchment" />
                 <h3 className="font-playfair text-xl text-ink mb-3">
                   {t(cat.titleKey)}
                 </h3>
