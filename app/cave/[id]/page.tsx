@@ -30,7 +30,7 @@ export default function WineDetailPage() {
     <main className="relative z-[1] pt-28 pb-24 px-6">
       <div className="max-w-5xl mx-auto">
         <Link href={localePath("/cave")} className="text-mustard-dark text-xs tracking-wider hover:text-mustard transition-colors">
-          {t("product.backToShop").replace("Boutique", "Cave")}
+          {t("product.backToShop")}
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">

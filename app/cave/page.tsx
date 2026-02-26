@@ -33,18 +33,14 @@ export default function CavePage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1920&h=800&fit=crop"
-            alt="Wine cellar"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
-            {t("cave.heroLabel")}
-          </p>
+          <Image
+            src="/lacave-logo.png"
+            alt="La Cave de la Grocerie"
+            width={200}
+            height={200}
+            className="w-36 sm:w-48 h-auto mx-auto mb-6 brightness-0 invert"
+          />
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("cave.heroTitle")}
           </h1>

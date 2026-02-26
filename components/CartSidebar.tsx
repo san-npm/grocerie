@@ -37,7 +37,7 @@ export default function CartSidebar() {
             <div className="text-center py-16">
               <p className="text-warmgray mb-2">{t("cartSidebar.empty")}</p>
               <p className="text-xs text-warmgray/60 mb-6">{t("cartSidebar.emptyDesc")}</p>
-              <Link href="/boutique" onClick={() => setIsCartOpen(false)} className="btn-outline text-xs inline-block">
+              <Link href="/cave" onClick={() => setIsCartOpen(false)} className="btn-outline text-xs inline-block">
                 {t("cartSidebar.browseWines")}
               </Link>
             </div>
@@ -87,14 +87,14 @@ export default function CartSidebar() {
               <span>{totalPrice}€</span>
             </div>
             <Link
-              href="/boutique/checkout"
+              href="/cave/checkout"
               onClick={() => setIsCartOpen(false)}
               className="btn-mustard w-full text-center block"
             >
               {t("cartSidebar.checkout")}
             </Link>
             <Link
-              href="/boutique/panier"
+              href="/cave/panier"
               onClick={() => setIsCartOpen(false)}
               className="btn-outline w-full text-center block"
             >

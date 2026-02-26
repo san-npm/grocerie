@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
@@ -11,14 +10,6 @@ export default function AboutPage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&h=800&fit=crop"
-            alt="La Grocerie"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">{t("about.heroLabel")}</p>
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">{t("about.heroTitle")}</h1>
@@ -28,45 +19,25 @@ export default function AboutPage() {
 
       {/* Concept */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[450px] bg-parchment overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop"
-              alt="Interior"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h2 className="font-playfair text-3xl text-ink mb-8">{t("about.conceptTitle")}</h2>
-            <div className="space-y-4 text-warmgray leading-relaxed">
-              <p>{t("about.conceptP1")}</p>
-              <p>{t("about.conceptP2")}</p>
-              <p>{t("about.conceptP3")}</p>
-            </div>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-playfair text-3xl text-ink mb-8">{t("about.conceptTitle")}</h2>
+          <div className="space-y-4 text-warmgray leading-relaxed">
+            <p>{t("about.conceptP1")}</p>
+            <p>{t("about.conceptP2")}</p>
+            <p>{t("about.conceptP3")}</p>
           </div>
         </div>
       </section>
 
       {/* Philosophy */}
       <section className="py-24 px-6 bg-olive-dark">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
-            <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">{t("about.philoLabel")}</p>
-            <h2 className="font-playfair text-3xl text-cream mb-8">{t("about.philoTitle")}</h2>
-            <div className="space-y-4 text-cream/60 leading-relaxed">
-              <p>{t("about.philoP1")}</p>
-              <p>{t("about.philoP2")}</p>
-              <p>{t("about.philoP3")}</p>
-            </div>
-          </div>
-          <div className="relative h-[450px] bg-ink overflow-hidden order-1 md:order-2">
-            <Image
-              src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?w=800&h=600&fit=crop"
-              alt="Wine tasting"
-              fill
-              className="object-cover opacity-80"
-            />
+        <div className="max-w-3xl mx-auto">
+          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">{t("about.philoLabel")}</p>
+          <h2 className="font-playfair text-3xl text-cream mb-8">{t("about.philoTitle")}</h2>
+          <div className="space-y-4 text-cream/60 leading-relaxed">
+            <p>{t("about.philoP1")}</p>
+            <p>{t("about.philoP2")}</p>
+            <p>{t("about.philoP3")}</p>
           </div>
         </div>
       </section>
