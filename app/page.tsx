@@ -24,14 +24,14 @@ export default function HomePage() {
           <p className="text-cream/70 text-sm tracking-wider uppercase mb-6">
             du Gründ
           </p>
-          <p className="text-cream/50 text-sm font-light max-w-lg mx-auto mb-10 leading-relaxed">
+          <p className="text-cream/50 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
             {t("home.heroDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={localePath("/mezzocuore")} className="btn-mustard">
               {t("home.pillar1Label")}
             </Link>
-            <Link href={localePath("/cave")} className="border border-cream/20 text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px] hover:border-cream/50 transition-all duration-500 inline-block">
+            <Link href={localePath("/cave")} className="border border-cream/20 text-cream px-8 py-3 tracking-luxury uppercase text-[11px] hover:border-cream/50 transition-all duration-500 inline-block">
               {t("home.pillar3Label")}
             </Link>
           </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
           <p className="text-cream/60 leading-relaxed mb-8">
             {t("home.aboutText")}
           </p>
-          <Link href={localePath("/a-propos")} className="border border-cream/20 text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px] hover:border-cream/50 transition-all duration-500 inline-block">
+          <Link href={localePath("/a-propos")} className="border border-cream/20 text-cream px-8 py-3 tracking-luxury uppercase text-[11px] hover:border-cream/50 transition-all duration-500 inline-block">
             {t("home.aboutLink")}
           </Link>
         </div>

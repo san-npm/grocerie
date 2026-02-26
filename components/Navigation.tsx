@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -24,6 +24,8 @@ export default function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
 
   const barePath = (() => {
     const segs = pathname.split("/");
@@ -44,6 +46,17 @@ export default function Navigation() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  // Close lang dropdown on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   return (
     <>
       <nav
@@ -60,7 +73,7 @@ export default function Navigation() {
               alt="La Grocerie"
               width={44}
               height={44}
-              className="h-11 w-auto"
+              className="h-11 w-auto brightness-0"
               priority
             />
           </Link>
@@ -70,7 +83,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={localePath(link.href)}
-                className={`text-[11px] font-light tracking-luxury uppercase transition-colors ${
+                className={`text-[11px] tracking-luxury uppercase transition-colors ${
                   barePath === link.href
                     ? "text-mustard-dark"
                     : "text-ink/50 hover:text-ink"
@@ -82,22 +95,37 @@ export default function Navigation() {
           </div>
 
           <div className="hidden lg:flex items-center gap-5">
-            <div className="flex items-center gap-1 text-[10px] tracking-wider text-ink/30">
-              {languages.map((lang, i) => (
-                <React.Fragment key={lang}>
-                  <button
-                    onClick={() => setLocale(lang)}
-                    className={`transition-colors ${
-                      locale === lang
-                        ? "text-ink font-medium"
-                        : "hover:text-ink"
-                    }`}
-                  >
-                    {lang.toUpperCase()}
-                  </button>
-                  {i < languages.length - 1 && <span className="text-ink/15">|</span>}
-                </React.Fragment>
-              ))}
+            {/* Language Dropdown */}
+            <div className="relative" ref={langRef}>
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 text-[11px] tracking-wider uppercase text-ink/60 hover:text-ink transition-colors"
+              >
+                {locale.toUpperCase()}
+                <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              {langOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-cream border border-ink/10 shadow-lg py-1 min-w-[80px]">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setLocale(lang);
+                        setLangOpen(false);
+                      }}
+                      className={`block w-full text-left px-4 py-2 text-[11px] tracking-wider uppercase transition-colors ${
+                        locale === lang
+                          ? "text-mustard-dark bg-mustard/5"
+                          : "text-ink/50 hover:text-ink hover:bg-ink/5"
+                      }`}
+                    >
+                      {lang.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <button
@@ -150,7 +178,7 @@ export default function Navigation() {
               alt="La Grocerie"
               width={100}
               height={100}
-              className="h-20 w-auto"
+              className="h-20 w-auto brightness-0"
             />
           </Link>
 
@@ -165,22 +193,23 @@ export default function Navigation() {
             </Link>
           ))}
 
-          <div className="flex items-center gap-2 mt-4 text-[11px] tracking-wider text-warmgray">
-            {languages.map((lang, i) => (
-              <React.Fragment key={lang}>
-                <button
-                  onClick={() => {
-                    setLocale(lang);
-                    setMobileOpen(false);
-                  }}
-                  className={`hover:text-ink transition-colors ${
-                    locale === lang ? "text-ink font-medium" : ""
-                  }`}
-                >
-                  {lang.toUpperCase()}
-                </button>
-                {i < languages.length - 1 && <span className="text-ink/15">|</span>}
-              </React.Fragment>
+          {/* Mobile language selector */}
+          <div className="flex items-center gap-3 mt-4">
+            {languages.map((lang) => (
+              <button
+                key={lang}
+                onClick={() => {
+                  setLocale(lang);
+                  setMobileOpen(false);
+                }}
+                className={`text-[11px] tracking-wider uppercase px-3 py-1.5 border transition-colors ${
+                  locale === lang
+                    ? "border-mustard text-mustard-dark bg-mustard/5"
+                    : "border-ink/10 text-ink/40 hover:text-ink hover:border-ink/30"
+                }`}
+              >
+                {lang.toUpperCase()}
+              </button>
             ))}
           </div>
         </div>
