@@ -17,11 +17,11 @@ export default function Footer() {
           <div>
             <Link href={localePath("/")} className="block">
               <Image
-                src="/lagrocerie-logo.jpg"
+                src="/lacave-logo.png"
                 alt="La Grocerie"
-                width={180}
-                height={20}
-                className="h-6 w-auto brightness-0 invert"
+                width={64}
+                height={64}
+                className="h-16 w-auto brightness-0 invert"
               />
             </Link>
             <p className="mt-4 text-sm text-warmgray leading-relaxed">
@@ -55,9 +55,9 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Partner */}
+          {/* Sister wine bar */}
           <div className="space-y-3 text-sm text-warmgray">
-            <p className="text-cream font-playfair text-base mb-4">Partenaire</p>
+            <p className="text-cream font-playfair text-base mb-4">Notre Bar à Vins</p>
             <a
               href="https://vinsfins.lu"
               target="_blank"

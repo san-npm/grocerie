@@ -83,7 +83,9 @@
     "sortRegion": "Trier par Région",
     "glass": "verre",
     "bottle": "bouteille",
-    "tastingNote": "Dégustation tous les jeudis soir — rendez-vous à la cave."
+    "tastingNote": "Dégustation tous les jeudis soir — rendez-vous à la cave.",
+    "emptyTitle": "Notre carte se prépare",
+    "emptyDesc": "La sélection de vins naturels sera bientôt disponible en ligne. En attendant, passez nous voir à la cave !"
   },
   "product": {
     "backToShop": "← Retour à la Cave",

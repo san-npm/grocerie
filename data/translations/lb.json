@@ -83,7 +83,9 @@
     "sortRegion": "No Regioun Sortéieren",
     "glass": "Glas",
     "bottle": "Fläsch",
-    "tastingNote": "Verkostunge all Donneschdeg owes — mir gesinn eis am Keller."
+    "tastingNote": "Verkostunge all Donneschdeg owes — mir gesinn eis am Keller.",
+    "emptyTitle": "Eis Wäinkaart gëtt virbereet",
+    "emptyDesc": "D'Naturwäin-Auswiel wäert geschwënn online disponibel sinn. Kuckt an der Tëschenzäit bei eis am Keller laanscht!"
   },
   "product": {
     "backToShop": "← Zréck zur Wäinlëscht",

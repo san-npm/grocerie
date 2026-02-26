@@ -11,7 +11,7 @@
   body {
     background-color: #FAF5EB;
     color: #2C2416;
-    @apply font-sans font-light;
+    @apply font-sans font-normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -40,29 +40,21 @@ body::before {
 
 @layer components {
   .btn-primary {
-    @apply bg-ink text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px]
+    @apply bg-ink text-cream px-8 py-3 tracking-luxury uppercase text-[11px]
     hover:bg-ink/80 transition-all duration-500 inline-block;
   }
   .btn-outline {
-    @apply border border-ink/20 text-ink px-8 py-3 font-light tracking-luxury uppercase text-[10px]
+    @apply border border-ink/20 text-ink px-8 py-3 tracking-luxury uppercase text-[11px]
     hover:border-ink/50 transition-all duration-500 inline-block;
   }
   .btn-mustard {
-    @apply bg-mustard text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px]
+    @apply bg-mustard text-cream px-8 py-3 tracking-luxury uppercase text-[11px]
     hover:bg-mustard-dark transition-all duration-500 inline-block;
   }
   .btn-olive {
-    @apply bg-olive text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px]
+    @apply bg-olive text-cream px-8 py-3 tracking-luxury uppercase text-[11px]
     hover:bg-olive-dark transition-all duration-500 inline-block;
   }
-}
-
-@keyframes handwrite {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-.animate-handwrite {
-  animation: handwrite 2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 @keyframes wallDrift {

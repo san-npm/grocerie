@@ -12,28 +12,26 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-ink overflow-hidden">
         <div className="relative z-10 text-center px-6 max-w-3xl">
-          <p className="text-mustard text-[10px] tracking-luxury uppercase mb-6">
-            {t("home.since")}
-          </p>
           <Image
-            src="/lagrocerie-logo.jpg"
+            src="/lacave-logo.png"
             alt="La Grocerie"
-            width={500}
-            height={56}
-            className="h-14 sm:h-20 w-auto mx-auto mb-4 brightness-0 invert"
+            width={200}
+            height={200}
+            className="h-28 sm:h-36 w-auto mx-auto mb-6 brightness-0 invert"
             priority
           />
-          <p className="text-cream/70 text-sm tracking-wider uppercase mb-4">
+          <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-2">La Grocerie</h1>
+          <p className="text-cream/70 text-sm tracking-wider uppercase mb-6">
             du Gründ
           </p>
-          <p className="text-cream/50 text-sm font-light max-w-lg mx-auto mb-10 leading-relaxed">
+          <p className="text-cream/50 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
             {t("home.heroDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={localePath("/mezzocuore")} className="btn-mustard">
               {t("home.pillar1Label")}
             </Link>
-            <Link href={localePath("/cave")} className="border border-cream/20 text-cream px-8 py-3 font-light tracking-luxury uppercase text-[10px] hover:border-cream/50 transition-all duration-500 inline-block">
+            <Link href={localePath("/cave")} className="border border-cream/20 text-cream px-8 py-3 tracking-luxury uppercase text-[11px] hover:border-cream/50 transition-all duration-500 inline-block">
               {t("home.pillar3Label")}
             </Link>
           </div>
@@ -59,8 +57,12 @@ export default function HomePage() {
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Mezzocuore */}
-          <div className="group bg-white/50 border border-ink/5 p-8 hover:shadow-lg transition-all duration-500">
-            <div className="h-56 mb-6 bg-parchment" />
+          <Link href={localePath("/mezzocuore")} className="group text-center p-10 border border-ink/5 hover:border-mustard/30 hover:shadow-lg transition-all duration-500">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-mustard/10 flex items-center justify-center group-hover:bg-mustard/20 transition-colors">
+              <svg className="w-7 h-7 text-mustard" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.379a48.474 48.474 0 00-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12 8.25c.972 0 1.942.028 2.906.082" />
+              </svg>
+            </div>
             <p className="text-mustard text-[10px] tracking-luxury uppercase mb-2">
               {t("home.pillar1Label")}
             </p>
@@ -70,14 +72,18 @@ export default function HomePage() {
             <p className="text-warmgray text-sm leading-relaxed mb-6">
               {t("home.pillar1Desc")}
             </p>
-            <Link href={localePath("/mezzocuore")} className="text-mustard-dark text-[10px] tracking-luxury uppercase hover:text-mustard transition-colors">
+            <span className="text-mustard-dark text-[10px] tracking-luxury uppercase group-hover:text-mustard transition-colors">
               {t("home.pillar1Link")} →
-            </Link>
-          </div>
+            </span>
+          </Link>
 
           {/* Épicerie */}
-          <div className="group bg-white/50 border border-ink/5 p-8 hover:shadow-lg transition-all duration-500">
-            <div className="h-56 mb-6 bg-parchment" />
+          <Link href={localePath("/epicerie")} className="group text-center p-10 border border-ink/5 hover:border-mustard/30 hover:shadow-lg transition-all duration-500">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-olive/10 flex items-center justify-center group-hover:bg-olive/20 transition-colors">
+              <svg className="w-7 h-7 text-olive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              </svg>
+            </div>
             <p className="text-mustard text-[10px] tracking-luxury uppercase mb-2">
               {t("home.pillar2Label")}
             </p>
@@ -87,14 +93,18 @@ export default function HomePage() {
             <p className="text-warmgray text-sm leading-relaxed mb-6">
               {t("home.pillar2Desc")}
             </p>
-            <Link href={localePath("/epicerie")} className="text-mustard-dark text-[10px] tracking-luxury uppercase hover:text-mustard transition-colors">
+            <span className="text-mustard-dark text-[10px] tracking-luxury uppercase group-hover:text-mustard transition-colors">
               {t("home.pillar2Link")} →
-            </Link>
-          </div>
+            </span>
+          </Link>
 
           {/* La Cave */}
-          <div className="group bg-white/50 border border-ink/5 p-8 hover:shadow-lg transition-all duration-500">
-            <div className="h-56 mb-6 bg-parchment" />
+          <Link href={localePath("/cave")} className="group text-center p-10 border border-ink/5 hover:border-mustard/30 hover:shadow-lg transition-all duration-500">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-wine/10 flex items-center justify-center group-hover:bg-wine/20 transition-colors">
+              <svg className="w-7 h-7 text-wine" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+              </svg>
+            </div>
             <p className="text-mustard text-[10px] tracking-luxury uppercase mb-2">
               {t("home.pillar3Label")}
             </p>
@@ -104,26 +114,26 @@ export default function HomePage() {
             <p className="text-warmgray text-sm leading-relaxed mb-6">
               {t("home.pillar3Desc")}
             </p>
-            <Link href={localePath("/cave")} className="text-mustard-dark text-[10px] tracking-luxury uppercase hover:text-mustard transition-colors">
+            <span className="text-mustard-dark text-[10px] tracking-luxury uppercase group-hover:text-mustard transition-colors">
               {t("home.pillar3Link")} →
-            </Link>
-          </div>
+            </span>
+          </Link>
         </div>
       </section>
 
       {/* About Teaser */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-ink">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
             {t("home.aboutLabel")}
           </p>
-          <h2 className="font-playfair text-3xl text-ink mb-6">
+          <h2 className="font-playfair text-3xl text-cream mb-6">
             {t("home.aboutTitle")}
           </h2>
-          <p className="text-warmgray leading-relaxed mb-8">
+          <p className="text-cream/60 leading-relaxed mb-8">
             {t("home.aboutText")}
           </p>
-          <Link href={localePath("/a-propos")} className="btn-outline">
+          <Link href={localePath("/a-propos")} className="border border-cream/20 text-cream px-8 py-3 tracking-luxury uppercase text-[11px] hover:border-cream/50 transition-all duration-500 inline-block">
             {t("home.aboutLink")}
           </Link>
         </div>

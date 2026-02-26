@@ -83,7 +83,9 @@
     "sortRegion": "Nach Region Sortieren",
     "glass": "Glas",
     "bottle": "Flasche",
-    "tastingNote": "Verkostungen jeden Donnerstagabend — wir sehen uns im Keller."
+    "tastingNote": "Verkostungen jeden Donnerstagabend — wir sehen uns im Keller.",
+    "emptyTitle": "Unsere Weinkarte wird vorbereitet",
+    "emptyDesc": "Die Naturwein-Auswahl wird bald online verfügbar sein. Besuchen Sie uns in der Zwischenzeit im Keller!"
   },
   "product": {
     "backToShop": "← Zurück zur Weinliste",
