@@ -13,14 +13,13 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center bg-ink overflow-hidden">
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <Image
-            src="/lacave-logo.png"
+            src="/lagrocerie-logo.png"
             alt="La Grocerie"
-            width={200}
-            height={200}
-            className="h-28 sm:h-36 w-auto mx-auto mb-6 invert"
+            width={400}
+            height={50}
+            className="h-14 sm:h-20 w-auto mx-auto mb-4 invert"
             priority
           />
-          <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-2">La Grocerie</h1>
           <p className="text-cream/90 text-sm tracking-wider uppercase mb-6">
             du Gründ
           </p>
