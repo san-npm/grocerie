@@ -21,7 +21,7 @@ export default function Footer() {
                 alt="La Grocerie"
                 width={64}
                 height={64}
-                className="h-16 w-auto brightness-0 invert"
+                className="h-16 w-auto invert"
               />
             </Link>
             <p className="mt-4 text-sm text-warmgray leading-relaxed">

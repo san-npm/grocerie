@@ -23,7 +23,7 @@ const config: Config = {
         brown: "#6B4423",
         "brown-dark": "#4A2F18",
         "brown-light": "#8B6340",
-        warmgray: "#8A7E72",
+        warmgray: "#6B5F53",
         ink: "#2C2416",
         "ink-light": "#4A3C2E",
         wine: "#8B3A3A",

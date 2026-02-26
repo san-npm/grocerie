@@ -107,6 +107,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={locale}>
       <head>
+        <meta name="geo.region" content="LU" />
+        <meta name="geo.placename" content="Luxembourg-Grund" />
+        <meta name="geo.position" content="49.60563;6.13015" />
+        <meta name="ICBM" content="49.60563, 6.13015" />
+        <link rel="canonical" href={SITE_URL} />
         <Script
           id="json-ld-business"
           type="application/ld+json"

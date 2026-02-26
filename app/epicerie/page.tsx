@@ -49,7 +49,7 @@ export default function EpiceriePage() {
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("epicerie.heroTitle")}
           </h1>
-          <p className="text-cream/50 max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">
             {t("epicerie.heroDesc")}
           </p>
         </div>

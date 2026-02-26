@@ -73,7 +73,7 @@ export default function Navigation() {
               alt="La Grocerie"
               width={44}
               height={44}
-              className="h-11 w-auto brightness-0"
+              className="h-11 w-auto"
               priority
             />
           </Link>
@@ -86,7 +86,7 @@ export default function Navigation() {
                 className={`text-[11px] tracking-luxury uppercase transition-colors ${
                   barePath === link.href
                     ? "text-mustard-dark"
-                    : "text-ink/50 hover:text-ink"
+                    : "text-ink/70 hover:text-ink"
                 }`}
               >
                 {t(link.key)}
@@ -118,7 +118,7 @@ export default function Navigation() {
                       className={`block w-full text-left px-4 py-2 text-[11px] tracking-wider uppercase transition-colors ${
                         locale === lang
                           ? "text-mustard-dark bg-mustard/5"
-                          : "text-ink/50 hover:text-ink hover:bg-ink/5"
+                          : "text-ink/70 hover:text-ink hover:bg-ink/5"
                       }`}
                     >
                       {lang.toUpperCase()}
@@ -130,7 +130,7 @@ export default function Navigation() {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative transition-colors text-ink/50 hover:text-ink"
+              className="relative transition-colors text-ink/70 hover:text-ink"
               aria-label="Cart"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -178,7 +178,7 @@ export default function Navigation() {
               alt="La Grocerie"
               width={100}
               height={100}
-              className="h-20 w-auto brightness-0"
+              className="h-20 w-auto"
             />
           </Link>
 
@@ -187,7 +187,7 @@ export default function Navigation() {
               key={link.href}
               href={localePath(link.href)}
               onClick={() => setMobileOpen(false)}
-              className="text-sm tracking-luxury uppercase text-ink/50 hover:text-ink transition-colors"
+              className="text-sm tracking-luxury uppercase text-ink/70 hover:text-ink transition-colors"
             >
               {t(link.key)}
             </Link>

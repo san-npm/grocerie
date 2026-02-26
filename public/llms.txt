@@ -1,0 +1,18 @@
+# La Grocerie du Gründ
+
+> Sandwicherie artisanale, épicerie fermière et cave à vins naturels au cœur du Gründ, Luxembourg.
+
+La Grocerie du Gründ is a neighbourhood food destination in Luxembourg-Grund combining three concepts under one roof: Mezzocuore (artisan sandwich shop), L'Épicerie (farm grocery), and La Cave de la Grocerie (natural wine cellar).
+
+## Key Information
+
+- **Address**: 12 Rue Münster, L-2160 Luxembourg-Grund
+- **Email**: info@lagrocerie.lu
+- **Instagram**: @lagroceriegrund
+- **Website**: https://lagrocerie.lu
+- **Hours**: Tue–Sat 10:00–18:00, Sun 10:00–16:00, Mon Closed
+- **Languages**: French (primary), English, German, Luxembourgish
+
+## Detailed Information
+
+For comprehensive information about La Grocerie, see [llms-full.txt](https://lagrocerie.lu/llms-full.txt).

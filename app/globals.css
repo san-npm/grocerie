@@ -11,9 +11,10 @@
   body {
     background-color: #FAF5EB;
     color: #2C2416;
-    @apply font-sans font-normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply font-sans;
+    font-weight: 400;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
     overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {

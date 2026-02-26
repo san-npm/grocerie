@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">{t("about.philoLabel")}</p>
           <h2 className="font-playfair text-3xl text-cream mb-8">{t("about.philoTitle")}</h2>
-          <div className="space-y-4 text-cream/60 leading-relaxed">
+          <div className="space-y-4 text-cream/80 leading-relaxed">
             <p>{t("about.philoP1")}</p>
             <p>{t("about.philoP2")}</p>
             <p>{t("about.philoP3")}</p>

@@ -41,12 +41,12 @@ export default function CavePage() {
             alt="La Cave de la Grocerie"
             width={200}
             height={200}
-            className="w-36 sm:w-48 h-auto mx-auto mb-6 brightness-0 invert"
+            className="w-36 sm:w-48 h-auto mx-auto mb-6 invert"
           />
           <h1 className="font-playfair text-4xl sm:text-5xl text-cream mb-6">
             {t("cave.heroTitle")}
           </h1>
-          <p className="text-cream/50 max-w-lg mx-auto leading-relaxed">
+          <p className="text-cream/80 max-w-lg mx-auto leading-relaxed">
             {t("cave.heroDesc")}
           </p>
         </div>
