@@ -14,7 +14,6 @@ const navLinks = [
   { href: "/epicerie", key: "nav.epicerie" },
   { href: "/cave", key: "nav.cave" },
   { href: "/evenements", key: "nav.events" },
-  { href: "/a-propos", key: "nav.about" },
   { href: "/contact", key: "nav.contact" },
 ];
 

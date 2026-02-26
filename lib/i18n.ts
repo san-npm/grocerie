@@ -34,27 +34,27 @@ type PageMeta = { title: string; description: string; ogTitle: string; ogDescrip
 export const pageMeta: Record<string, Record<Locale, PageMeta>> = {
   home: {
     fr: {
-      title: "La Grocerie du Gründ — Sandwicherie, Épicerie & Cave à Vins | Luxembourg",
+      title: "La Grocerie — Sandwicherie, Épicerie & Cave à Vins | Luxembourg",
       description: "Sandwicherie artisanale, épicerie fermière et cave à vins naturels au cœur du Gründ. Produits locaux, circuits courts, vins nature. Depuis 1923.",
-      ogTitle: "La Grocerie du Gründ — Sandwicherie, Épicerie & Cave à Vins",
+      ogTitle: "La Grocerie — Sandwicherie, Épicerie & Cave à Vins",
       ogDescription: "Sandwicherie, épicerie fermière & cave à vins naturels au Gründ, Luxembourg. Produits locaux, circuits courts.",
     },
     en: {
-      title: "La Grocerie du Gründ — Sandwich Shop, Grocery & Wine Cellar | Luxembourg",
+      title: "La Grocerie — Sandwich Shop, Grocery & Wine Cellar | Luxembourg",
       description: "Artisan sandwich shop, farm grocery and natural wine cellar in the heart of Grund. Local products, short supply chains, natural wines. Since 1923.",
-      ogTitle: "La Grocerie du Gründ — Sandwich Shop, Grocery & Wine Cellar",
+      ogTitle: "La Grocerie — Sandwich Shop, Grocery & Wine Cellar",
       ogDescription: "Sandwich shop, farm grocery & natural wine cellar in Grund, Luxembourg. Local products, short supply chains.",
     },
     de: {
-      title: "La Grocerie du Gründ — Sandwichladen, Feinkost & Weinkeller | Luxemburg",
+      title: "La Grocerie — Sandwichladen, Feinkost & Weinkeller | Luxemburg",
       description: "Handwerklicher Sandwichladen, Bauernladen und natürlicher Weinkeller im Herzen des Grund. Lokale Produkte, kurze Lieferketten, Naturweine. Seit 1923.",
-      ogTitle: "La Grocerie du Gründ — Sandwichladen, Feinkost & Weinkeller",
+      ogTitle: "La Grocerie — Sandwichladen, Feinkost & Weinkeller",
       ogDescription: "Sandwichladen, Bauernladen & Naturweinkeller im Grund, Luxemburg. Lokale Produkte, kurze Lieferketten.",
     },
     lb: {
-      title: "La Grocerie du Gründ — Sandwichladen, Epicerie & Wäikeller | Lëtzebuerg",
+      title: "La Grocerie — Sandwichladen, Epicerie & Wäikeller | Lëtzebuerg",
       description: "Handwierkleche Sandwichladen, Baueregrocerie an Naturwäikeller am Häerz vum Gronn. Lokal Produkter, kuerz Liwwerketten, Naturwäiner. Zënter 1923.",
-      ogTitle: "La Grocerie du Gründ — Sandwichladen, Epicerie & Wäikeller",
+      ogTitle: "La Grocerie — Sandwichladen, Epicerie & Wäikeller",
       ogDescription: "Sandwichladen, Baueregrocerie & Naturwäikeller am Gronn, Lëtzebuerg. Lokal Produkter, kuerz Liwwerketten.",
     },
   },
