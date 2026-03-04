@@ -11,6 +11,14 @@ export default function HomePage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-ink overflow-hidden">
+        <Image
+          src="/la-grocerie.jpeg"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          priority
+          sizes="100vw"
+        />
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <Image
             src="/lagrocerie-logo.png"
