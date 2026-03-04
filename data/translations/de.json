@@ -89,7 +89,10 @@
     "bottle": "Flasche",
     "tastingNote": "Verkostungen jeden Donnerstagabend — wir sehen uns im Keller.",
     "emptyTitle": "Unsere Weinkarte wird vorbereitet",
-    "emptyDesc": "Die Naturwein-Auswahl wird bald online verfügbar sein. Besuchen Sie uns in der Zwischenzeit im Keller!"
+    "emptyDesc": "Die Naturwein-Auswahl wird bald online verfügbar sein. Besuchen Sie uns in der Zwischenzeit im Keller!",
+    "badgeNatural": "Nat",
+    "badgeOrganic": "Bio",
+    "badgeBiodynamic": "Biod"
   },
   "product": {
     "backToShop": "← Zurück zur Weinliste",
@@ -180,6 +183,7 @@
     "about": "Über Uns",
     "contact": "Kontakt",
     "visit": "Besuch",
+    "sisterTitle": "Unsere Weinbar",
     "vinsfins": "Vins Fins — Weinbar",
     "copyright": "© 2026 La Grocerie du Gründ. Alle Rechte vorbehalten.",
     "hours": "Di–Sa: 10–18 Uhr",

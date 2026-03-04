@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Sister wine bar */}
           <div className="space-y-3 text-sm text-warmgray">
-            <p className="text-cream font-playfair text-base mb-4">Notre Bar à Vins</p>
+            <p className="text-cream font-playfair text-base mb-4">{t("footer.sisterTitle")}</p>
             <a
               href="https://vinsfins.lu"
               target="_blank"

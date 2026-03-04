@@ -1,13 +1,21 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { useCart } from "@/context/CartContext";
 
 export default function CartSidebar() {
-  const { t } = useLanguage();
+  const { t, localePath } = useLanguage();
   const { items, updateQuantity, removeFromCart, totalPrice, isCartOpen, setIsCartOpen } = useCart();
+
+  useEffect(() => {
+    if (!isCartOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setIsCartOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isCartOpen, setIsCartOpen]);
 
   if (!isCartOpen) return null;
 
@@ -37,7 +45,7 @@ export default function CartSidebar() {
             <div className="text-center py-16">
               <p className="text-warmgray mb-2">{t("cartSidebar.empty")}</p>
               <p className="text-xs text-warmgray/60 mb-6">{t("cartSidebar.emptyDesc")}</p>
-              <Link href="/cave" onClick={() => setIsCartOpen(false)} className="btn-outline text-xs inline-block">
+              <Link href={localePath("/cave")} onClick={() => setIsCartOpen(false)} className="btn-outline text-xs inline-block">
                 {t("cartSidebar.browseWines")}
               </Link>
             </div>
@@ -46,7 +54,7 @@ export default function CartSidebar() {
               {items.map((item) => (
                 <div key={item.wine.id} className="flex gap-3 border-b border-ink/5 pb-4">
                   <div className="relative w-14 h-20 flex-shrink-0 bg-parchment overflow-hidden">
-                    <Image src={item.wine.image} alt={item.wine.name} fill className="object-cover" />
+                    <Image src={item.wine.image} alt={item.wine.name} fill sizes="56px" className="object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-ink truncate">{item.wine.name}</p>
@@ -87,7 +95,7 @@ export default function CartSidebar() {
             </div>
             <p className="text-xs text-warmgray/60">{t("cartSidebar.shippingNote")}</p>
             <Link
-              href="/cave"
+              href={localePath("/cave")}
               onClick={() => setIsCartOpen(false)}
               className="btn-outline w-full text-center block"
             >
