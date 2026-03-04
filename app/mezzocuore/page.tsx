@@ -10,7 +10,14 @@ export default function MezzocuorePage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
-        <div className="absolute inset-0 bg-ink" />
+        <Image
+          src="/la-grocerie-mezzocuore.jpeg"
+          alt=""
+          fill
+          className="object-cover opacity-25"
+          priority
+          sizes="100vw"
+        />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <Image
             src="/mezzocuore-hero.png"

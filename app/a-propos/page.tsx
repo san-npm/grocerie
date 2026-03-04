@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
@@ -19,12 +20,25 @@ export default function AboutPage() {
 
       {/* Concept */}
       <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-playfair text-3xl text-ink mb-8">{t("about.conceptTitle")}</h2>
-          <div className="space-y-4 text-warmgray leading-relaxed">
-            <p>{t("about.conceptP1")}</p>
-            <p>{t("about.conceptP2")}</p>
-            <p>{t("about.conceptP3")}</p>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/cave-grocerie.jpeg"
+                alt="La Grocerie"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="font-playfair text-3xl text-ink mb-8">{t("about.conceptTitle")}</h2>
+              <div className="space-y-4 text-warmgray leading-relaxed">
+                <p>{t("about.conceptP1")}</p>
+                <p>{t("about.conceptP2")}</p>
+                <p>{t("about.conceptP3")}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function EvenementsPage() {
@@ -10,6 +11,14 @@ export default function EvenementsPage() {
     <main className="relative z-[1]">
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
+        <Image
+          src="/vins-fins-la-grocerie.jpeg"
+          alt=""
+          fill
+          className="object-cover opacity-30"
+          priority
+          sizes="100vw"
+        />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <p className="text-mustard text-[10px] tracking-luxury uppercase mb-4">
             {t("events.heroLabel")}
