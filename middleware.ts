@@ -33,7 +33,7 @@ export function middleware(request: NextRequest) {
     const response = NextResponse.rewrite(new URL(cleanPath, request.url), {
       request: { headers: requestHeaders },
     });
-    response.cookies.set("locale", locale, { path: "/", maxAge: 31536000 });
+    response.cookies.set("locale", locale, { path: "/", maxAge: 31536000, sameSite: "lax", secure: true });
     return response;
   }
 
@@ -43,7 +43,7 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next({
     request: { headers: requestHeaders },
   });
-  response.cookies.set("locale", "fr", { path: "/", maxAge: 31536000 });
+  response.cookies.set("locale", "fr", { path: "/", maxAge: 31536000, sameSite: "lax", secure: true });
   return response;
 }
 

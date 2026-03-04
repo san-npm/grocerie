@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useData } from "@/context/DataContext";
 import { WINE_SECTIONS, sectionLabels, sectionCategory } from "@/data/wines";
 
-type ColorFilter = "all" | "white" | "red" | "orange" | "sparkling" | "cider";
+type ColorFilter = "all" | "white" | "red" | "rosé" | "orange" | "sparkling" | "cider";
 
 export default function CavePage() {
   const { t, locale, localePath } = useLanguage();
@@ -112,18 +112,19 @@ export default function CavePage() {
                             src={wine.image}
                             alt={wine.name}
                             fill
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
                           />
                           {(wine.isOrganic || wine.isNatural || wine.isBiodynamic) && (
                             <div className="absolute top-2 left-2 flex gap-1">
                               {wine.isNatural && (
-                                <span className="bg-olive text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Nat</span>
+                                <span className="bg-olive text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">{t("cave.badgeNatural")}</span>
                               )}
                               {wine.isOrganic && (
-                                <span className="bg-mustard text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Bio</span>
+                                <span className="bg-mustard text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">{t("cave.badgeOrganic")}</span>
                               )}
                               {wine.isBiodynamic && (
-                                <span className="bg-terracotta text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">Biod</span>
+                                <span className="bg-terracotta text-cream text-[8px] px-1.5 py-0.5 uppercase tracking-wider">{t("cave.badgeBiodynamic")}</span>
                               )}
                             </div>
                           )}

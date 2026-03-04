@@ -89,7 +89,10 @@
     "bottle": "bouteille",
     "tastingNote": "Dégustation tous les jeudis soir — rendez-vous à la cave.",
     "emptyTitle": "Notre carte se prépare",
-    "emptyDesc": "La sélection de vins naturels sera bientôt disponible en ligne. En attendant, passez nous voir à la cave !"
+    "emptyDesc": "La sélection de vins naturels sera bientôt disponible en ligne. En attendant, passez nous voir à la cave !",
+    "badgeNatural": "Nat",
+    "badgeOrganic": "Bio",
+    "badgeBiodynamic": "Biod"
   },
   "product": {
     "backToShop": "← Retour à la Cave",
@@ -180,6 +183,7 @@
     "about": "À Propos",
     "contact": "Contact",
     "visit": "Visite",
+    "sisterTitle": "Notre Bar à Vins",
     "vinsfins": "Vins Fins — Bar à Vins",
     "copyright": "© 2026 La Grocerie du Gründ. Tous droits réservés.",
     "hours": "Mar–Sam : 10h–18h",

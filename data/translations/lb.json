@@ -89,7 +89,10 @@
     "bottle": "Fläsch",
     "tastingNote": "Verkostunge all Donneschdeg owes — mir gesinn eis am Keller.",
     "emptyTitle": "Eis Wäinkaart gëtt virbereet",
-    "emptyDesc": "D'Naturwäin-Auswiel wäert geschwënn online disponibel sinn. Kuckt an der Tëschenzäit bei eis am Keller laanscht!"
+    "emptyDesc": "D'Naturwäin-Auswiel wäert geschwënn online disponibel sinn. Kuckt an der Tëschenzäit bei eis am Keller laanscht!",
+    "badgeNatural": "Nat",
+    "badgeOrganic": "Bio",
+    "badgeBiodynamic": "Biod"
   },
   "product": {
     "backToShop": "← Zréck zur Wäinlëscht",
@@ -180,6 +183,7 @@
     "about": "Iwwer Eis",
     "contact": "Kontakt",
     "visit": "Besuch",
+    "sisterTitle": "Eis Wäibistro",
     "vinsfins": "Vins Fins — Wäibistro",
     "copyright": "© 2026 La Grocerie du Gründ. All Rechter virbehal.",
     "hours": "Dë–Sa: 10–18 Auer",

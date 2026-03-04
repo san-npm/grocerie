@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Wine } from "@/data/wines";
+import { SiteContent } from "@/data/content";
+
+interface AdminData {
+  wines: Wine[];
+  content: SiteContent;
+}
 
 export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
-  const [data, setData] = useState<{ wines: any[]; content: any } | null>(null);
+  const [data, setData] = useState<AdminData | null>(null);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -32,18 +39,30 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!token) return;
-    fetch("/api/admin/data?type=wines", { headers: { Authorization: `Bearer ${token}` } })
-      .then((r) => r.ok ? r.json() : Promise.reject())
-      .then((wines) => {
-        fetch("/api/admin/data?type=content", { headers: { Authorization: `Bearer ${token}` } })
-          .then((r) => r.ok ? r.json() : Promise.reject())
-          .then((content) => setData({ wines, content }))
-          .catch(() => { setToken(""); localStorage.removeItem("admin-token"); });
-      })
-      .catch(() => { setToken(""); localStorage.removeItem("admin-token"); });
+    const headers = { Authorization: `Bearer ${token}` };
+    async function loadData() {
+      try {
+        const [winesRes, contentRes] = await Promise.all([
+          fetch("/api/admin/data?type=wines", { headers }),
+          fetch("/api/admin/data?type=content", { headers }),
+        ]);
+        if (!winesRes.ok || !contentRes.ok) {
+          setToken("");
+          localStorage.removeItem("admin-token");
+          return;
+        }
+        const wines = await winesRes.json();
+        const content = await contentRes.json();
+        setData({ wines, content });
+      } catch {
+        setToken("");
+        localStorage.removeItem("admin-token");
+      }
+    }
+    loadData();
   }, [token]);
 
-  const saveData = async (type: string, payload: any) => {
+  const saveAdminData = async (type: string, payload: unknown) => {
     setSaving(true);
     setMessage("");
     try {
@@ -64,7 +83,9 @@ export default function AdminPage() {
         <div className="max-w-sm w-full p-8">
           <h1 className="font-playfair text-2xl text-ink mb-6 text-center">Admin</h1>
           {error && <p className="text-wine text-sm mb-4 text-center">{error}</p>}
+          <label htmlFor="admin-password" className="sr-only">Password</label>
           <input
+            id="admin-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -107,7 +128,7 @@ export default function AdminPage() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-playfair text-lg text-ink">Wines ({data.wines.length})</h2>
               <button
-                onClick={() => saveData("wines", data.wines)}
+                onClick={() => saveAdminData("wines", data.wines)}
                 disabled={saving}
                 className="btn-mustard text-[9px]"
               >
@@ -131,7 +152,7 @@ export default function AdminPage() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-playfair text-lg text-ink">Site Content</h2>
               <button
-                onClick={() => saveData("content", data.content)}
+                onClick={() => saveAdminData("content", data.content)}
                 disabled={saving}
                 className="btn-mustard text-[9px]"
               >

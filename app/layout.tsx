@@ -118,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script
           id="json-ld-business"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(grocerieJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(grocerieJsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
       <body>
