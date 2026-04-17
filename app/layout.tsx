@@ -27,13 +27,13 @@ export async function generateMetadata(): Promise<Metadata> {
     publisher: "La Grocerie",
     formatDetection: { telephone: true, email: true, address: true },
     alternates: {
-      canonical: SITE_URL,
+      canonical: localeUrl("/", locale),
       languages: Object.fromEntries(locales.map((l) => [l, localeUrl("/", l)])),
     },
     openGraph: {
       title: meta.ogTitle,
       description: meta.ogDescription,
-      url: SITE_URL,
+      url: localeUrl("/", locale),
       siteName: "La Grocerie",
       locale: locale === "fr" ? "fr_FR" : locale === "de" ? "de_DE" : locale === "lb" ? "lb_LU" : "en_US",
       type: "website",
@@ -61,9 +61,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const grocerieJsonLd = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "FoodEstablishment"],
+const businessNode = {
+  "@type": ["LocalBusiness", "FoodEstablishment", "WineStore"],
   "@id": `${SITE_URL}/#business`,
   name: "La Grocerie",
   description:
@@ -104,6 +103,20 @@ const grocerieJsonLd = {
   ],
 };
 
+const websiteNode = {
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "La Grocerie",
+  inLanguage: ["fr-FR", "en-US", "de-DE", "lb-LU"],
+  publisher: { "@id": `${SITE_URL}/#business` },
+};
+
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [businessNode, websiteNode],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = getLocale();
 
@@ -114,11 +127,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.placename" content="Luxembourg-Grund" />
         <meta name="geo.position" content="49.60563;6.13015" />
         <meta name="ICBM" content="49.60563, 6.13015" />
-        <link rel="canonical" href={SITE_URL} />
         <Script
-          id="json-ld-business"
+          id="json-ld-site"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(grocerieJsonLd).replace(/</g, "\\u003c") }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
       <body>
