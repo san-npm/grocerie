@@ -45,11 +45,21 @@ const LanguageContext = createContext<LanguageContextType>({
   localePath: (p) => p,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({
+  children,
+  initialLocale,
+}: {
+  children: ReactNode;
+  initialLocale?: Locale;
+}) {
   const pathname = usePathname();
   const router = useRouter();
 
+  // Server passes the resolved locale (from the middleware-signed x-locale
+  // header) as initialLocale. Using it as the useState seed makes the SSR
+  // HTML match the URL — critical for crawlers and no-JS clients.
   const [locale, setLocaleState] = useState<Locale>(() => {
+    if (initialLocale && allLocales.includes(initialLocale)) return initialLocale;
     const fromPath = detectLocaleFromPath(
       typeof window !== "undefined" ? window.location.pathname : "/"
     );
