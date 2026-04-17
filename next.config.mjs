@@ -2,10 +2,14 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "cmbsxh7oipaip57r.public.blob.vercel-storage.com" },
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
+      { protocol: "https", hostname: "www.bodeboca.com" },
+      { protocol: "https", hostname: "hungarianwines.eu" },
+      { protocol: "https", hostname: "wine-amazing.com" },
+      { protocol: "https", hostname: "www.architectureinterieureduvin.com" },
+      { protocol: "https", hostname: "sharewinecdn.azureedge.net" },
     ],
   },
   async headers() {
@@ -26,12 +30,12 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.stripe.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://images.unsplash.com",
-              "frame-src https://www.google.com https://*.google.com",
-              "connect-src 'self'",
+              "img-src 'self' data: blob: https: https://*.public.blob.vercel-storage.com https://*.stripe.com",
+              "frame-src https://www.google.com https://*.google.com https://js.stripe.com https://hooks.stripe.com",
+              "connect-src 'self' https://*.public.blob.vercel-storage.com https://api.stripe.com",
             ].join("; "),
           },
         ],

@@ -3,7 +3,7 @@ import crypto from 'crypto';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
-const TOKEN_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+const TOKEN_MAX_AGE_MS = 8 * 60 * 60 * 1000;
 
 function getSecret(): string {
   if (!TOKEN_SECRET) throw new Error('TOKEN_SECRET env var is required');
