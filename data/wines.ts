@@ -114,6 +114,8 @@ export interface Wine {
   isOrganic: boolean;
   isBiodynamic: boolean;
   isNatural: boolean;
+  /** Present at runtime when the shared vinsfins blob is loaded; absent in the static snapshot. */
+  stock?: number;
 }
 
 /* Unsplash placeholder images — replace with real photos */

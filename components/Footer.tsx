@@ -71,8 +71,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-cream/5 text-center text-[11px] text-cream/30">
-          {t("footer.copyright")}
+        <div className="mt-16 pt-6 border-t border-cream/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-cream/30">
+          <span>{t("footer.copyright")}</span>
+          <div className="flex gap-4">
+            <Link href={localePath("/legal/cgv")} className="hover:text-cream/60">CGV</Link>
+            <Link href={localePath("/legal/confidentialite")} className="hover:text-cream/60">Confidentialité</Link>
+            <Link href={localePath("/legal/remboursement")} className="hover:text-cream/60">Remboursement</Link>
+          </div>
         </div>
       </div>
     </footer>

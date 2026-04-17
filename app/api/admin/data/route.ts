@@ -54,8 +54,14 @@ export async function POST(request: NextRequest) {
     if (!isValidType(type)) {
       return NextResponse.json({ error: "Invalid type" }, { status: 400, headers: NO_STORE });
     }
-    if (type === "wines" && !Array.isArray(data)) {
-      return NextResponse.json({ error: "Wines must be an array" }, { status: 400, headers: NO_STORE });
+    // Wines are authoritatively edited from the Vins Fins admin (same blob,
+    // shared catalog). Grocerie admin is read-only for wines to prevent
+    // divergent edits and stock races between the two storefronts.
+    if (type === "wines") {
+      return NextResponse.json(
+        { error: "Wines are managed from the Vins Fins admin. This admin is read-only for the wine catalog." },
+        { status: 403, headers: NO_STORE },
+      );
     }
     if (type === "content" && (typeof data !== "object" || data === null)) {
       return NextResponse.json({ error: "Content must be an object" }, { status: 400, headers: NO_STORE });

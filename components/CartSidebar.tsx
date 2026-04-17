@@ -95,6 +95,13 @@ export default function CartSidebar() {
             </div>
             <p className="text-xs text-warmgray/60">{t("cartSidebar.shippingNote")}</p>
             <Link
+              href={localePath("/cave/checkout")}
+              onClick={() => setIsCartOpen(false)}
+              className="btn-mustard w-full text-center block"
+            >
+              {t("cartSidebar.checkout")}
+            </Link>
+            <Link
               href={localePath("/cave")}
               onClick={() => setIsCartOpen(false)}
               className="btn-outline w-full text-center block"

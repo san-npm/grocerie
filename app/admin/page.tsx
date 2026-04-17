@@ -123,27 +123,21 @@ export default function AdminPage() {
         {message && <p className="text-olive text-sm mb-4">{message}</p>}
 
         <div className="space-y-8">
-          {/* Wines */}
+          {/* Wines — read-only (managed from Vins Fins admin) */}
           <div className="bg-white/50 p-6 border border-ink/5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-playfair text-lg text-ink">Wines ({data.wines.length})</h2>
-              <button
-                onClick={() => saveAdminData("wines", data.wines)}
-                disabled={saving}
-                className="btn-mustard text-[9px]"
-              >
-                {saving ? "Saving..." : "Save Wines"}
-              </button>
+              <span className="text-[10px] uppercase tracking-wider text-warmgray">
+                Read-only · Edit from Vins Fins admin
+              </span>
             </div>
+            <p className="text-xs text-warmgray/70 mb-3">
+              The wine catalog is shared with Vins Fins and is authoritative there. Edits here are blocked server-side (403) to prevent divergence and stock races.
+            </p>
             <textarea
-              className="w-full h-64 border border-ink/10 p-4 text-xs font-mono bg-transparent"
+              readOnly
+              className="w-full h-64 border border-ink/10 p-4 text-xs font-mono bg-transparent opacity-60"
               value={JSON.stringify(data.wines, null, 2)}
-              onChange={(e) => {
-                try {
-                  const parsed = JSON.parse(e.target.value);
-                  setData({ ...data, wines: parsed });
-                } catch { /* invalid JSON, ignore */ }
-              }}
             />
           </div>
 
