@@ -13,6 +13,10 @@ const KV_PREFIX = "data:";
 
 export async function loadData(key: string, fallback: unknown): Promise<unknown> {
   noStore();
+  // Pre-launch: the shared KV `wines` entry holds xlsx-imported cost prices,
+  // not retail. Until the retail-priced catalog is imported to KV, grocerie
+  // serves its own curated wine list (data/wines.ts).
+  if (key === "wines") return fallback;
   // 1. Shared KV — primary source of truth.
   try {
     const cached = await kv.get<unknown>(`${KV_PREFIX}${key}`);
