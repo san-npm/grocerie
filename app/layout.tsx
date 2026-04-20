@@ -64,6 +64,10 @@ export async function generateMetadata(): Promise<Metadata> {
 const businessNode = {
   "@type": ["LocalBusiness", "FoodEstablishment", "WineStore"],
   "@id": `${SITE_URL}/#business`,
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", ".hero-description", ".opening-hours"],
+  },
   name: "La Grocerie",
   description:
     "Sandwicherie artisanale, épicerie fermière et cave à vins naturels au cœur du Gründ, Luxembourg. Produits locaux, circuits courts, vins nature.",
@@ -110,11 +114,74 @@ const websiteNode = {
   name: "La Grocerie",
   inLanguage: ["fr-FR", "en-US", "de-DE", "lb-LU"],
   publisher: { "@id": `${SITE_URL}/#business` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/cave?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const faqNode = {
+  "@type": "FAQPage",
+  "@id": `${SITE_URL}/#faq`,
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce que La Grocerie du Gründ ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "La Grocerie réunit trois concepts sous un même toit au 12 Rue Münster, Luxembourg-Grund : Mezzocuore, une sandwicherie artisanale de puccias italiennes ; L'Épicerie fermière avec des produits locaux en circuits courts ; et La Cave, une sélection de vins naturels, bio et biodynamiques.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quels sont les horaires d'ouverture ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Du mardi au samedi de 10h00 à 18h00, le dimanche de 10h00 à 16h00. Fermé le lundi.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Peut-on acheter du vin en ligne ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui — La Cave de La Grocerie propose une boutique en ligne de vins naturels et bio livrables au Luxembourg et en Europe. Retrait gratuit en boutique également disponible.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vendez-vous des produits locaux du Luxembourg ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, l'épicerie privilégie les producteurs luxembourgeois et de la Grande Région, avec des fromages, charcuteries, conserves artisanales, pains, huiles et produits fermiers en circuits courts.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Proposez-vous des sandwichs à emporter ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui, Mezzocuore propose des puccias (petits pains italiens) garnies artisanalement à emporter ou à consommer sur place.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Où se trouve La Grocerie ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Au 12 Rue Münster, dans le quartier historique du Grund à Luxembourg-Ville (L-2160), au bord de l'Alzette.",
+      },
+    },
+  ],
 };
 
 const siteJsonLd = {
   "@context": "https://schema.org",
-  "@graph": [businessNode, websiteNode],
+  "@graph": [businessNode, websiteNode, faqNode],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
