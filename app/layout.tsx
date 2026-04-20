@@ -7,10 +7,12 @@ import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { DataProvider } from "@/context/DataContext";
 import Script from "next/script";
-import { getLocale, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
+import { getLocale,
+  getNonce, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
+  const nonce = await getNonce();
   const meta = pageMeta.home[locale];
 
   return {
@@ -186,6 +188,7 @@ const siteJsonLd = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
+  const nonce = await getNonce();
 
   return (
     <html lang={locale}>
@@ -197,6 +200,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Script
           id="json-ld-site"
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
