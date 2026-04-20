@@ -100,15 +100,16 @@ async function main() {
       if (score > bestScore) { bestScore = score; bestB = b; bestCommon = common; }
     }
 
-    // Accept only if at least one matched token is rare AND non-numeric
-    // (excludes year-only or common-descriptor matches like "extra,brut").
+    // Accept only on strong multi-token matches. Single-token matches
+    // (even on rare tokens) are too easy to fool — "laurent" in
+    // "Saint-Laurent" vs "Laurent Combier" is the same token but a
+    // different wine. Require ≥2 non-numeric shared tokens.
     const isYear = (t: string) => /^\d{4}$/.test(t) || /^\d+cl$/.test(t);
-    const maxNonNumericIdf = Math.max(
-      0,
-      ...bestCommon.filter((t) => !isYear(t)).map((t) => idf(t)),
-    );
-    if (bestB && bestCommon.length >= 1 && maxNonNumericIdf >= 4.5) {
+    const nonNumeric = bestCommon.filter((t) => !isYear(t));
+    const maxIdf = Math.max(0, ...nonNumeric.map((t) => idf(t)));
+    if (bestB && nonNumeric.length >= 2 && maxIdf >= 4.5) {
       cur.image = bestB.image;
+      (cur as { isAvailable?: boolean }).isAvailable = true;
       matched++;
       report.push(`  ✓ ${cur.name}  →  ${bestB.name}  [score=${bestScore.toFixed(2)}, tokens=${bestCommon.join(",")}]`);
     } else {
