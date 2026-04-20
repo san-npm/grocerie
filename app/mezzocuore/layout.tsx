@@ -3,9 +3,9 @@ import { getLocale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildPageMetadata("mezzocuore", getLocale(), "/mezzocuore");
+  return buildPageMetadata("mezzocuore", await getLocale(), "/mezzocuore");
 }
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
   return children;
 }

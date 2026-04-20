@@ -10,7 +10,7 @@ import Script from "next/script";
 import { getLocale, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const locale = getLocale();
+  const locale = await getLocale();
   const meta = pageMeta.home[locale];
 
   return {
@@ -184,8 +184,8 @@ const siteJsonLd = {
   "@graph": [businessNode, websiteNode, faqNode],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = getLocale();
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
 
   return (
     <html lang={locale}>

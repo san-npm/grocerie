@@ -15,11 +15,12 @@ async function getWine(id: string): Promise<Wine | null> {
 }
 
 export async function generateMetadata(
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ): Promise<Metadata> {
-  const wine = await getWine(params.id);
+  const { id } = await params;
+  const wine = await getWine(id);
   if (!wine) return { robots: { index: false, follow: false } };
-  return buildWineMetadata(wine, getLocale());
+  return buildWineMetadata(wine, await getLocale());
 }
 
 export default async function WineLayout({
@@ -27,10 +28,11 @@ export default async function WineLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const locale = getLocale();
-  const wine = await getWine(params.id);
+  const locale = await getLocale();
+  const { id } = await params;
+  const wine = await getWine(id);
   return (
     <>
       {wine && (
