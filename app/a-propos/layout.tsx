@@ -79,11 +79,11 @@ const FAQ: Record<Locale, { q: string; a: string }[]> = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildPageMetadata("a-propos", getLocale(), "/a-propos");
+  return buildPageMetadata("a-propos", await getLocale(), "/a-propos");
 }
 
-export default function AProposLayout({ children }: { children: React.ReactNode }) {
-  const locale = getLocale();
+export default async function AProposLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
   return (
     <>
       <JsonLd id="json-ld-faq" data={faqJsonLd(FAQ[locale])} />

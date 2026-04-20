@@ -3,9 +3,9 @@ import { getLocale } from "@/lib/i18n";
 import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildPageMetadata("contact", getLocale(), "/contact");
+  return buildPageMetadata("contact", await getLocale(), "/contact");
 }
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
   return children;
 }
