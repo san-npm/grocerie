@@ -2,14 +2,13 @@ import { kv } from "@vercel/kv";
 import type { NextRequest } from "next/server";
 
 // On Vercel, `x-real-ip` is edge-signed and cannot be spoofed by the
-// client. `x-forwarded-for` is honoured only as a fallback for local
-// dev — a client-supplied value would bypass rate limiting.
+// client. Anything else (including `x-forwarded-for`) is client-
+// controllable and would let attackers bypass the rate limiter by
+// rotating arbitrary IPs per request — so we fail closed to a
+// shared "unknown" bucket instead of trusting it.
 export function getClientIp(req: NextRequest): string {
   const real = req.headers.get("x-real-ip");
-  if (real) return real.trim();
-  const xff = req.headers.get("x-forwarded-for");
-  if (xff) return xff.split(",")[0].trim();
-  return "unknown";
+  return real?.trim() || "unknown";
 }
 
 type RateLimitResult = {
