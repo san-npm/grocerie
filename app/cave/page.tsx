@@ -86,7 +86,7 @@ export default function CavePage() {
           ) : (
             filteredSections.map((section) => {
               const sectionWines = wines.filter(
-                (w) => w.section === section && w.isAvailable
+                (w) => w.section === section && w.isAvailable && w.priceShop > 0
               );
               if (sectionWines.length === 0) return null;
 
@@ -135,7 +135,7 @@ export default function CavePage() {
                           {wine.priceGlass > 0 && (
                             <span className="text-warmgray">{wine.priceGlass}€ <span className="text-[9px]">{t("cave.glass")}</span></span>
                           )}
-                          <span className="text-mustard-dark">{wine.priceBottle}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
+                          <span className="text-mustard-dark">{wine.priceShop}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
                         </div>
                       </Link>
                     ))}

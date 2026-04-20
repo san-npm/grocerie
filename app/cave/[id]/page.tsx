@@ -57,18 +57,22 @@ export default function WineDetailPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {wine.priceGlass > 0 && (
-                <div className="p-4 bg-parchment/50 text-center">
-                  <p className="text-[10px] tracking-luxury uppercase text-warmgray mb-1">{t("product.byTheGlass")}</p>
-                  <p className="font-playfair text-2xl text-ink">{wine.priceGlass}€</p>
-                </div>
-              )}
-              <div className="p-4 bg-parchment/50 text-center">
-                <p className="text-[10px] tracking-luxury uppercase text-warmgray mb-1">{t("product.atRestaurant")}</p>
-                <p className="font-playfair text-2xl text-ink">{wine.priceBottle}€</p>
+            {(wine.priceGlass > 0 || wine.priceBottle > 0) && (
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {wine.priceGlass > 0 && (
+                  <div className="p-4 bg-parchment/50 text-center">
+                    <p className="text-[10px] tracking-luxury uppercase text-warmgray mb-1">{t("product.byTheGlass")}</p>
+                    <p className="font-playfair text-2xl text-ink">{wine.priceGlass}€</p>
+                  </div>
+                )}
+                {wine.priceBottle > 0 && (
+                  <div className="p-4 bg-parchment/50 text-center">
+                    <p className="text-[10px] tracking-luxury uppercase text-warmgray mb-1">{t("product.atRestaurant")}</p>
+                    <p className="font-playfair text-2xl text-ink">{wine.priceBottle}€</p>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
 
             {wine.priceShop > 0 && (
               <div className="border-t border-ink/10 pt-8">
