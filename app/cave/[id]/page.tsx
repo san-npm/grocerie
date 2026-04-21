@@ -35,7 +35,8 @@ export default function WineDetailPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
           <div className="relative aspect-[3/4] bg-parchment overflow-hidden">
-            <Image src={wine.image} alt={wine.name} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image
+                            unoptimized src={wine.image} alt={wine.name} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             {(wine.isOrganic || wine.isNatural || wine.isBiodynamic) && (
               <div className="absolute top-4 left-4 flex gap-2">
                 {wine.isNatural && <span className="bg-olive text-cream text-[9px] px-2 py-1 uppercase tracking-wider">{t("cave.badgeNatural")}</span>}
