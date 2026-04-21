@@ -187,5 +187,12 @@
     "copyright": "© 2026 La Grocerie du Gründ. Alle Rechte vorbehalten.",
     "hours": "Di–Sa: 10–18 Uhr",
     "hoursSun": "So: 10–16 Uhr · Mo: Geschlossen"
+  },
+  "consent": {
+    "label": "Einwilligungsbanner",
+    "text": "Diese Website verwendet Cookies für Analysezwecke (Google Analytics). Es werden keine Daten erhoben, solange Sie nicht zustimmen. Weitere Informationen finden Sie in unserer",
+    "privacyLink": "Datenschutzerklärung",
+    "accept": "Alle akzeptieren",
+    "reject": "Alle ablehnen"
   }
 }

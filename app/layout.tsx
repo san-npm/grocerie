@@ -7,6 +7,7 @@ import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { DataProvider } from "@/context/DataContext";
 import Script from "next/script";
+import ConsentBanner from "@/components/ConsentBanner";
 import { getLocale,
   getNonce, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
 
@@ -197,6 +198,29 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           nonce={nonce}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, "\\u003c") }}
         />
+        <Script id="gtag-default-consent" strategy="beforeInteractive" nonce={nonce}>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+            wait_for_update: 500,
+          });
+          gtag('js', new Date());
+        `}</Script>
+        <Script
+          id="gtag-loader"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3F2HPYFNM4"
+          nonce={nonce}
+        />
+        <Script id="gtag-config" strategy="afterInteractive" nonce={nonce}>{`
+          gtag('config', 'G-3F2HPYFNM4');
+        `}</Script>
       </head>
       <body>
         <LanguageProvider initialLocale={locale}>
@@ -206,6 +230,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               {children}
               <Footer />
               <CartSidebar />
+              <ConsentBanner />
             </CartProvider>
           </DataProvider>
         </LanguageProvider>
