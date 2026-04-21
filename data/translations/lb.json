@@ -187,5 +187,12 @@
     "copyright": "© 2026 La Grocerie du Gründ. All Rechter virbehal.",
     "hours": "Dë–Sa: 10–18 Auer",
     "hoursSun": "So: 10–16 Auer · Mo: Zou"
+  },
+  "consent": {
+    "label": "Consenter Bänner",
+    "text": "Dës Säit benotzt Cookien fir Analyses-Zwecker (Google Analytics). Keng Donnéeën ginn gesammelt, bis Dir akzeptéiert. Méi Informatiounen an eiser",
+    "privacyLink": "Dateschutzpolitik",
+    "accept": "All akzeptéieren",
+    "reject": "All refuséieren"
   }
 }

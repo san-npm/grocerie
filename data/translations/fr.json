@@ -187,5 +187,12 @@
     "copyright": "© 2026 La Grocerie du Gründ. Tous droits réservés.",
     "hours": "Mar–Sam : 10h–18h",
     "hoursSun": "Dim : 10h–16h · Lun : Fermé"
+  },
+  "consent": {
+    "label": "Bandeau de consentement",
+    "text": "Ce site utilise des cookies à des fins d'analyse (Google Analytics). Aucune donnée n'est collectée tant que vous n'avez pas accepté. Plus d'informations dans notre",
+    "privacyLink": "politique de confidentialité",
+    "accept": "Tout accepter",
+    "reject": "Tout refuser"
   }
 }
