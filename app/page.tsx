@@ -70,12 +70,9 @@ export default function HomePage() {
             <p className="text-mustard text-[10px] tracking-luxury uppercase mb-2">
               {t("home.pillar1Label")}
             </p>
-            <h3 className="font-playfair text-xl text-ink mb-3">
+            <h3 className="font-playfair text-xl text-ink mb-6">
               {t("home.pillar1Title")}
             </h3>
-            <p className="text-warmgray text-sm leading-relaxed mb-6">
-              {t("home.pillar1Desc")}
-            </p>
             <span className="text-mustard-dark text-[10px] tracking-luxury uppercase group-hover:text-mustard transition-colors">
               {t("home.pillar1Link")} →
             </span>
