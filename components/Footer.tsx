@@ -60,7 +60,7 @@ export default function Footer() {
           <div className="space-y-3 text-sm text-warmgray">
             <p className="text-cream font-playfair text-base mb-4">{t("footer.sisterTitle")}</p>
             <a
-              href="https://vinsfins.lu"
+              href="https://www.vinsfins.lu"
               target="_blank"
               rel="noopener noreferrer"
               className="block hover:text-cream transition-colors"
