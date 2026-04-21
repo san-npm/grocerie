@@ -9,10 +9,10 @@ La Grocerie du Gründ is a neighbourhood food destination in Luxembourg-Grund co
 - **Address**: 12 Rue Münster, L-2160 Luxembourg-Grund
 - **Email**: info@lagrocerie.lu
 - **Instagram**: @lagroceriegrund
-- **Website**: https://lagrocerie.lu
+- **Website**: https://www.lagrocerie.lu
 - **Hours**: Tue–Sat 10:00–18:00, Sun 10:00–16:00, Mon Closed
 - **Languages**: French (primary), English, German, Luxembourgish
 
 ## Detailed Information
 
-For comprehensive information about La Grocerie, see [llms-full.txt](https://lagrocerie.lu/llms-full.txt).
+For comprehensive information about La Grocerie, see [llms-full.txt](https://www.lagrocerie.lu/llms-full.txt).

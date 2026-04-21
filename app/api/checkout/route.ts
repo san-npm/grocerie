@@ -124,7 +124,7 @@ export async function POST(req: NextRequest) {
 
       const origin = process.env.NEXT_PUBLIC_SITE_URL
         || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : null)
-        || "https://lagrocerie.lu";
+        || "https://www.lagrocerie.lu";
 
       const shippingOptions = deliveryMethod === "delivery"
         ? [
