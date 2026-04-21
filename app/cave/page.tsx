@@ -109,6 +109,7 @@ export default function CavePage() {
                       >
                         <div className="relative aspect-[3/4] bg-parchment overflow-hidden mb-3">
                           <Image
+                            unoptimized
                             src={wine.image}
                             alt={wine.name}
                             fill
