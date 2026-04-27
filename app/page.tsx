@@ -20,6 +20,7 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="relative z-10 text-center px-6 max-w-3xl">
+          <h1 className="sr-only">{t("home.heroTitle")}</h1>
           <Image
             src="/lagrocerie-logo.png"
             alt="La Grocerie"
@@ -28,7 +29,7 @@ export default function HomePage() {
             className="h-14 sm:h-20 w-auto mx-auto mb-4 invert"
             priority
           />
-          <p className="text-cream/80 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
+          <p className="hero-description text-cream/80 text-sm max-w-lg mx-auto mb-10 leading-relaxed">
             {t("home.heroDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

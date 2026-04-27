@@ -26,6 +26,10 @@ async function isAlreadyProcessed(sessionId: string): Promise<boolean> {
   return true;
 }
 
+function orderRef(sessionId: string): string {
+  return sessionId.slice(-8).toUpperCase();
+}
+
 function parseSessionItems(session: Stripe.Checkout.Session): { wineId: string; quantity: number }[] {
   try {
     const json = session.metadata?.itemsJson;
@@ -38,10 +42,7 @@ function parseSessionItems(session: Stripe.Checkout.Session): { wineId: string; 
 }
 
 async function fulfillOrder(session: Stripe.Checkout.Session) {
-  if (await isAlreadyProcessed(session.id)) {
-    console.log("Session already processed, skipping:", session.id);
-    return;
-  }
+  if (await isAlreadyProcessed(session.id)) return;
 
   const lineItemsResponse = await stripe.checkout.sessions.listLineItems(session.id, {
     limit: 100,
@@ -58,22 +59,17 @@ async function fulfillOrder(session: Stripe.Checkout.Session) {
   });
 
   await sendOrderConfirmation(fullSession, orderItems);
-  console.log("Order fulfilled:", session.id);
 }
 
 async function handlePaymentFailed(session: Stripe.Checkout.Session) {
   const releaseKey = `released:grocerie:${session.id}`;
   const wasSet = await kv.setnx(releaseKey, 1);
-  if (!wasSet) {
-    console.log("Stock already released for session, skipping:", session.id);
-    return;
-  }
+  if (!wasSet) return;
   await kv.expire(releaseKey, 7 * 24 * 60 * 60);
 
   const items = parseSessionItems(session);
   if (items.length > 0) {
     await releaseStock(items);
-    console.log("Stock released for failed/expired session:", session.id);
   }
 }
 
@@ -99,13 +95,7 @@ export async function POST(req: NextRequest) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
       if (!isGrocerieSession(session)) return ackSkip();
-      console.log("Checkout completed:", {
-        sessionId: session.id,
-        email: session.customer_details?.email,
-        amount: session.amount_total,
-        paymentStatus: session.payment_status,
-        deliveryMethod: session.metadata?.deliveryMethod,
-      });
+      console.log(`[grocerie webhook] checkout.completed ${orderRef(session.id)} status=${session.payment_status}`);
       if (session.payment_status === "paid") {
         await fulfillOrder(session);
       }
@@ -115,7 +105,7 @@ export async function POST(req: NextRequest) {
     case "checkout.session.async_payment_succeeded": {
       const session = event.data.object as Stripe.Checkout.Session;
       if (!isGrocerieSession(session)) return ackSkip();
-      console.log("Async payment succeeded:", session.id);
+      console.log(`[grocerie webhook] async_payment.succeeded ${orderRef(session.id)}`);
       await fulfillOrder(session);
       break;
     }
@@ -123,7 +113,7 @@ export async function POST(req: NextRequest) {
     case "checkout.session.async_payment_failed": {
       const session = event.data.object as Stripe.Checkout.Session;
       if (!isGrocerieSession(session)) return ackSkip();
-      console.log("Async payment failed:", session.id);
+      console.log(`[grocerie webhook] async_payment.failed ${orderRef(session.id)}`);
       await handlePaymentFailed(session);
       break;
     }
@@ -131,7 +121,7 @@ export async function POST(req: NextRequest) {
     case "checkout.session.expired": {
       const session = event.data.object as Stripe.Checkout.Session;
       if (!isGrocerieSession(session)) return ackSkip();
-      console.log("Session expired:", session.id);
+      console.log(`[grocerie webhook] session.expired ${orderRef(session.id)}`);
       await handlePaymentFailed(session);
       break;
     }
@@ -139,13 +129,7 @@ export async function POST(req: NextRequest) {
     case "charge.refunded": {
       const charge = event.data.object as Stripe.Charge;
       if (!isGrocerieCharge(charge)) return ackSkip();
-      console.log("Charge refunded:", {
-        chargeId: charge.id,
-        paymentIntent: charge.payment_intent,
-        amount: charge.amount_refunded,
-        currency: charge.currency,
-        reason: charge.refunds?.data[0]?.reason,
-      });
+      console.log(`[grocerie webhook] charge.refunded ${charge.id.slice(-8)} amount=${charge.amount_refunded}${charge.currency}`);
       break;
     }
 

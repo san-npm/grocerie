@@ -43,6 +43,12 @@ export function validateMenu(data: unknown): string | null {
   return null;
 }
 
+const MAX_SHORT_FIELD = 200;
+
+function isShortString(val: unknown): val is string {
+  return typeof val === 'string' && val.length <= MAX_SHORT_FIELD;
+}
+
 export function validateContent(data: unknown): string | null {
   if (!data || typeof data !== 'object') return 'Expected an object';
   const c = data as Record<string, unknown>;
@@ -50,8 +56,10 @@ export function validateContent(data: unknown): string | null {
   if (!isLangRecord(c.closedMessage)) return 'Invalid closedMessage';
   if (!isLangRecord(c.heroTagline)) return 'Invalid heroTagline';
   if (!isOptionalLangRecord(c.announcement)) return 'Invalid announcement';
-  if (typeof c.address !== 'string') return 'Invalid address';
-  if (typeof c.phone !== 'string') return 'Invalid phone';
-  if (typeof c.email !== 'string') return 'Invalid email';
+  if (!isShortString(c.address)) return 'Invalid address';
+  if (!isShortString(c.phone)) return 'Invalid phone';
+  if (!isShortString(c.email)) return 'Invalid email';
+  if (!isShortString(c.instagram)) return 'Invalid instagram';
+  if (!isShortString(c.facebook)) return 'Invalid facebook';
   return null;
 }

@@ -40,11 +40,20 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "La Grocerie",
       locale: locale === "fr" ? "fr_FR" : locale === "de" ? "de_DE" : locale === "lb" ? "lb_LU" : "en_US",
       type: "website",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "La Grocerie — Sandwicherie, Épicerie & Cave à Vins · Gründ, Luxembourg",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: meta.ogTitle,
       description: meta.ogDescription,
+      images: ["/og-image.png"],
     },
     robots: {
       index: true,

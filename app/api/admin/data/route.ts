@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/admin-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { loadData, saveData } from "@/lib/storage";
+import { validateContent } from "@/lib/validation";
 import { wines as defaultWines } from "@/data/wines";
 import { siteContent as defaultContent } from "@/data/content";
 
@@ -63,8 +64,11 @@ export async function POST(request: NextRequest) {
         { status: 403, headers: NO_STORE },
       );
     }
-    if (type === "content" && (typeof data !== "object" || data === null)) {
-      return NextResponse.json({ error: "Content must be an object" }, { status: 400, headers: NO_STORE });
+    if (type === "content") {
+      const err = validateContent(data);
+      if (err) {
+        return NextResponse.json({ error: err }, { status: 400, headers: NO_STORE });
+      }
     }
     await saveData(type, data);
     return NextResponse.json({ success: true }, { headers: NO_STORE });
