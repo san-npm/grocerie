@@ -1,12 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Wine } from "@/data/wines";
 import { SiteContent } from "@/data/content";
 
 interface AdminData {
   wines: Wine[];
   content: SiteContent;
+}
+
+interface FailedEmailSummary {
+  id: string;
+  to: string;
+  subject: string;
+  sessionId: string;
+  errorMessage: string;
+  createdAt: number;
+  attempts: number;
+  lastAttemptAt: number;
 }
 
 export default function AdminPage() {
@@ -16,6 +27,8 @@ export default function AdminPage() {
   const [data, setData] = useState<AdminData | null>(null);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const [failedEmails, setFailedEmails] = useState<FailedEmailSummary[]>([]);
+  const [emailBusy, setEmailBusy] = useState<string | null>(null);
 
   const login = async () => {
     setError("");
@@ -61,6 +74,38 @@ export default function AdminPage() {
     }
     loadData();
   }, [token]);
+
+  const loadFailedEmails = useCallback(async () => {
+    if (!token) return;
+    try {
+      const res = await fetch("/api/admin/failed-emails", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) return;
+      const json: { items: FailedEmailSummary[] } = await res.json();
+      setFailedEmails(json.items ?? []);
+    } catch {
+      /* ignore */
+    }
+  }, [token]);
+
+  useEffect(() => {
+    loadFailedEmails();
+  }, [loadFailedEmails]);
+
+  const failedEmailAction = async (id: string, action: "retry" | "delete") => {
+    setEmailBusy(id);
+    try {
+      await fetch("/api/admin/failed-emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ id, action }),
+      });
+      await loadFailedEmails();
+    } finally {
+      setEmailBusy(null);
+    }
+  };
 
   const saveAdminData = async (type: string, payload: unknown) => {
     setSaving(true);
@@ -163,6 +208,52 @@ export default function AdminPage() {
                 } catch { /* invalid JSON, ignore */ }
               }}
             />
+          </div>
+
+          {/* Failed Emails */}
+          <div className="bg-white/50 p-6 border border-ink/5">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-playfair text-lg text-ink">
+                Failed Emails {failedEmails.length > 0 && <span className="text-wine">({failedEmails.length})</span>}
+              </h2>
+              <button onClick={loadFailedEmails} className="text-[10px] uppercase tracking-wider text-warmgray hover:text-wine">
+                ↻ Refresh
+              </button>
+            </div>
+            {failedEmails.length === 0 ? (
+              <p className="text-xs text-warmgray">No failed order confirmations.</p>
+            ) : (
+              <div className="space-y-3">
+                {failedEmails.map((f) => (
+                  <div key={f.id} className="border border-ink/10 p-3 text-xs">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-1 text-warmgray">
+                      <span><strong className="text-ink">To:</strong> {f.to}</span>
+                      <span><strong className="text-ink">Order:</strong> <span className="font-mono">{f.sessionId.slice(-8).toUpperCase()}</span></span>
+                      <span><strong className="text-ink">Attempts:</strong> {f.attempts}</span>
+                      <span><strong className="text-ink">Last:</strong> {new Date(f.lastAttemptAt).toLocaleString("fr-FR")}</span>
+                    </div>
+                    <div className="text-ink mb-1">{f.subject}</div>
+                    <div className="text-wine break-all mb-2">{f.errorMessage}</div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => failedEmailAction(f.id, "retry")}
+                        disabled={emailBusy === f.id}
+                        className="btn-mustard text-[9px] disabled:opacity-50"
+                      >
+                        {emailBusy === f.id ? "..." : "Retry"}
+                      </button>
+                      <button
+                        onClick={() => failedEmailAction(f.id, "delete")}
+                        disabled={emailBusy === f.id}
+                        className="text-[10px] uppercase tracking-wider text-warmgray hover:text-wine disabled:opacity-50"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

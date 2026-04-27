@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import Stripe from "stripe";
+import { enqueueFailedEmail } from "@/lib/email-queue";
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -125,24 +126,72 @@ export async function sendOrderConfirmation(
 
   const html = buildOrderHtml(session, lineItems);
   const orderRef = session.id.slice(-8).toUpperCase();
+  const customerSubject = `La Grocerie — Confirmation de commande #${orderRef}`;
+  const adminSubject = `Nouvelle commande #${orderRef} — ${customerEmail}`;
 
+  await sendOrSpool({
+    sessionId: session.id,
+    kind: "customer",
+    to: customerEmail,
+    subject: customerSubject,
+    html,
+  });
+
+  await sendOrSpool({
+    sessionId: session.id,
+    kind: "admin",
+    to: ADMIN_EMAIL,
+    subject: adminSubject,
+    html,
+  });
+}
+
+async function sendOrSpool(input: {
+  sessionId: string;
+  kind: "customer" | "admin";
+  to: string;
+  subject: string;
+  html: string;
+}): Promise<void> {
+  if (!resend) return;
   try {
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: customerEmail,
-      subject: `La Grocerie — Confirmation de commande #${orderRef}`,
-      html,
+      to: input.to,
+      subject: input.subject,
+      html: input.html,
     });
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    await enqueueFailedEmail({
+      to: input.to,
+      from: FROM_EMAIL,
+      subject: input.subject,
+      html: input.html,
+      sessionId: input.sessionId,
+      kind: input.kind,
+      errorMessage,
+    }).catch(() => {
+      // Last resort: nothing more we can do here
+    });
+  }
+}
 
+export async function retrySendEmail(input: {
+  to: string;
+  subject: string;
+  html: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  if (!resend) return { ok: false, error: "RESEND_API_KEY not configured" };
+  try {
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: ADMIN_EMAIL,
-      subject: `Nouvelle commande #${orderRef} — ${customerEmail}`,
-      html,
+      to: input.to,
+      subject: input.subject,
+      html: input.html,
     });
-
-    console.log("Order confirmation emails sent to:", customerEmail, "and", ADMIN_EMAIL);
+    return { ok: true };
   } catch (err) {
-    console.error("Failed to send order confirmation email:", err);
+    return { ok: false, error: err instanceof Error ? err.message : String(err) };
   }
 }
