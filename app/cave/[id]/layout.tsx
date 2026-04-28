@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getLocale } from "@/lib/i18n";
 import { buildWineMetadata, productJsonLd, wineBreadcrumb } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -33,6 +34,7 @@ export default async function WineLayout({
   const locale = await getLocale();
   const { id } = await params;
   const wine = await getWine(id);
+  if (!wine) notFound();
   return (
     <>
       {wine && (
