@@ -198,9 +198,8 @@
   },
   "contest": {
     "label": "Wettbewerbs-Banner",
-    "text": "La Grocerie nimmt am Blooming-Windows-Wettbewerb teil —",
-    "textMobile": "Blooming-Windows-Wettbewerb —",
-    "cta": "Stimmt für uns",
+    "text": "Stimmt für La Grocerie beim Schaufenster-Wettbewerb der Stadt Luxemburg",
+    "textMobile": "Stimmt für La Grocerie — Schaufenster-Wettbewerb",
     "dismiss": "Banner schließen"
   }
 }
