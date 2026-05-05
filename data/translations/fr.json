@@ -195,5 +195,12 @@
     "privacyLink": "politique de confidentialité",
     "accept": "Tout accepter",
     "reject": "Tout refuser"
+  },
+  "contest": {
+    "label": "Bandeau concours",
+    "text": "La Grocerie est en lice au concours Blooming Windows —",
+    "textMobile": "Concours Blooming Windows —",
+    "cta": "Votez pour nous",
+    "dismiss": "Fermer le bandeau"
   }
 }

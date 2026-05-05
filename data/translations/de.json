@@ -195,5 +195,12 @@
     "privacyLink": "Datenschutzerklärung",
     "accept": "Alle akzeptieren",
     "reject": "Alle ablehnen"
+  },
+  "contest": {
+    "label": "Wettbewerbs-Banner",
+    "text": "La Grocerie nimmt am Blooming-Windows-Wettbewerb teil —",
+    "textMobile": "Blooming-Windows-Wettbewerb —",
+    "cta": "Stimmt für uns",
+    "dismiss": "Banner schließen"
   }
 }
