@@ -195,5 +195,12 @@
     "privacyLink": "privacy policy",
     "accept": "Accept all",
     "reject": "Reject all"
+  },
+  "contest": {
+    "label": "Contest banner",
+    "text": "La Grocerie is competing in the Blooming Windows contest —",
+    "textMobile": "Blooming Windows contest —",
+    "cta": "Vote for us",
+    "dismiss": "Close banner"
   }
 }

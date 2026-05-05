@@ -195,5 +195,12 @@
     "privacyLink": "Dateschutzpolitik",
     "accept": "All akzeptéieren",
     "reject": "All refuséieren"
+  },
+  "contest": {
+    "label": "Concours-Banner",
+    "text": "La Grocerie ass um Blooming-Windows-Concours derbäi —",
+    "textMobile": "Blooming-Windows-Concours —",
+    "cta": "Stëmmt fir eis",
+    "dismiss": "Banner zoumaachen"
   }
 }

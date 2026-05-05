@@ -59,7 +59,8 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        style={{ top: "var(--promo-h, 0px)" }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-cream/95 backdrop-blur-sm shadow-sm shadow-ink/5"
             : "bg-cream/80 backdrop-blur-sm"
