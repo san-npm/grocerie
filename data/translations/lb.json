@@ -198,9 +198,8 @@
   },
   "contest": {
     "label": "Concours-Banner",
-    "text": "La Grocerie ass um Blooming-Windows-Concours derbäi —",
-    "textMobile": "Blooming-Windows-Concours —",
-    "cta": "Stëmmt fir eis",
+    "text": "Stëmmt fir La Grocerie um Vitrinne-Concours vun der Stad Lëtzebuerg",
+    "textMobile": "Stëmmt fir La Grocerie — Vitrinne-Concours",
     "dismiss": "Banner zoumaachen"
   }
 }

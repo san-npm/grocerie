@@ -198,9 +198,8 @@
   },
   "contest": {
     "label": "Bandeau concours",
-    "text": "La Grocerie est en lice au concours Blooming Windows —",
-    "textMobile": "Concours Blooming Windows —",
-    "cta": "Votez pour nous",
+    "text": "Votez pour La Grocerie au concours de vitrine de la Ville de Luxembourg",
+    "textMobile": "Votez pour La Grocerie — concours de vitrine",
     "dismiss": "Fermer le bandeau"
   }
 }

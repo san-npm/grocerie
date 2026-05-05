@@ -41,25 +41,24 @@ export default function ContestBanner() {
       aria-label={t("contest.label")}
       className="fixed top-0 left-0 right-0 z-[55] bg-mustard text-ink"
     >
-      <div className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between gap-4">
+      <div className="relative max-w-7xl mx-auto px-10 h-10 flex items-center justify-center">
         <a
           href={CONTEST_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[11px] sm:text-xs leading-tight tracking-wide uppercase font-light hover:underline"
+          className="flex items-center gap-2 text-[11px] sm:text-xs leading-tight tracking-wide uppercase font-light text-center hover:underline"
         >
           <span aria-hidden>🌸</span>
           <span className="truncate">
-            <span className="hidden sm:inline">{t("contest.text")} </span>
-            <span className="sm:hidden">{t("contest.textMobile")} </span>
-            <span className="font-medium underline-offset-2">{t("contest.cta")}</span>
+            <span className="hidden sm:inline">{t("contest.text")}</span>
+            <span className="sm:hidden">{t("contest.textMobile")}</span>
           </span>
         </a>
         <button
           type="button"
           onClick={dismiss}
           aria-label={t("contest.dismiss")}
-          className="flex-shrink-0 text-ink/70 hover:text-ink text-lg leading-none px-2"
+          className="absolute right-2 top-1/2 -translate-y-1/2 text-ink/70 hover:text-ink text-lg leading-none px-2"
         >
           ×
         </button>

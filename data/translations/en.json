@@ -198,9 +198,8 @@
   },
   "contest": {
     "label": "Contest banner",
-    "text": "La Grocerie is competing in the Blooming Windows contest —",
-    "textMobile": "Blooming Windows contest —",
-    "cta": "Vote for us",
+    "text": "Vote for La Grocerie in the City of Luxembourg shop window contest",
+    "textMobile": "Vote for La Grocerie — shop window contest",
     "dismiss": "Close banner"
   }
 }
