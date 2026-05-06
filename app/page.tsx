@@ -12,7 +12,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-ink overflow-hidden">
         <Image
-          src="/la-grocerie.jpeg"
+          src="/la-grocerie-storefront.jpeg"
           alt=""
           fill
           className="object-cover opacity-30"

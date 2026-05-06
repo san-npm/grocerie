@@ -12,7 +12,7 @@ export default function EvenementsPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-ink overflow-hidden">
         <Image
-          src="/evenements-hero.jpeg"
+          src="/la-grocerie-storefront.jpeg"
           alt=""
           fill
           className="object-cover opacity-30"
