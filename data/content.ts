@@ -1,3 +1,5 @@
+import { businessProfile } from "@/data/business";
+
 export interface SiteContent {
   hours: Record<'fr' | 'en' | 'de' | 'lb', string>;
   closedMessage: Record<'fr' | 'en' | 'de' | 'lb', string>;
@@ -9,6 +11,11 @@ export interface SiteContent {
   instagram: string;
   facebook: string;
 }
+
+// Address/phone/email derive from `businessProfile` so the two records
+// can't drift. siteContent retains its multi-locale prose fields (hours,
+// taglines, announcements).
+const _bp = businessProfile;
 
 export const siteContent: SiteContent = {
   hours: {
@@ -30,9 +37,13 @@ export const siteContent: SiteContent = {
     lb: 'Sandwichladen · Epicerie · Wäikeller — Gronn, Lëtzebuerg',
   },
   announcement: null,
-  address: '12 Rue Münster, L-2160 Luxembourg-Grund',
-  phone: '',
-  email: 'info@lagrocerie.lu',
-  instagram: 'https://instagram.com/lagroceriegrund',
-  facebook: '',
+  address: `${_bp.streetAddress}, ${_bp.postalCode} ${_bp.localityByLocale.fr}`,
+  // TODO(owner): supply public phone (+352 ...) and update
+  // `businessProfile.telephone` in data/business.ts. Empty `phone` here
+  // means JSON-LD omits `telephone`, which kills "épicerie à proximité"
+  // / Local Pack eligibility (audit P0).
+  phone: _bp.telephone,
+  email: _bp.email,
+  instagram: _bp.socials.instagram,
+  facebook: _bp.socials.facebook,
 };

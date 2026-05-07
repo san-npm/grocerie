@@ -31,9 +31,9 @@ const config: Config = {
         sand: "#D4C4A8",
       },
       fontFamily: {
-        script: ["Monsieur La Doulaise", "cursive"],
-        playfair: ["Playfair Display", "serif"],
-        sans: ["Source Sans 3", "sans-serif"],
+        script: ["var(--font-monsieur)", "Monsieur La Doulaise", "cursive"],
+        playfair: ["var(--font-playfair)", "Playfair Display", "serif"],
+        sans: ["var(--font-source-sans)", "Source Sans 3", "sans-serif"],
       },
       letterSpacing: {
         luxury: "0.25em",

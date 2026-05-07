@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { aproposFaq, aproposFaqHeading } from "@/data/faq";
 
 export default function AboutPage() {
-  const { t, localePath } = useLanguage();
+  const { t, locale, localePath } = useLanguage();
+  const faqItems = aproposFaq[locale];
 
   return (
     <main className="relative z-[1]">
@@ -86,6 +88,23 @@ export default function AboutPage() {
             <h3 className="font-playfair text-lg text-ink mb-3">{t("about.valuesShortChain")}</h3>
             <p className="text-warmgray text-sm leading-relaxed">{t("about.valuesShortChainDesc")}</p>
           </div>
+        </div>
+      </section>
+
+      {/* Visible FAQ — backs the FAQPage JSON-LD emitted in layout.tsx */}
+      <section className="py-24 px-6 bg-cream">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-playfair text-3xl text-ink mb-10 text-center">
+            {aproposFaqHeading[locale]}
+          </h2>
+          <dl className="space-y-8">
+            {faqItems.map((item) => (
+              <div key={item.question} className="border-b border-ink/10 pb-6">
+                <dt className="font-playfair text-lg text-ink mb-2">{item.question}</dt>
+                <dd className="text-warmgray text-sm leading-relaxed">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
