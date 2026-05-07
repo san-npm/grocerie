@@ -18,7 +18,7 @@ La Grocerie du Gründ is a neighbourhood food destination located at 12 Rue Mün
 - **Email**: info@lagrocerie.lu
 - **Instagram**: @lagroceriegrund (https://instagram.com/lagroceriegrund)
 - **Website**: https://www.lagrocerie.lu
-- **Coordinates**: 49.60563°N, 6.13015°E
+- **Coordinates**: 49.60563°N, 6.12815°E
 
 ## Opening Hours
 
