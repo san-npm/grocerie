@@ -38,10 +38,6 @@ export const siteContent: SiteContent = {
   },
   announcement: null,
   address: `${_bp.streetAddress}, ${_bp.postalCode} ${_bp.localityByLocale.fr}`,
-  // TODO(owner): supply public phone (+352 ...) and update
-  // `businessProfile.telephone` in data/business.ts. Empty `phone` here
-  // means JSON-LD omits `telephone`, which kills "épicerie à proximité"
-  // / Local Pack eligibility (audit P0).
   phone: _bp.telephone,
   email: _bp.email,
   instagram: _bp.socials.instagram,
