@@ -22,10 +22,7 @@ export const businessProfile = {
   // Coordinates match the owner-set Google Maps embed at /contact for
   // 12 Rue Münster (49°36'20.3"N 6°07'41.3"E ≈ 49.60563, 6.12815).
   geo: { latitude: 49.60563, longitude: 6.12815 },
-  // TODO(owner): supply public phone for `+352 ...`. Currently empty in
-  // siteContent and absent from JSON-LD — required for "épicerie à
-  // proximité" / Local Pack eligibility (audit P0).
-  telephone: '',
+  telephone: '+352 621 543 362',
   email: 'info@lagrocerie.lu',
   priceRange: '€€',
   // Tue–Sat 10:00–18:00, Sun 10:00–16:00, Mon closed.
