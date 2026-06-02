@@ -60,11 +60,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // fall back to static
   }
 
-  // Only emit cave URLs that actually render — /cave filters wines by
-  // `isAvailable && priceShop > 0`. Emitting others creates soft-404
-  // warnings in Search Console and wastes crawl budget.
+  // /cave lists every `isAvailable` wine (full browse menu, mirroring Vins
+  // Fins /vins), so the sitemap indexes all of them — not just the priced
+  // shop wines. Detail pages for available wines render index,follow.
   for (const wine of wines) {
-    if (!wine.isAvailable || wine.priceShop <= 0) continue;
+    if (!wine.isAvailable) continue;
     const path = `/cave/${wine.id}`;
     for (const locale of locales) {
       entries.push({

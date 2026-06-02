@@ -16,7 +16,7 @@ export default async function CaveLayout({ children }: { children: React.ReactNo
     wines = (await loadData("wines", defaultWines)) as Wine[];
   } catch { /* fall through to static defaults */ }
 
-  const shown = wines.filter((w) => w.isAvailable && w.priceShop > 0);
+  const shown = wines.filter((w) => w.isAvailable);
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",

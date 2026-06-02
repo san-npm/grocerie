@@ -116,8 +116,10 @@ export function websiteJsonLd() {
 
 export function productJsonLd(wine: Wine, locale: Locale) {
   const url = localeUrl(`/cave/${wine.id}`, locale);
-  const price = wine.priceShop || wine.priceBottle;
-  return {
+  // Online sale price only — never fall back to the restaurant bottle price,
+  // or a browse-only menu wine (priceShop:0) would emit a spurious Offer.
+  const price = wine.priceShop;
+  const product: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${url}#product`,
@@ -128,15 +130,21 @@ export function productJsonLd(wine: Wine, locale: Locale) {
     category: wine.category,
     brand: { "@type": "Brand", name: wine.region || wine.country || "Natural Wine" },
     countryOfOrigin: wine.country,
-    offers: {
+  };
+  // Only emit an Offer for wines actually on sale (price > 0). Browse-only
+  // menu wines (no online price) get a valid Product with no offer — emitting
+  // a price:0 Offer would be flagged invalid by Google.
+  if (price > 0) {
+    product.offers = {
       "@type": "Offer",
       url,
       priceCurrency: "EUR",
       price,
       availability: wine.isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       seller: { "@id": `${SITE_URL}/#business` },
-    },
-  };
+    };
+  }
+  return product;
 }
 
 export function itemListJsonLd(wines: Wine[], locale: Locale) {

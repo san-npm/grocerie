@@ -85,8 +85,11 @@ export default function CavePage() {
             </div>
           ) : (
             filteredSections.map((section) => {
+              // Mirror Vins Fins /vins: list every available wine (full cellar
+              // as a browse menu); prices + add-to-cart appear only for wines
+              // actually on sale (priceShop > 0), gated below.
               const sectionWines = wines.filter(
-                (w) => w.section === section && w.isAvailable && w.priceShop > 0
+                (w) => w.section === section && w.isAvailable
               );
               if (sectionWines.length === 0) return null;
 
@@ -132,12 +135,14 @@ export default function CavePage() {
                         </div>
                         <p className="text-ink text-sm font-light group-hover:text-mustard-dark transition-colors">{wine.name}</p>
                         <p className="text-warmgray text-[11px]">{wine.grape} · {wine.region}</p>
-                        <div className="flex gap-3 mt-1 text-xs">
-                          {wine.priceGlass > 0 && (
-                            <span className="text-warmgray">{wine.priceGlass}€ <span className="text-[9px]">{t("cave.glass")}</span></span>
-                          )}
-                          <span className="text-mustard-dark">{wine.priceShop}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
-                        </div>
+                        {wine.priceShop > 0 && (
+                          <div className="flex gap-3 mt-1 text-xs">
+                            {wine.priceGlass > 0 && (
+                              <span className="text-warmgray">{wine.priceGlass}€ <span className="text-[9px]">{t("cave.glass")}</span></span>
+                            )}
+                            <span className="text-mustard-dark">{wine.priceShop}€ <span className="text-[9px]">{t("cave.bottle")}</span></span>
+                          </div>
+                        )}
                       </Link>
                     ))}
                   </div>

@@ -5,6 +5,7 @@
 
 export const WINE_SECTIONS = [
   'bubbles',
+  'beer',
   'cidre',
   'luxembourg-blanc',
   'luxembourg-rouge',
@@ -65,10 +66,11 @@ export const sectionLabels: Record<WineSection, Record<string, string>> = {
   'serbie-rouge':      { fr: 'Serbie Rouge',          en: 'Serbia Red',       de: 'Serbien Rot',       lb: 'Serbien Rout' },
   'hongrie-blanc':     { fr: 'Hongrie Blanc',         en: 'Hungary White',    de: 'Ungarn Weiß',       lb: 'Ungarn Wäiss' },
   'uncategorized':     { fr: 'Autres Vins',           en: 'Other Wines',      de: 'Andere Weine',      lb: 'Aner Wäiner' },
+  'beer':              { fr: 'Bière',             en: 'Beer',             de: 'Bier',              lb: 'Béier' },
 };
 
 /** Which colour filter each section belongs to */
-export const sectionCategory: Record<WineSection, 'sparkling' | 'white' | 'red' | 'orange' | 'cider'> = {
+export const sectionCategory: Record<WineSection, 'sparkling' | 'white' | 'red' | 'orange' | 'cider' | 'beer'> = {
   'bubbles': 'sparkling',
   'cidre': 'cider',
   'luxembourg-blanc': 'white',
@@ -97,6 +99,7 @@ export const sectionCategory: Record<WineSection, 'sparkling' | 'white' | 'red' 
   'serbie-rouge': 'red',
   'hongrie-blanc': 'white',
   'uncategorized': 'white',
+  'beer': 'beer',
 };
 
 export interface Wine {
