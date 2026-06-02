@@ -31,6 +31,7 @@ export const WINE_SECTIONS = [
   'orange',
   'serbie-rouge',
   'hongrie-blanc',
+  'uncategorized',
 ] as const;
 
 export type WineSection = (typeof WINE_SECTIONS)[number];
@@ -63,6 +64,7 @@ export const sectionLabels: Record<WineSection, Record<string, string>> = {
   'orange':            { fr: 'Vin Orange',             en: 'Orange Wine',      de: 'Orangewein',        lb: 'Orange Wäin' },
   'serbie-rouge':      { fr: 'Serbie Rouge',          en: 'Serbia Red',       de: 'Serbien Rot',       lb: 'Serbien Rout' },
   'hongrie-blanc':     { fr: 'Hongrie Blanc',         en: 'Hungary White',    de: 'Ungarn Weiß',       lb: 'Ungarn Wäiss' },
+  'uncategorized':     { fr: 'Autres Vins',           en: 'Other Wines',      de: 'Andere Weine',      lb: 'Aner Wäiner' },
 };
 
 /** Which colour filter each section belongs to */
@@ -94,6 +96,7 @@ export const sectionCategory: Record<WineSection, 'sparkling' | 'white' | 'red' 
   'orange': 'orange',
   'serbie-rouge': 'red',
   'hongrie-blanc': 'white',
+  'uncategorized': 'white',
 };
 
 export interface Wine {
