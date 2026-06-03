@@ -35,11 +35,13 @@ export default async function WineLayout({
   const { id } = await params;
   const wine = await getWine(id);
   if (!wine) notFound();
+  const wineProduct = productJsonLd(wine, locale);
+
   return (
     <>
       {wine && (
         <>
-          <JsonLd id="json-ld-wine-product" data={productJsonLd(wine, locale)} />
+          {wineProduct && <JsonLd id="json-ld-wine-product" data={wineProduct} />}
           <JsonLd id="json-ld-wine-breadcrumb" data={wineBreadcrumb(wine, locale)} />
         </>
       )}

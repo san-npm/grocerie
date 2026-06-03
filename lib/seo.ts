@@ -114,12 +114,16 @@ export function websiteJsonLd() {
   };
 }
 
-export function productJsonLd(wine: Wine, locale: Locale) {
-  const url = localeUrl(`/cave/${wine.id}`, locale);
-  // Online sale price only — never fall back to the restaurant bottle price,
-  // or a browse-only menu wine (priceShop:0) would emit a spurious Offer.
+export function productJsonLd(wine: Wine, locale: Locale): Record<string, unknown> | null {
   const price = wine.priceShop;
-  const product: Record<string, unknown> = {
+  // Google rich results reject a Product with no offers/review/aggregateRating
+  // ("Il faut indiquer offers, review, ou aggregateRating"). Browse-only menu
+  // wines (no online price) therefore emit NO Product — the page still ranks
+  // via its HTML, and a valid Product returns once a price is set. (A price:0
+  // Offer would likewise be flagged invalid.)
+  if (!(price > 0)) return null;
+  const url = localeUrl(`/cave/${wine.id}`, locale);
+  return {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${url}#product`,
@@ -130,21 +134,15 @@ export function productJsonLd(wine: Wine, locale: Locale) {
     category: wine.category,
     brand: { "@type": "Brand", name: wine.region || wine.country || "Natural Wine" },
     countryOfOrigin: wine.country,
-  };
-  // Only emit an Offer for wines actually on sale (price > 0). Browse-only
-  // menu wines (no online price) get a valid Product with no offer — emitting
-  // a price:0 Offer would be flagged invalid by Google.
-  if (price > 0) {
-    product.offers = {
+    offers: {
       "@type": "Offer",
       url,
       priceCurrency: "EUR",
       price,
       availability: wine.isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       seller: { "@id": `${SITE_URL}/#business` },
-    };
-  }
-  return product;
+    },
+  };
 }
 
 export function itemListJsonLd(wines: Wine[], locale: Locale) {
