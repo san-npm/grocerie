@@ -13,6 +13,8 @@ import { getLocale,
   getNonce, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
 import { businessProfile } from "@/data/business";
 import { playfairDisplay, sourceSans3, monsieurLaDoulaise } from "@/lib/fonts";
+import { loadData } from "@/lib/storage";
+import { wines as defaultWines, type Wine } from "@/data/wines";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -146,6 +148,9 @@ const websiteNode = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale();
   const nonce = await getNonce();
+  // Resolve the catalogue server-side from the shared KV (Vins Fins source of
+  // truth) so the shop SSRs the live catalogue instead of the static fallback.
+  const initialWines = (await loadData("wines", defaultWines)) as Wine[];
   const siteJsonLd = {
     "@context": "https://schema.org",
     "@graph": [businessNode, websiteNode],
@@ -190,7 +195,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className={`${playfairDisplay.variable} ${sourceSans3.variable} ${monsieurLaDoulaise.variable}`}>
         <LanguageProvider initialLocale={locale}>
-          <DataProvider>
+          <DataProvider initialWines={initialWines}>
             <CartProvider>
               <ContestBanner />
               <Navigation />

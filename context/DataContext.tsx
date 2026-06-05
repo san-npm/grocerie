@@ -13,9 +13,19 @@ const DataContext = createContext<DataContextType>({
   loading: true,
 });
 
-export function DataProvider({ children }: { children: ReactNode }) {
-  const [wines, setWines] = useState<Wine[]>(defaultWines);
-  const [loading, setLoading] = useState(true);
+export function DataProvider({
+  children,
+  initialWines,
+}: {
+  children: ReactNode;
+  initialWines?: Wine[];
+}) {
+  // Seed from the shared KV catalogue resolved server-side in app/layout.tsx so
+  // the SSR/first paint (and crawlers / no-JS clients) see the live catalogue,
+  // not the static fallback. Fall back to the bundled list only if KV is empty.
+  const seed = initialWines && initialWines.length ? initialWines : defaultWines;
+  const [wines, setWines] = useState<Wine[]>(seed);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,9 +33,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         const res = await fetch("/api/public/wines");
         if (res.ok) setWines(await res.json());
       } catch {
-        // Keep defaults
+        // Keep the server-seeded catalogue
       }
-      setLoading(false);
     }
     fetchData();
   }, []);
