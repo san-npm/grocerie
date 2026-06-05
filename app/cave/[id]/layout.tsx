@@ -6,12 +6,20 @@ import { JsonLd } from "@/components/JsonLd";
 import { loadData } from "@/lib/storage";
 import { wines as defaultWines, type Wine } from "@/data/wines";
 
+// Only boutique wines (on sale, priceShop > 0) get a /cave/<id> page, matching
+// the /cave listing which mirrors Vins Fins /boutique. Cellar-only wines 404.
+function isBoutiqueWine(w: Wine | undefined): w is Wine {
+  return !!w && w.isAvailable && w.priceShop > 0;
+}
+
 async function getWine(id: string): Promise<Wine | null> {
   try {
     const wines = (await loadData("wines", defaultWines)) as Wine[];
-    return wines.find((w) => w.id === id) ?? null;
+    const w = wines.find((x) => x.id === id);
+    return isBoutiqueWine(w) ? w : null;
   } catch {
-    return defaultWines.find((w) => w.id === id) ?? null;
+    const w = defaultWines.find((x) => x.id === id);
+    return isBoutiqueWine(w) ? w : null;
   }
 }
 

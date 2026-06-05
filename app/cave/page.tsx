@@ -30,7 +30,7 @@ export default function CavePage() {
     });
   }, [colorFilter]);
 
-  const hasAnyWines = wines.some((w) => w.isAvailable);
+  const hasAnyWines = wines.some((w) => w.isAvailable && w.priceShop > 0);
 
   return (
     <main className="relative z-[1]">
@@ -85,11 +85,10 @@ export default function CavePage() {
             </div>
           ) : (
             filteredSections.map((section) => {
-              // Mirror Vins Fins /vins: list every available wine (full cellar
-              // as a browse menu); prices + add-to-cart appear only for wines
-              // actually on sale (priceShop > 0), gated below.
+              // Mirror Vins Fins /boutique: list only the curated wines that
+              // are actually on sale (priceShop > 0), not the full browse cellar.
               const sectionWines = wines.filter(
-                (w) => w.section === section && w.isAvailable
+                (w) => w.section === section && w.isAvailable && w.priceShop > 0
               );
               if (sectionWines.length === 0) return null;
 

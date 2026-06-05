@@ -60,11 +60,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // fall back to static
   }
 
-  // /cave lists every `isAvailable` wine (full browse menu, mirroring Vins
-  // Fins /vins), so the sitemap indexes all of them — not just the priced
-  // shop wines. Detail pages for available wines render index,follow.
+  // /cave mirrors Vins Fins /boutique: only wines on sale (priceShop > 0) have
+  // a shop page, so the sitemap indexes just those — not the full cellar.
   for (const wine of wines) {
-    if (!wine.isAvailable) continue;
+    if (!wine.isAvailable || !(wine.priceShop > 0)) continue;
     const path = `/cave/${wine.id}`;
     for (const locale of locales) {
       entries.push({
