@@ -204,11 +204,5 @@
     "privacyLink": "privacy policy",
     "accept": "Accept all",
     "reject": "Reject all"
-  },
-  "contest": {
-    "label": "Contest banner",
-    "text": "Vote for La Grocerie in the City of Luxembourg shop window contest",
-    "textMobile": "Vote for La Grocerie — shop window contest",
-    "dismiss": "Close banner"
   }
 }

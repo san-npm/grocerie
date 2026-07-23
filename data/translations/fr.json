@@ -204,11 +204,5 @@
     "privacyLink": "politique de confidentialité",
     "accept": "Tout accepter",
     "reject": "Tout refuser"
-  },
-  "contest": {
-    "label": "Bandeau concours",
-    "text": "Votez pour La Grocerie au concours de vitrine de la Ville de Luxembourg",
-    "textMobile": "Votez pour La Grocerie — concours de vitrine",
-    "dismiss": "Fermer le bandeau"
   }
 }

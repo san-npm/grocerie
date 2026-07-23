@@ -204,11 +204,5 @@
     "privacyLink": "Datenschutzerklärung",
     "accept": "Alle akzeptieren",
     "reject": "Alle ablehnen"
-  },
-  "contest": {
-    "label": "Wettbewerbs-Banner",
-    "text": "Stimmt für La Grocerie beim Schaufenster-Wettbewerb der Stadt Luxemburg",
-    "textMobile": "Stimmt für La Grocerie — Schaufenster-Wettbewerb",
-    "dismiss": "Banner schließen"
   }
 }
