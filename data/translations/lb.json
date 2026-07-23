@@ -4,8 +4,17 @@
     "epicerie": "Epicerie",
     "cave": "Naturwäiladen",
     "events": "Evenementer",
+    "giftVouchers": "Kadosbongen",
     "about": "Iwwer Eis",
     "contact": "Kontakt"
+  },
+  "giftVouchers": {
+    "heroLabel": "Schenken",
+    "heroTitle": "Kadosbongen",
+    "intro": "Schenkt e Moment am Gronn. Kadosbong mam Montant vun Ärer Wiel, 1 Joer gëlteg, per E-Mail geschéckt.",
+    "embedTitle": "Kadosbongen-Buttek",
+    "fallbackText": "De Shop gëtt net ugewisen?",
+    "fallbackLink": "An engem neien Tab opmaachen"
   },
   "home": {
     "heroTitle": "La Grocerie du Gründ — Sandwichladen, Epicerie & Naturwäikeller",

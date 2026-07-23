@@ -15,7 +15,7 @@ function buildCsp(nonce: string): string {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob: https: https://*.public.blob.vercel-storage.com https://*.stripe.com https://www.google-analytics.com https://*.google-analytics.com",
-    "frame-src https://www.google.com https://*.google.com https://js.stripe.com https://hooks.stripe.com",
+    "frame-src https://www.google.com https://*.google.com https://shop.zenchef.com https://js.stripe.com https://hooks.stripe.com",
     "connect-src 'self' https://*.public.blob.vercel-storage.com https://api.stripe.com https://www.google-analytics.com https://*.analytics.google.com https://*.google-analytics.com https://www.googletagmanager.com",
     "object-src 'none'",
     "base-uri 'self'",

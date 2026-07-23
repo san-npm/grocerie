@@ -4,8 +4,17 @@
     "epicerie": "Grocery",
     "cave": "Natural Wine Shop",
     "events": "Events",
+    "giftVouchers": "Gift Vouchers",
     "about": "About",
     "contact": "Contact"
+  },
+  "giftVouchers": {
+    "heroLabel": "Give",
+    "heroTitle": "Gift Vouchers",
+    "intro": "Give someone a moment in the Gründ. A gift voucher for the amount of your choice, valid for 1 year, sent by email and ready to give.",
+    "embedTitle": "Gift voucher shop",
+    "fallbackText": "Shop not loading?",
+    "fallbackLink": "Open in a new tab"
   },
   "home": {
     "heroTitle": "La Grocerie du Gründ — Sandwich Shop, Grocery & Natural Wine Cellar",

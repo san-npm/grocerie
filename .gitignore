@@ -40,3 +40,6 @@ next-env.d.ts
 .remember/
 AUDIT_SEO_AEO_GEO.md
 AUDIT_SEO_AEO_GEO.claude.md
+
+# security audit artefacts
+/audit-*/

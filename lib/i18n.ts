@@ -224,6 +224,32 @@ export const pageMeta: Record<string, Record<Locale, PageMeta>> = {
       ogDescription: "12 Rue Münster, Lëtzebuerg-Gronn. Sandwichladen, Epicerie, Wäikeller.",
     },
   },
+  "cheques-cadeaux": {
+    fr: {
+      title: "Chèques Cadeaux | La Grocerie, Gründ Luxembourg",
+      description: "Offrez un chèque cadeau : montant au choix, valable 1 an, envoyé par email. Sandwicherie, épicerie et cave à vins naturels au Gründ, Luxembourg.",
+      ogTitle: "Chèques Cadeaux | La Grocerie, Gründ",
+      ogDescription: "Offrez un chèque cadeau : montant au choix, valable 1 an, envoyé par email.",
+    },
+    en: {
+      title: "Gift Vouchers | La Grocerie, Gründ Luxembourg",
+      description: "Give a gift voucher: choose the amount, valid 1 year, sent by email. Sandwich shop, grocery and natural wine cellar in Gründ, Luxembourg.",
+      ogTitle: "Gift Vouchers | La Grocerie, Gründ",
+      ogDescription: "Give a gift voucher: choose the amount, valid 1 year, sent by email.",
+    },
+    de: {
+      title: "Geschenkgutscheine | La Grocerie, Gründ Luxemburg",
+      description: "Verschenken Sie einen Gutschein: Betrag frei wählbar, 1 Jahr gültig, Versand per E-Mail. Sandwichladen, Feinkost und Naturweinkeller im Gründ, Luxemburg.",
+      ogTitle: "Geschenkgutscheine | La Grocerie, Gründ",
+      ogDescription: "Verschenken Sie einen Gutschein: Betrag frei wählbar, 1 Jahr gültig, Versand per E-Mail.",
+    },
+    lb: {
+      title: "Kadosbongen | La Grocerie, Gronn Lëtzebuerg",
+      description: "Schenkt e Kadosbong: Montant fräi wielbar, 1 Joer gëlteg, per E-Mail geschéckt. Sandwichladen, Epicerie an Naturwäikeller am Gronn, Lëtzebuerg.",
+      ogTitle: "Kadosbongen | La Grocerie, Gronn",
+      ogDescription: "Schenkt e Kadosbong: Montant fräi wielbar, 1 Joer gëlteg, per E-Mail geschéckt.",
+    },
+  },
 };
 
 export const breadcrumbNames: Record<string, Record<Locale, string>> = {
@@ -234,6 +260,7 @@ export const breadcrumbNames: Record<string, Record<Locale, string>> = {
   evenements: { fr: "Événements", en: "Events", de: "Veranstaltungen", lb: "Evenementer" },
   "a-propos": { fr: "À Propos", en: "About", de: "Über Uns", lb: "Iwwer Eis" },
   contact: { fr: "Contact", en: "Contact", de: "Kontakt", lb: "Kontakt" },
+  "cheques-cadeaux": { fr: "Chèques Cadeaux", en: "Gift Vouchers", de: "Geschenkgutscheine", lb: "Kadosbongen" },
 };
 
 export const wineCategory: Record<string, Record<Locale, string>> = {

@@ -17,6 +17,7 @@ const pages: PageDef[] = [
   { path: "/epicerie", priority: 0.9, changeFrequency: "weekly" },
   { path: "/cave", priority: 0.9, changeFrequency: "daily" },
   { path: "/evenements", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/cheques-cadeaux", priority: 0.7, changeFrequency: "monthly" },
   { path: "/a-propos", priority: 0.6, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
 ];

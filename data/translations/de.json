@@ -4,8 +4,17 @@
     "epicerie": "Feinkost",
     "cave": "Naturweinladen",
     "events": "Veranstaltungen",
+    "giftVouchers": "Gutscheine",
     "about": "Über Uns",
     "contact": "Kontakt"
+  },
+  "giftVouchers": {
+    "heroLabel": "Verschenken",
+    "heroTitle": "Geschenkgutscheine",
+    "intro": "Verschenken Sie einen Moment im Gründ. Gutschein mit frei wählbarem Betrag, 1 Jahr gültig, Versand per E-Mail.",
+    "embedTitle": "Gutschein-Shop",
+    "fallbackText": "Der Shop wird nicht angezeigt?",
+    "fallbackLink": "In neuem Tab öffnen"
   },
   "home": {
     "heroTitle": "La Grocerie du Gründ — Sandwichladen, Feinkost & Naturweinkeller",

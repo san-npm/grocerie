@@ -4,8 +4,17 @@
     "epicerie": "Épicerie",
     "cave": "Cave à Vins Naturels",
     "events": "Événements",
+    "giftVouchers": "Chèques Cadeaux",
     "about": "À Propos",
     "contact": "Contact"
+  },
+  "giftVouchers": {
+    "heroLabel": "Offrir",
+    "heroTitle": "Chèques Cadeaux",
+    "intro": "Offrez un moment au Gründ. Chèque cadeau au montant de votre choix, valable 1 an, envoyé par email et prêt à être offert.",
+    "embedTitle": "Boutique de chèques cadeaux",
+    "fallbackText": "La boutique ne s'affiche pas ?",
+    "fallbackLink": "Ouvrir dans un nouvel onglet"
   },
   "home": {
     "heroTitle": "La Grocerie du Gründ — Sandwicherie, Épicerie & Cave à Vins Naturels",
