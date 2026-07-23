@@ -17,13 +17,22 @@ function isGrocerieCharge(c: Stripe.Charge): boolean {
   return c.metadata?.source === "grocerie";
 }
 
+const FULFILLED_KEY = (id: string) => `fulfilled:grocerie:${id}`;
+
 async function isAlreadyProcessed(sessionId: string): Promise<boolean> {
-  const wasSet = await kv.setnx(`fulfilled:grocerie:${sessionId}`, 1);
+  const wasSet = await kv.setnx(FULFILLED_KEY(sessionId), 1);
   if (wasSet) {
-    await kv.expire(`fulfilled:grocerie:${sessionId}`, 7 * 24 * 60 * 60);
+    await kv.expire(FULFILLED_KEY(sessionId), 7 * 24 * 60 * 60);
     return false;
   }
   return true;
+}
+
+// Roll back the idempotency claim so Stripe's webhook retry actually retries.
+// Without this, any transient throw between SETNX and the end of fulfillOrder
+// poisons the key for 7 days and the order never gets fulfilled.
+async function clearFulfilledClaim(sessionId: string): Promise<void> {
+  try { await kv.del(FULFILLED_KEY(sessionId)); } catch { /* best effort */ }
 }
 
 function orderRef(sessionId: string): string {
@@ -43,22 +52,29 @@ function parseSessionItems(session: Stripe.Checkout.Session): { wineId: string; 
 
 async function fulfillOrder(session: Stripe.Checkout.Session) {
   if (await isAlreadyProcessed(session.id)) return;
+  try {
+    const lineItemsResponse = await stripe.checkout.sessions.listLineItems(session.id, {
+      limit: 100,
+    });
 
-  const lineItemsResponse = await stripe.checkout.sessions.listLineItems(session.id, {
-    limit: 100,
-  });
+    const orderItems = lineItemsResponse.data.map((item) => ({
+      description: item.description || "Article",
+      quantity: item.quantity || 1,
+      amount: item.amount_total / (item.quantity || 1),
+    }));
 
-  const orderItems = lineItemsResponse.data.map((item) => ({
-    description: item.description || "Article",
-    quantity: item.quantity || 1,
-    amount: item.amount_total / (item.quantity || 1),
-  }));
+    const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
+      expand: ["shipping_details"],
+    });
 
-  const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
-    expand: ["shipping_details"],
-  });
-
-  await sendOrderConfirmation(fullSession, orderItems);
+    await sendOrderConfirmation(fullSession, orderItems);
+  } catch (err) {
+    // Un-poison the SETNX idempotency claim. Stripe will retry the webhook;
+    // without this rollback, the retry would see "already processed" and
+    // skip silently — leaving a paid order permanently unfulfilled.
+    await clearFulfilledClaim(session.id);
+    throw err;
+  }
 }
 
 async function handlePaymentFailed(session: Stripe.Checkout.Session) {
@@ -76,14 +92,17 @@ async function handlePaymentFailed(session: Stripe.Checkout.Session) {
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
+  // Defensive trim — an env var with a trailing newline silently breaks
+  // every signature check. Cheap parity with the Vins Fins audit fix.
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET?.trim();
 
-  if (!sig || !process.env.STRIPE_WEBHOOK_SECRET) {
+  if (!sig || !webhookSecret) {
     return NextResponse.json({ error: "Missing signature or webhook secret" }, { status: 400 });
   }
 
   let event: Stripe.Event;
   try {
-    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
     console.error("Webhook signature verification failed:", err);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });

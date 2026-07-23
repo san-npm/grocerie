@@ -28,7 +28,33 @@ function getShippingCents(totalBottles: number, domestic: boolean): number {
   return 4000;
 }
 
+// Same-origin guard for state-changing endpoints. `Origin` is set by browsers
+// on all cross-origin fetch/XHR; rejecting mismatches blocks malicious sites
+// from making a victim's browser reserve stock and create Stripe sessions
+// (a stock-hold DoS path even though CORS hides the response). Server-to-
+// server callers and Stripe webhooks don't hit this route.
+function isSameOriginPost(req: NextRequest): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) {
+    // No Origin header = not a browser request. Allowed only when
+    // Sec-Fetch-Site says "same-origin" or "none" (direct navigation).
+    const sfs = req.headers.get("sec-fetch-site");
+    return sfs === "same-origin" || sfs === "none" || sfs === null;
+  }
+  try {
+    const originHost = new URL(origin).host;
+    const requestHost = req.headers.get("host") ?? new URL(req.url).host;
+    return originHost === requestHost;
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest) {
+  if (!isSameOriginPost(req)) {
+    return NextResponse.json({ error: "Cross-origin requests are not allowed." }, { status: 403 });
+  }
+
   const ip = getClientIp(req);
   const minuteCheck = await rateLimit(`checkout:ip:${ip}:m`, RL_PER_MINUTE, 60, { failClosed: true });
   if (!minuteCheck.ok) {
