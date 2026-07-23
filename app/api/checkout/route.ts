@@ -42,9 +42,17 @@ function isSameOriginPost(req: NextRequest): boolean {
     return sfs === "same-origin" || sfs === "none" || sfs === null;
   }
   try {
-    const originHost = new URL(origin).host;
+    // Compare the FULL origin (scheme + host), not just the host: browsers
+    // treat http://site and https://site as different origins, so a page
+    // served over plain http must not be able to hit the https endpoint.
+    // Behind Vercel's proxy the request URL is internal; x-forwarded-proto
+    // carries the external scheme (absent in local dev, where req.url is
+    // already correct).
     const requestHost = req.headers.get("host") ?? new URL(req.url).host;
-    return originHost === requestHost;
+    const requestProto =
+      req.headers.get("x-forwarded-proto")?.split(",")[0].trim() ??
+      new URL(req.url).protocol.replace(":", "");
+    return new URL(origin).origin === `${requestProto}://${requestHost}`;
   } catch {
     return false;
   }
