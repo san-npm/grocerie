@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import type { Locale } from "@/lib/i18n";
 
-type SandwichId = "green-veg" | "red-veg" | "squid" | "tuna" | "meatballs" | "chicken";
+type SandwichId = "zucchini" | "fennel" | "monkfish" | "salmon" | "mexican" | "chicken";
 
 type LocalisedSandwich = {
   name: string;
@@ -13,93 +13,93 @@ type LocalisedSandwich = {
 
 const MEZZ: { id: SandwichId; price: number; emoji: string; i18n: Record<Locale, LocalisedSandwich> }[] = [
   {
-    id: "green-veg",
+    id: "zucchini",
     price: 9,
-    emoji: "🌱",
+    emoji: "🥒",
     i18n: {
-      fr: { name: "Mezz Végé Vert", ingredients: ["Purée de petits pois", "Carottes"] },
-      en: { name: "Green Vegetarian Mezz", ingredients: ["Green peas mash", "Carrots"] },
-      de: { name: "Grüner Veggie Mezz", ingredients: ["Erbsenpüree", "Karotten"] },
-      lb: { name: "Gréngen Veggie Mezz", ingredients: ["Ierbessepüree", "Muerten"] },
+      fr: { name: "Mezz Courgette", ingredients: ["Purée de courgette", "Menthe", "Graines"] },
+      en: { name: "Zucchini Mezz", ingredients: ["Zucchini mash", "Mint", "Seeds"] },
+      de: { name: "Zucchini Mezz", ingredients: ["Zucchinipüree", "Minze", "Saaten"] },
+      lb: { name: "Zucchini Mezz", ingredients: ["Zucchinipüree", "Mënz", "Kären"] },
     },
   },
   {
-    id: "red-veg",
+    id: "fennel",
     price: 10,
-    emoji: "🥬",
+    emoji: "🌿",
     i18n: {
-      fr: { name: "Mezz Végé Rouge", ingredients: ["Chou", "Dattes", "Parmesan", "Sauce soja", "Amandes"] },
-      en: { name: "Red Vegetarian Mezz", ingredients: ["Cabbage", "Dates", "Parmesan", "Soy sauce", "Almonds"] },
-      de: { name: "Roter Veggie Mezz", ingredients: ["Kohl", "Datteln", "Parmesan", "Sojasauce", "Mandeln"] },
-      lb: { name: "Roude Veggie Mezz", ingredients: ["Kabes", "Dattelen", "Parmesan", "Sojasoss", "Mandelen"] },
+      fr: { name: "Mezz Fenouil", ingredients: ["Tartare de fenouil", "Yaourt", "Raisins secs", "Graines de chia"] },
+      en: { name: "Fennel Mezz", ingredients: ["Fennel tartare", "Yogurt", "Raisins", "Chia seeds"] },
+      de: { name: "Fenchel Mezz", ingredients: ["Fencheltatar", "Joghurt", "Rosinen", "Chiasamen"] },
+      lb: { name: "Fenchel Mezz", ingredients: ["Fencheltatar", "Joghurt", "Rosinen", "Chiakären"] },
     },
   },
   {
-    id: "squid",
-    price: 13,
-    emoji: "🦑",
-    i18n: {
-      fr: { name: "Mezz Calamar", ingredients: ["Calamar", "Tomate", "Olives"] },
-      en: { name: "Squid Mezz", ingredients: ["Squid", "Tomato", "Olives"] },
-      de: { name: "Tintenfisch Mezz", ingredients: ["Tintenfisch", "Tomate", "Oliven"] },
-      lb: { name: "Kalamar Mezz", ingredients: ["Kalamar", "Tomat", "Oliven"] },
-    },
-  },
-  {
-    id: "tuna",
-    price: 15,
+    id: "monkfish",
+    price: 14,
     emoji: "🐟",
     i18n: {
-      fr: { name: "Mezz Thon", ingredients: ["Thon", "Pomme", "Citron", "Fenouil"] },
-      en: { name: "Tuna Mezz", ingredients: ["Tuna", "Apple", "Lemon", "Fennel"] },
-      de: { name: "Thunfisch Mezz", ingredients: ["Thunfisch", "Apfel", "Zitrone", "Fenchel"] },
-      lb: { name: "Thon Mezz", ingredients: ["Thon", "Apel", "Zitroun", "Fenchel"] },
+      fr: { name: "Mezz Lotte", ingredients: ["Lotte", "Sauce tomate", "Basilic"] },
+      en: { name: "Monkfish Mezz", ingredients: ["Monkfish", "Tomato sauce", "Basil"] },
+      de: { name: "Seeteufel Mezz", ingredients: ["Seeteufel", "Tomatensauce", "Basilikum"] },
+      lb: { name: "Lotte Mezz", ingredients: ["Lotte", "Tomatenzooss", "Basilikum"] },
     },
   },
   {
-    id: "meatballs",
-    price: 12,
-    emoji: "🍖",
+    id: "salmon",
+    price: 13,
+    emoji: "🍣",
     i18n: {
-      fr: { name: "Mezz Boulettes", ingredients: ["Boulettes de viande", "Sauce tomate"] },
-      en: { name: "Meatballs Mezz", ingredients: ["Meatballs", "Tomato sauce"] },
-      de: { name: "Fleischbällchen Mezz", ingredients: ["Fleischbällchen", "Tomatensauce"] },
-      lb: { name: "Fleeschklässercher Mezz", ingredients: ["Fleeschklässercher", "Tomatenzooss"] },
+      fr: { name: "Mezz Saumon", ingredients: ["Tartare de saumon", "Guacamole d'avocat"] },
+      en: { name: "Salmon Mezz", ingredients: ["Salmon tartare", "Avocado guacamole"] },
+      de: { name: "Lachs Mezz", ingredients: ["Lachstatar", "Avocado-Guacamole"] },
+      lb: { name: "Saumon Mezz", ingredients: ["Saumontatar", "Avocado-Guacamole"] },
+    },
+  },
+  {
+    id: "mexican",
+    price: 11,
+    emoji: "🌶️",
+    i18n: {
+      fr: { name: "Mezz Mexicain", ingredients: ["Viande hachée", "Poivron rouge", "Oignon", "Sauce tomate"] },
+      en: { name: "Mexican Mezz", ingredients: ["Minced meat", "Red pepper", "Onion", "Tomato sauce"] },
+      de: { name: "Mexikanischer Mezz", ingredients: ["Hackfleisch", "Roter Paprika", "Zwiebel", "Tomatensauce"] },
+      lb: { name: "Mexikanesche Mezz", ingredients: ["Gehacktes", "Roude Paprika", "Zwiwwel", "Tomatenzooss"] },
     },
   },
   {
     id: "chicken",
-    price: 11,
+    price: 12,
     emoji: "🍗",
     i18n: {
-      fr: { name: "Mezz Poulet", ingredients: ["Poulet", "Haricots verts", "Parmesan"] },
-      en: { name: "Chicken Mezz", ingredients: ["Chicken", "Green beans", "Parmesan"] },
-      de: { name: "Hähnchen Mezz", ingredients: ["Hähnchen", "Grüne Bohnen", "Parmesan"] },
-      lb: { name: "Pouletsch Mezz", ingredients: ["Poulet", "Gréng Bounen", "Parmesan"] },
+      fr: { name: "Mezz Poulet", ingredients: ["Poulet", "Pêche", "Salade", "Parmesan"] },
+      en: { name: "Chicken Mezz", ingredients: ["Chicken", "Peach", "Salad", "Parmesan"] },
+      de: { name: "Hähnchen Mezz", ingredients: ["Hähnchen", "Pfirsich", "Salat", "Parmesan"] },
+      lb: { name: "Pouletsch Mezz", ingredients: ["Poulet", "Peesch", "Zalot", "Parmesan"] },
     },
   },
 ];
 
-const MENU_COPY: Record<Locale, { heading: string; subheading: string; validUntil: string }> = {
+const MENU_COPY: Record<Locale, { heading: string; subheading: string; seasonNote: string }> = {
   fr: {
     heading: "Nos Mezz",
     subheading: "Le sandwich signature : une puccia ronde maison, généreusement garnie.",
-    validUntil: "Carte valable jusqu'en juin 2026",
+    seasonNote: "Carte de saison, susceptible d'évoluer",
   },
   en: {
     heading: "Our Mezz",
-    subheading: "The signature home-made puccia sandwich — round, generous, ours.",
-    validUntil: "Menu running until June 2026",
+    subheading: "The signature home-made puccia sandwich: round, generous, ours.",
+    seasonNote: "Seasonal menu, subject to change",
   },
   de: {
     heading: "Unsere Mezz",
     subheading: "Das Signatur-Sandwich: eine runde, hausgemachte Puccia, großzügig gefüllt.",
-    validUntil: "Menü gültig bis Juni 2026",
+    seasonNote: "Saisonale Karte, Änderungen vorbehalten",
   },
   lb: {
     heading: "Eis Mezz",
     subheading: "De Signatur-Sandwich: eng ronn, hausgemaacht Puccia, generéis gefëllt.",
-    validUntil: "Menü gëlteg bis Juni 2026",
+    seasonNote: "Saisonal Kaart, Ännerunge virbehalen",
   },
 };
 
@@ -177,7 +177,7 @@ export default function MezzocuorePage() {
           </div>
 
           <p className="mt-16 text-center text-xs uppercase tracking-luxury text-warmgray/70">
-            {copy.validUntil}
+            {copy.seasonNote}
           </p>
           <p className="mt-2 text-center text-xs text-warmgray/60 italic">
             {t("mezzocuore.note")}
