@@ -204,5 +204,11 @@
     "privacyLink": "privacy policy",
     "accept": "Accept all",
     "reject": "Reject all"
+  },
+  "menuBanner": {
+    "label": "New menu banner",
+    "text": "New Mezzocuore menu: discover our six new sandwiches",
+    "textMobile": "New Mezzocuore menu",
+    "dismiss": "Close banner"
   }
 }

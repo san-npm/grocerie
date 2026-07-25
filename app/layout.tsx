@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { DataProvider } from "@/context/DataContext";
 import Script from "next/script";
 import ConsentBanner from "@/components/ConsentBanner";
+import MenuBanner from "@/components/MenuBanner";
 import { getLocale,
   getNonce, pageMeta, SITE_URL, localeUrl, locales } from "@/lib/i18n";
 import { businessProfile } from "@/data/business";
@@ -196,6 +197,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <LanguageProvider initialLocale={locale}>
           <DataProvider initialWines={initialWines}>
             <CartProvider>
+              <MenuBanner />
               <Navigation />
               {children}
               <Footer />

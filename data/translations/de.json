@@ -204,5 +204,11 @@
     "privacyLink": "Datenschutzerklärung",
     "accept": "Alle akzeptieren",
     "reject": "Alle ablehnen"
+  },
+  "menuBanner": {
+    "label": "Banner neue Karte",
+    "text": "Neue Mezzocuore-Karte: entdeckt unsere sechs neuen Sandwiches",
+    "textMobile": "Neue Mezzocuore-Karte",
+    "dismiss": "Banner schließen"
   }
 }
