@@ -9,6 +9,13 @@ import { useCart } from "@/context/CartContext";
 
 const languages: Locale[] = ["fr", "en", "de", "lb"];
 
+/**
+ * Labels shown in the language switcher. Luxembourgish keeps the ISO 639-1
+ * code `lb` internally (routes, hreflang), but is displayed as "LU", the
+ * country code locals expect.
+ */
+const languageLabels: Record<Locale, string> = { fr: "FR", en: "EN", de: "DE", lb: "LU" };
+
 const navLinks = [
   { href: "/mezzocuore", key: "nav.mezzocuore" },
   { href: "/epicerie", key: "nav.epicerie" },
@@ -101,7 +108,7 @@ export default function Navigation() {
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-1.5 text-[11px] tracking-wider uppercase text-ink/60 hover:text-ink transition-colors"
               >
-                {locale.toUpperCase()}
+                {languageLabels[locale]}
                 <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
@@ -121,7 +128,7 @@ export default function Navigation() {
                           : "text-ink/70 hover:text-ink hover:bg-ink/5"
                       }`}
                     >
-                      {lang.toUpperCase()}
+                      {languageLabels[lang]}
                     </button>
                   ))}
                 </div>
@@ -208,7 +215,7 @@ export default function Navigation() {
                     : "border-ink/10 text-ink/40 hover:text-ink hover:border-ink/30"
                 }`}
               >
-                {lang.toUpperCase()}
+                {languageLabels[lang]}
               </button>
             ))}
           </div>
