@@ -204,5 +204,11 @@
     "privacyLink": "Dateschutzpolitik",
     "accept": "All akzeptéieren",
     "reject": "All refuséieren"
+  },
+  "menuBanner": {
+    "label": "Banner nei Kaart",
+    "text": "Nei Mezzocuore-Kaart: entdeckt eis sechs nei Sandwicher",
+    "textMobile": "Nei Mezzocuore-Kaart",
+    "dismiss": "Banner zoumaachen"
   }
 }
