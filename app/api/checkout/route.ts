@@ -5,28 +5,29 @@ import { wines as staticWines, type Wine } from "@/data/wines";
 import { reserveStock, releaseStock } from "@/lib/stock";
 import { loadData } from "@/lib/storage";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import {
+  deliveryEstimateDays,
+  getShippingCents,
+  isShipCountry,
+  parcelWeights,
+  type ShipCountry,
+} from "@/lib/dpd";
 
 interface CartItemPayload {
   wineId: string;
   quantity: number;
 }
 
-const BOTTLE_WEIGHT_KG = 1.3;
 const CHECKOUT_EXPIRY_SECONDS = 30 * 60;
 const RL_PER_MINUTE = 8;
 const RL_PER_HOUR = 30;
 
-function getShippingCents(totalBottles: number, domestic: boolean): number {
-  const weightKg = totalBottles * BOTTLE_WEIGHT_KG;
-  if (domestic) {
-    if (weightKg <= 2) return 700;
-    if (weightKg <= 10) return 900;
-    return 2200;
-  }
-  if (weightKg <= 2) return 1200;
-  if (weightKg <= 10) return 2000;
-  return 4000;
-}
+const COUNTRY_LABEL: Record<ShipCountry, string> = {
+  LU: "Luxembourg",
+  FR: "France",
+  DE: "Deutschland",
+  BE: "Belgique",
+};
 
 // Same-origin guard for state-changing endpoints. `Origin` is set by browsers
 // on all cross-origin fetch/XHR; rejecting mismatches blocks malicious sites
@@ -83,9 +84,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { items, deliveryMethod } = body as {
+    const { items, deliveryMethod, country } = body as {
       items: CartItemPayload[];
       deliveryMethod: "delivery" | "pickup";
+      country?: string;
     };
 
     if (!items || !Array.isArray(items) || items.length === 0) {
@@ -94,6 +96,16 @@ export async function POST(req: NextRequest) {
     if (deliveryMethod !== "delivery" && deliveryMethod !== "pickup") {
       return NextResponse.json({ error: "Invalid delivery method" }, { status: 400 });
     }
+
+    // DPD charges a different rate per destination, and Stripe fixes the
+    // shipping price when the session is created — before it collects the
+    // address. So the destination is chosen on our page, and the Stripe
+    // session is then locked to that one country: a customer cannot pay the
+    // Luxembourg rate and have the parcel delivered to France.
+    if (deliveryMethod === "delivery" && !isShipCountry(country)) {
+      return NextResponse.json({ error: "Invalid delivery country" }, { status: 400 });
+    }
+    const destination = country as ShipCountry;
 
     const totalQty = items.reduce((s, i) => s + (typeof i.quantity === "number" ? i.quantity : 0), 0);
     if (totalQty > 120) {
@@ -160,17 +172,22 @@ export async function POST(req: NextRequest) {
         || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : null)
         || "https://www.lagrocerie.lu";
 
+      // One DPD rate, priced for the destination the customer picked and for
+      // the number of parcels the order splits into (DPD bills per parcel,
+      // 20kg max). This also retires the old flat rate, under which a
+      // 120-bottle order shipped for the price of one parcel.
+      const estimate = deliveryMethod === "delivery" ? deliveryEstimateDays(destination) : null;
       const shippingOptions = deliveryMethod === "delivery"
         ? [
             {
               shipping_rate_data: {
                 type: "fixed_amount" as const,
-                fixed_amount: { amount: getShippingCents(totalBottles, false), currency: "eur" },
-                display_name: "Livraison POST Luxembourg (LU/FR/DE/BE)",
+                fixed_amount: { amount: getShippingCents(totalBottles, destination), currency: "eur" },
+                display_name: `Livraison DPD — ${COUNTRY_LABEL[destination]}`,
                 tax_behavior: "inclusive" as const,
                 delivery_estimate: {
-                  minimum: { unit: "business_day" as const, value: 1 },
-                  maximum: { unit: "business_day" as const, value: 7 },
+                  minimum: { unit: "business_day" as const, value: estimate!.minimum },
+                  maximum: { unit: "business_day" as const, value: estimate!.maximum },
                 },
               },
             },
@@ -193,8 +210,11 @@ export async function POST(req: NextRequest) {
         line_items: lineItems,
         shipping_options: shippingOptions,
         shipping_address_collection: deliveryMethod === "delivery" ? {
-          allowed_countries: ["LU", "FR", "DE", "BE"],
+          // Locked to the country the rate was priced for.
+          allowed_countries: [destination],
         } : undefined,
+        // DPD needs a recipient phone number to raise a Predict notification.
+        phone_number_collection: { enabled: deliveryMethod === "delivery" },
         automatic_tax: process.env.STRIPE_AUTOMATIC_TAX === "true"
           ? { enabled: true }
           : undefined,
@@ -204,6 +224,14 @@ export async function POST(req: NextRequest) {
           deliveryMethod,
           itemsJson: JSON.stringify(items.map((i) => ({ id: i.wineId, qty: i.quantity }))),
           nonceHash,
+          // Carried so the webhook can book the DPD shipment without
+          // recomputing what the customer was actually quoted.
+          ...(deliveryMethod === "delivery"
+            ? {
+                shipCountry: destination,
+                parcels: String(parcelWeights(totalBottles).length),
+              }
+            : {}),
         },
         payment_intent_data: {
           metadata: { source: "grocerie" },

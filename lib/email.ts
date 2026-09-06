@@ -19,7 +19,7 @@ function formatCents(cents: number): string {
   return (cents / 100).toFixed(2) + " €";
 }
 
-function esc(s: string | undefined | null): string {
+export function esc(s: string | undefined | null): string {
   return (s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
@@ -28,8 +28,9 @@ function buildOrderHtml(
   lineItems: OrderItem[],
 ): string {
   const isPickup = session.metadata?.deliveryMethod === "pickup";
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const shipping = (session as any).shipping_details as { name?: string; address?: { line1?: string; line2?: string; city?: string; postal_code?: string; country?: string } } | undefined;
+  // Stripe moved this to collected_information in the 2025-03-31.basil API
+  // version, and this site pins a later one.
+  const shipping = session.collected_information?.shipping_details ?? null;
 
   const itemsHtml = lineItems
     .map(
@@ -155,12 +156,18 @@ async function sendOrSpool(input: {
 }): Promise<void> {
   if (!resend) return;
   try {
-    await resend.emails.send({
+    // The Resend SDK RESOLVES on failure with { data: null, error } and only
+    // throws on a programming error, so the error field is the real signal.
+    // Relying on the catch alone silently dropped every rejected send: a 429,
+    // a suppressed recipient or an invalid key looked like success and never
+    // reached the retry queue.
+    const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: input.to,
       subject: input.subject,
       html: input.html,
     });
+    if (error) throw new Error(`${error.name}: ${error.message}`);
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     await enqueueFailedEmail({
@@ -171,10 +178,69 @@ async function sendOrSpool(input: {
       sessionId: input.sessionId,
       kind: input.kind,
       errorMessage,
-    }).catch(() => {
-      // Last resort: nothing more we can do here
+    }).catch((spoolErr) => {
+      // KV is the thing that is down. Log it: this is the last place the
+      // failure is visible at all.
+      console.error(
+        `[email] spool failed for ${input.sessionId}:${input.kind}: ${errorMessage}`,
+        spoolErr instanceof Error ? spoolErr.message : spoolErr,
+      );
     });
   }
+}
+
+/**
+ * Tell the customer their parcel is on its way.
+ *
+ * Sent by the DPD sync job once DPD issues a parcel number, which only happens
+ * after the shop confirms the shipment in Web Parcel. Returns false when the
+ * send fails so the caller can leave the order queued and try again.
+ */
+export async function sendTrackingEmail(input: {
+  to: string;
+  orderRef: string;
+  trackingLinks: { code: string; url: string }[];
+}): Promise<boolean> {
+  const parcels = input.trackingLinks
+    .map(
+      (t) =>
+        `<li style="margin-bottom:6px"><a href="${esc(t.url)}" style="color:#2f4f3f">${esc(t.code)}</a></li>`,
+    )
+    .join("");
+
+  const plural = input.trackingLinks.length > 1;
+  const html = `
+    <div style="max-width:600px;margin:0 auto;font-family:'Helvetica Neue',Arial,sans-serif;color:#333">
+      <div style="text-align:center;padding:32px 0 24px;border-bottom:2px solid #2f4f3f">
+        <h1 style="margin:0;font-size:24px;font-weight:300;letter-spacing:2px;color:#2f4f3f">LA GROCERIE</h1>
+        <p style="margin:8px 0 0;font-size:12px;color:#999;letter-spacing:1px">LUXEMBOURG · GRUND</p>
+      </div>
+      <div style="padding:32px 0">
+        <h2 style="margin:0 0 8px;font-size:20px;font-weight:400">
+          ${plural ? "Vos colis sont en route" : "Votre colis est en route"}
+        </h2>
+        <p style="margin:0 0 24px;font-size:14px;color:#666">
+          ${plural ? "Your parcels are on their way" : "Your parcel is on its way"}
+        </p>
+        <p style="font-size:13px;color:#888">
+          Commande / Order: <strong style="color:#333">${esc(input.orderRef)}</strong>
+        </p>
+        <p style="font-size:14px">Suivi DPD / DPD tracking:</p>
+        <ul style="font-size:14px;padding-left:20px">${parcels}</ul>
+      </div>
+      <div style="padding:24px 0;border-top:1px solid #eee;font-size:12px;color:#999;text-align:center">
+        <p style="margin:0">La Grocerie · 12 Rue Münster · Grund · Luxembourg</p>
+        <p style="margin:4px 0 0">info@lagrocerie.lu</p>
+      </div>
+    </div>
+  `;
+
+  const result = await retrySendEmail({
+    to: input.to,
+    subject: `La Grocerie — Votre commande #${input.orderRef} est expédiée`,
+    html,
+  });
+  return result.ok;
 }
 
 export async function retrySendEmail(input: {
@@ -184,12 +250,14 @@ export async function retrySendEmail(input: {
 }): Promise<{ ok: boolean; error?: string }> {
   if (!resend) return { ok: false, error: "RESEND_API_KEY not configured" };
   try {
-    await resend.emails.send({
+    // Resend reports failures in the resolved value, not by throwing.
+    const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: input.to,
       subject: input.subject,
       html: input.html,
     });
+    if (error) return { ok: false, error: `${error.name}: ${error.message}` };
     return { ok: true };
   } catch (err) {
     return { ok: false, error: err instanceof Error ? err.message : String(err) };

@@ -15,7 +15,7 @@ export const aproposFaq: Record<Locale, FAQItem[]> = {
     {
       question: "Livrez-vous au Luxembourg ?",
       answer:
-        "Oui, nous livrons partout au Luxembourg via POST Luxembourg. Les frais de port dépendent du poids et de la destination (dès 7€ au Luxembourg, 12€ en Zone 1 Europe). Le retrait gratuit au 12 Rue Münster à Grund est aussi possible.",
+        "Oui, nous livrons partout au Luxembourg, ainsi qu'en France, en Allemagne et en Belgique, via DPD. Le tarif exact s'affiche avant le paiement, selon la destination et le nombre de colis (dès 6,89 € au Luxembourg, 11,70 € en Belgique, 14,34 € en Allemagne, 19,66 € en France). Le retrait gratuit au 12 Rue Münster à Grund est aussi possible.",
     },
     {
       question: "Peut-on venir déguster sur place ?",
@@ -37,7 +37,7 @@ export const aproposFaq: Record<Locale, FAQItem[]> = {
     {
       question: "Do you deliver in Luxembourg?",
       answer:
-        "Yes — we deliver across Luxembourg via POST Luxembourg. Shipping depends on weight and destination (from €7 in Luxembourg, €12 in Europe Zone 1). Free pickup at 12 Rue Münster in Grund is also available.",
+        "Yes — we deliver across Luxembourg, and to France, Germany and Belgium, via DPD. The exact rate is shown before payment, based on destination and parcel count (from €6.89 to Luxembourg, €11.70 to Belgium, €14.34 to Germany, €19.66 to France). Free pickup at 12 Rue Münster in Grund is also available.",
     },
     {
       question: "Can we taste on site?",
@@ -59,7 +59,7 @@ export const aproposFaq: Record<Locale, FAQItem[]> = {
     {
       question: "Liefern Sie in Luxemburg?",
       answer:
-        "Ja — wir liefern luxemburgweit via POST Luxembourg. Versandkosten nach Gewicht und Ziel (ab 7€ in Luxemburg, 12€ in Europa Zone 1). Kostenlose Abholung in der 12 Rue Münster in Grund ist ebenfalls möglich.",
+        "Ja — wir liefern luxemburgweit sowie nach Frankreich, Deutschland und Belgien via DPD. Der genaue Preis wird vor der Zahlung angezeigt, je nach Zielland und Paketanzahl (ab 6,89 € nach Luxemburg, 11,70 € nach Belgien, 14,34 € nach Deutschland, 19,66 € nach Frankreich). Kostenlose Abholung in der 12 Rue Münster in Grund ist ebenfalls möglich.",
     },
     {
       question: "Kann man vor Ort verkosten?",
@@ -81,7 +81,7 @@ export const aproposFaq: Record<Locale, FAQItem[]> = {
     {
       question: "Liwwert Dir a Lëtzebuerg?",
       answer:
-        "Jo — mir liwweren iwwerall a Lëtzebuerg iwwer POST Luxembourg. Liwwerkäschte no Gewiicht an Destinatioun (ab 7€ zu Lëtzebuerg, 12€ an der Europa Zone 1). Gratis Ofhuelung op der 12 Rue Münster zu Gronn ass och méiglech.",
+        "Jo — mir liwweren iwwerall a Lëtzebuerg, an och op Frankräich, Däitschland a Belgien, iwwer DPD. De genaue Präis gëtt virum Bezuelen ugewisen, no Destinatioun an Unzuel Päck (ab 6,89 € op Lëtzebuerg, 11,70 € op Belgien, 14,34 € op Däitschland, 19,66 € op Frankräich). Gratis Ofhuelung op der 12 Rue Münster zu Gronn ass och méiglech.",
     },
     {
       question: "Kann een op der Plaz verkosten?",
