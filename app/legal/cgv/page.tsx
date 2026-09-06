@@ -6,7 +6,7 @@ const content: Record<string, { title: string; sections: { heading: string; body
   fr: {
     title: "Conditions Générales de Vente",
     sections: [
-      { heading: "1. Exploitant", body: "La Grocerie (marque exploitée par Vins Fins S.à r.l.), 12 Rue Münster, L-2160 Luxembourg (Grund). Numéro d'autorisation d'établissement délivré par le Ministère de l'Économie du Grand-Duché de Luxembourg. TVA LU [à compléter]. Contact : info@lagrocerie.lu." },
+      { heading: "1. Exploitant", body: "La Grocerie, marque exploitée par TERRAE S.à r.l., 12 Rue Münster, L-2160 Luxembourg (Grund). Siège social : 18 Rue Münster, L-2160 Luxembourg. Numéro d'autorisation d'établissement délivré par le Ministère de l'Économie du Grand-Duché de Luxembourg. RCS Luxembourg B178343. TVA LU26247110. Contact : info@lagrocerie.lu." },
       { heading: "2. Objet", body: "Les présentes conditions régissent la vente de vins naturels, bio et biodynamiques, ainsi que cidres et produits associés via le site lagrocerie.lu. Toute commande implique l'acceptation des présentes CGV." },
       { heading: "3. Produits", body: "Les produits proposés sont décrits avec la plus grande exactitude possible. Les photographies n'ont pas de valeur contractuelle. La vente d'alcool est interdite aux mineurs de moins de 18 ans conformément à la législation luxembourgeoise." },
       { heading: "4. Prix", body: "Les prix sont indiqués en euros, toutes taxes comprises (TVA 17% incluse). Ils sont valables au moment de la commande et susceptibles de modification sans préavis." },
@@ -21,7 +21,7 @@ const content: Record<string, { title: string; sections: { heading: string; body
   en: {
     title: "Terms and Conditions of Sale",
     sections: [
-      { heading: "1. Operator", body: "La Grocerie (brand operated by Vins Fins S.à r.l.), 12 Rue Münster, L-2160 Luxembourg (Grund). Business authorization number issued by the Ministry of Economy of the Grand Duchy of Luxembourg. VAT LU [to complete]. Contact: info@lagrocerie.lu." },
+      { heading: "1. Operator", body: "La Grocerie, a brand operated by TERRAE S.à r.l., 12 Rue Münster, L-2160 Luxembourg (Grund). Registered office: 18 Rue Münster, L-2160 Luxembourg. Business authorization number issued by the Ministry of Economy of the Grand Duchy of Luxembourg. Luxembourg Trade and Companies Register B178343. VAT LU26247110. Contact: info@lagrocerie.lu." },
       { heading: "2. Purpose", body: "These terms govern the sale of natural, organic and biodynamic wines, together with ciders and related products via lagrocerie.lu. Any order implies acceptance of these T&Cs." },
       { heading: "3. Products", body: "Products are described as accurately as possible. Photographs are not contractually binding. The sale of alcohol to minors under 18 is prohibited under Luxembourg law." },
       { heading: "4. Prices", body: "Prices are in euros, all taxes included (17% VAT included). They are valid at the time of order and subject to change without notice." },
